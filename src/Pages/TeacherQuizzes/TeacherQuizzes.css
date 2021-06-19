@@ -1,166 +1,60 @@
-.loader {
-    position: fixed;
-    width: 100%;
-    height: 100vh;
-    display: grid;
-    place-items: center;
+.cont {
+  margin-top: 14vh;
+  display: flex;
+  padding-right: 1vw;
+  padding-left: 1vw;
 }
 
-.Teacher-Quizzes {
-    max-width: 1168px;
-    width: 90vw;
-    margin: 100px auto;
-    margin-bottom: 10px;
+.side {
+  flex: 0.25;
+  padding-right: 1vw;
+  margin-bottom: 4vh;
 }
 
-.Teacher-Quizzes .teacher-quizzes-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 30px;
-}
-.Teacher-Quizzes .teacher-quizzes-header button {
-    width: auto !important;
-    padding: 5px 10px!important;
+.mainbar {
+  flex: 0.75;
+  height: 82vh;
 }
 
-.teacher-quiz-card {
-    background-color: #fff;
-    box-shadow: rgba(50, 50, 93, 0.53) 0px 2px 5px -1px,
-    rgba(0, 0, 0, 0.5) 0px 1px 3px -1px;
-    margin: 10px;
-    width: 300px;
-    padding: 15px;
-    border-radius: 10px;
-    height: 100%;
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-start;
-    flex-direction: column;
+.create-group {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #e6e6e6;
+  padding-top: 0.5vh;
+  padding-bottom: 1.5vh;
+  padding-left: 1vw;
+  padding-right: 1vw;
+  margin-bottom: 1vh;
 }
 
-.teacher-quiz-card p {
-    font-weight: 500;
-}
-.teacher-quiz-card p span {
-    font-weight: 700;
+.create-group:hover {
+  background: #d9d9d9;
+  cursor: pointer;
 }
 
-.teacher-quiz-card .title {
-    text-transform: capitalize;
-}
-.teacher-quiz-card .desc {
-    margin: 7px 0 10px 0;
-    text-transform: capitalize;
-    flex: 1;
-    overflow-y: scroll;
-}
-.teacher-quiz-card .desc::-webkit-scrollbar {
-    display: none;
-}
-.teacher-quiz-card .duration {
-    margin-bottom: 5px;
-}
-.teacher-quiz-card .time {
-    padding: 5px 0;
+.create-group > p {
+  font-family: "Montserrat", sans-serif;
+  font-weight: 600;
 }
 
-.teacher-quiz-card .teacher-quiz-card-buttons {
-    width: 100%;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-top: 20px;
+.but {
+  display: flex;
+  width: 30vw;
+  justify-content: space-between;
+  margin-right: 5vw;
 }
 
-.teacher-quiz-card .teacher-quiz-card-buttons button,
-.Teacher-Quizzes .teacher-quizzes-header button,
-.confirm-delete-modal .confirm-delete .confirm-delete-buttons button  {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    outline: none;
-    color: #fff;
-    background: rgb(0, 140, 255);
-    cursor: pointer;
-    padding: 4px 2px;
-    font-size: 1.1em;
-    font-weight: 500;
-    width: 100%;
-    border-radius: 5px;
-    font-size: 15px;
-    border: 1px solid rgb(0, 140, 255);
-}
-.teacher-quiz-card .teacher-quiz-card-buttons button:nth-child(2) {
-    margin: 0 10px;
-}
-  
-.teacher-quiz-card .teacher-quiz-card-buttons button:hover,
-.Teacher-Quizzes .teacher-quizzes-header button:hover {
-    background: white;
-    color: black;
-    border: 1px solid black;  
-}
-
-.no-quiz-created {
-    text-align: center;
-    color: rgba(0, 0, 0, 0.5);
-    font-weight: 600;
-    margin-top: 200px;
-}
-
-.rec-carousel button {
-    outline: none;
-    background: inherit;
-    border: none;
-    margin: 0;
-  }
-  .rec-pagination button {
-    display: none;
-  }
-
- .confirm-delete-modal {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100vh;
-      background-color: rgba(0, 0, 0, 0.5);
-      display: grid;
-      place-items: center;
-      z-index: 999;
-  }
-
-  .confirm-delete-modal .confirm-delete {
-    background-color: #fff;
-    padding: 15px;
-    border-radius: 10px;
-    text-align: center;
-  }
-  .confirm-delete-modal .confirm-delete p {
-   font-weight: 500;
-  }
-  .confirm-delete-modal .confirm-delete .confirm-delete-buttons {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      margin-top: 30px;
-  }
-  .confirm-delete-modal .confirm-delete .confirm-delete-buttons button  {
-    width: auto;
-    padding: 3px;
-    font-size: 15px;
-    width: 70px;
-    margin: 4px;
-  }
-
-.title,
-.desc {
-  overflow-wrap: break-word;
-  word-wrap: break-word;
-}
-
-.title-1,
-.description-1 {
-  width: 280px;
+.edit,
+.view,
+.delete {
+  color: white;
+  background: #008cff;
+  border-width: 0px;
+  padding-left: 1vw;
+  padding-right: 1vw;
+  padding-top: 0.5vw;
+  padding-bottom: 0.5vw;
+  border-radius: 15px;
+  cursor: pointer;
 }
