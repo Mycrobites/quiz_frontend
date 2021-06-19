@@ -7,7 +7,7 @@ import { CKEditor } from "@ckeditor/ckeditor5-react";
 import ClassicEditor from "@ckeditor/ckeditor5-build-classic";
 
 const ScheduleClass = (props) => {
-  const { userDetails, fetchAllQuizzes, setShowCreateModal } = props;
+  const { userDetails ,setShowCreateModal } = props;
   const [quizTitle, setQuizTitle] = useState("");
   const [quizDesc, setQuizDesc] = useState("");
   const [quizDuration, setQuizDuration] = useState("");
@@ -36,7 +36,7 @@ const ScheduleClass = (props) => {
       };
       setLoading(true);
       await axios.post("/api/create-quiz", postData, config);
-      fetchAllQuizzes();
+      // fetchAllQuizzes();
       setShowCreateModal(false);
     } catch (err) {
       console.log(err.message);
