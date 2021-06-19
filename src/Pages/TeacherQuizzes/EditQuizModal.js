@@ -20,7 +20,7 @@ const ScheduleClass = (props) => {
     endtime,
     instructions,
     userDetails,
-    fetchAllQuizzes,
+    // fetchAllQuizzes,
     setEditQuiz,
   } = props;
 
@@ -53,7 +53,7 @@ const ScheduleClass = (props) => {
       };
       setLoading(true);
       await axios.patch(`/api/edit-quiz/${id}`, postData, config);
-      fetchAllQuizzes();
+      // fetchAllQuizzes();
       setLoading(false);
     } catch (err) {
       console.log(err.message);
