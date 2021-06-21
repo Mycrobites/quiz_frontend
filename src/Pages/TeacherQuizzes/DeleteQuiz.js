@@ -39,13 +39,14 @@ function DeleteQuiz({id}) {
     const [loading , setLoading] = useState(false);
 
     const deleteQuiz = async () => {
+      console.log("working")
         setLoading(true);
         try {
           const config = {
             headers: { Authorization: `Bearer ${userDetails.access}` },
           };
-          
-          await axios.delete(`/api/edit-quiz/${id}`, config);
+          ///api/edit-quiz/${id}
+          await axios.get(`https://api.progressiveminds.in/api/quiz/${id}/delete`, config);
           setShowConfirmDelete(false);
           setLoading(false);
         } catch (err) {

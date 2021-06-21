@@ -3,6 +3,7 @@ import UserContext from "../../Context/UserContext";
 import TeacherNavbar from "../../Components/NavBar/TeacherNavbar";
 import CreateQuizModal from "./CreateQuizModal";
 import Loader from "../../Components/Loader/LoadingBar";
+import { AiFillDelete } from "react-icons/ai";
 import QuizCard from "./QuizCard";
 import axios from "../../axios/axios";
 import Carousel from "react-elastic-carousel";
@@ -163,9 +164,10 @@ const TeacherQuizzes = () => {
                                       setGroupdata(group);
                                     }}>
                                       {group}
-                                      
+                                      <button class="delete-icon" ><AiFillDelete /></button>
                                     </div>
                                     <div className="tabs"  style={{display:(data[index].name === group && open) ? "block":"none"}}>
+                                  
                                         <div className="type-count">
                                             <p className="side-bar-item" onClick={() => {
                                               setactive(true);
