@@ -31,15 +31,18 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-function DeleteQuiz({ id , deleteQuizGroup }) {
+function DeleteQuiz({ id, deleteQuizGroup }) {
   const classes = useStyles();
   const [open, setOpen] = useState(false);
   const { removeUser, userDetails, addQuiz } = useContext(UserContext);
   const [showConfirmDelete, setShowConfirmDelete] = useState(false);
   const [loading, setLoading] = useState(false);
-
+  //Refresh Page
+  const refreshPage = () => {
+    window.location.reload();
+  };
   // console.log(deleteQuizGroup);
-  
+
   const deleteQuiz = async () => {
     console.log("working");
     setLoading(true);
@@ -48,7 +51,18 @@ function DeleteQuiz({ id , deleteQuizGroup }) {
         headers: { Authorization: `Bearer ${userDetails.access}` },
       };
       ///api/edit-quiz/${id}
-      await axios.get(`https://api.progressiveminds.in/api/quiz/${id}/delete`, config);
+      const res = await axios.get(
+        `https://api.progressiveminds.in/api/quiz/${id}/delete`,
+        config
+      );
+      if (res.status === 200) {
+        alert("Successful");
+        refreshPage();
+      }
+      if (res.status === 400) {
+        alert("Unsuccessful");
+        refreshPage();
+      }
       setShowConfirmDelete(false);
       setLoading(false);
     } catch (err) {
@@ -63,20 +77,25 @@ function DeleteQuiz({ id , deleteQuizGroup }) {
         headers: { Authorization: `Bearer ${userDetails.access}` },
       };
       ///api/edit-quiz/${id}
-      await axios.get(
+      const res = await axios.get(
         `https://api.progressiveminds.in/api/quizGroup/${id}/delete`,
         config
       );
-      
+      if (res.status === 200) {
+        alert("Successful");
+        refreshPage();
+      }
+      if (res.status === 400) {
+        alert("Unsuccessful");
+        refreshPage();
+      }
+
       setShowConfirmDelete(false);
       setLoading(false);
     } catch (err) {
       console.log(err.message);
     }
   };
-
-  
-
 
   const handleOpen = () => {
     setOpen(true);
@@ -126,10 +145,8 @@ function DeleteQuiz({ id , deleteQuizGroup }) {
                 <button
                   className="view"
                   style={{ paddingLeft: "1.5vw", paddingRight: "1.5vw" }}
-                  onClick={()=> {
-                    deleteQuizGroup ?
-                    delete_QuizGroup():
-                    deleteQuiz()
+                  onClick={() => {
+                    deleteQuizGroup ? delete_QuizGroup() : deleteQuiz();
                   }}
                 >
                   Yes
