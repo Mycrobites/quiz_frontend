@@ -58,7 +58,8 @@ const TeacherQuizzes = () => {
       setUpcoming(data[groupnumber]["upcoming"]);
       setActiveQuiz(data[groupnumber]["active"]);
       setdata(data);
-      
+     
+      console.log(data);
       data.map((names , key) => {
         setGroupnames([...groupnames, names.name])
       })
@@ -90,8 +91,6 @@ const TeacherQuizzes = () => {
   };
 
   const setGroupdata = (group) => {
-    console.log(group);
-
     for (let y = 0; y < data.length; y++) {
       if (data[y].name === group) {
         setindex(y);
@@ -118,7 +117,7 @@ const TeacherQuizzes = () => {
 
   // console.log(groupnames);
   
-  console.log(groupIds);
+  // console.log(groupIds);
 
   useEffect(() => {
     fetchquizzes();
@@ -151,6 +150,7 @@ const TeacherQuizzes = () => {
               <TransitionsModal />
               {showCreateModal && (
                 <CreateQuizModal
+                  apidata={data}
                   userDetails={userDetails}
                   setShowCreateModal={setShowCreateModal}
                 />

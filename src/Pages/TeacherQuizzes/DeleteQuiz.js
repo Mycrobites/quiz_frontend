@@ -31,7 +31,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-function DeleteQuiz({ id , deleteQuizGroup }) {
+function DeleteQuiz({ id, deleteQuizGroup }) {
   const classes = useStyles();
   const [open, setOpen] = useState(false);
   const { removeUser, userDetails, addQuiz } = useContext(UserContext);
@@ -39,7 +39,7 @@ function DeleteQuiz({ id , deleteQuizGroup }) {
   const [loading, setLoading] = useState(false);
 
   // console.log(deleteQuizGroup);
-  
+
   const deleteQuiz = async () => {
     console.log("working");
     setLoading(true);
@@ -47,8 +47,12 @@ function DeleteQuiz({ id , deleteQuizGroup }) {
       const config = {
         headers: { Authorization: `Bearer ${userDetails.access}` },
       };
+      console.log(userDetails.access);
       ///api/edit-quiz/${id}
-      await axios.get(`https://api.progressiveminds.in/api/quiz/${id}/delete`, config);
+      await axios.get(
+        `https://api.progressiveminds.in/api/quiz/${id}/delete`,
+        config
+      );
       setShowConfirmDelete(false);
       setLoading(false);
     } catch (err) {
@@ -67,16 +71,13 @@ function DeleteQuiz({ id , deleteQuizGroup }) {
         `https://api.progressiveminds.in/api/quizGroup/${id}/delete`,
         config
       );
-      
+
       setShowConfirmDelete(false);
       setLoading(false);
     } catch (err) {
       console.log(err.message);
     }
   };
-
-  
-
 
   const handleOpen = () => {
     setOpen(true);
@@ -126,10 +127,8 @@ function DeleteQuiz({ id , deleteQuizGroup }) {
                 <button
                   className="view"
                   style={{ paddingLeft: "1.5vw", paddingRight: "1.5vw" }}
-                  onClick={()=> {
-                    deleteQuizGroup ?
-                    delete_QuizGroup():
-                    deleteQuiz()
+                  onClick={() => {
+                    deleteQuizGroup ? delete_QuizGroup() : deleteQuiz();
                   }}
                 >
                   Yes

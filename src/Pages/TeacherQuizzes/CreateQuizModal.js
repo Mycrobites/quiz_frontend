@@ -7,10 +7,11 @@ import { CKEditor } from "@ckeditor/ckeditor5-react";
 import ClassicEditor from "@ckeditor/ckeditor5-build-classic";
 
 const ScheduleClass = (props) => {
-  const { userDetails ,setShowCreateModal } = props;
+  const { apidata, userDetails, setShowCreateModal } = props;
   const [quizTitle, setQuizTitle] = useState("");
   const [quizDesc, setQuizDesc] = useState("");
   const [quizDuration, setQuizDuration] = useState("");
+  const [quizGroupId, setQuizGroupId] = useState("");
   const [startdate, setStartdate] = useState("");
   const [enddate, setEnddate] = useState("");
   const [quizInstructions, setQuizInstructions] = useState("");
@@ -26,11 +27,13 @@ const ScheduleClass = (props) => {
         creator: userDetails.user_id,
         desc: quizDesc,
         duration: quizDuration,
+        Quizgroup: quizGroupId,
         //added quiz instruction
         instructions: quizInstructions,
         starttime: startdate + ":00+05:30",
         endtime: enddate + ":00+05:30",
       };
+      console.log(postData);
       const config = {
         headers: { Authorization: `Bearer ${userDetails.access}` },
       };
@@ -54,7 +57,7 @@ const ScheduleClass = (props) => {
   //changeQuizInstruction method handles changes in description using data.getData() method from editor
   const changeQuizInstruction = (e, editor) => {
     const Instructiondata = editor.getData();
-    console.log(Instructiondata);
+
     setQuizInstructions(Instructiondata);
   };
 
@@ -84,6 +87,18 @@ const ScheduleClass = (props) => {
             value={quizTitle}
             onChange={(e) => setQuizTitle(e.target.value)}
           />
+          <br />
+          <label>Quiz Group</label>
+          {apidata.map((elem) => (
+          <select
+            name="Group Names"
+            onChange={(e) => console.log(e.target)}
+          >
+              <option id={elem.id} value={elem.name}>
+                {elem.name}
+              </option>
+          </select>
+            ))}
           <br />
           <label>Description</label>
           <CKEditor
