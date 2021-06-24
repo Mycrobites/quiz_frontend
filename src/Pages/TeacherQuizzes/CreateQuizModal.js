@@ -89,16 +89,16 @@ const ScheduleClass = (props) => {
           />
           <br />
           <label>Quiz Group</label>
-          {apidata.map((elem) => (
           <select
             name="Group Names"
-            onChange={(e) => console.log(e.target)}
+            onChange={(e) => setQuizGroupId(e.target.id)}
           >
+          {apidata.map((elem) => (
               <option id={elem.id} value={elem.name}>
                 {elem.name}
               </option>
-          </select>
             ))}
+          </select>
           <br />
           <label>Description</label>
           <CKEditor

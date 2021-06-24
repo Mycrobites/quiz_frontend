@@ -52,12 +52,6 @@ function DeleteQuiz({ id, deleteQuizGroup }) {
       };
       console.log(userDetails.access);
       ///api/edit-quiz/${id}
-<<<<<<< HEAD
-      await axios.get(
-        `https://api.progressiveminds.in/api/quiz/${id}/delete`,
-        config
-      );
-=======
       const res = await axios.get(
         `https://api.progressiveminds.in/api/quiz/${id}/delete`,
         config
@@ -70,7 +64,6 @@ function DeleteQuiz({ id, deleteQuizGroup }) {
         alert("Unsuccessful");
         refreshPage();
       }
->>>>>>> deee927c1bff317404f2580cdc935ddd084afe33
       setShowConfirmDelete(false);
       setLoading(false);
     } catch (err) {
@@ -89,8 +82,6 @@ function DeleteQuiz({ id, deleteQuizGroup }) {
         `https://api.progressiveminds.in/api/quizGroup/${id}/delete`,
         config
       );
-<<<<<<< HEAD
-=======
       if (res.status === 200) {
         alert("Successful");
         refreshPage();
@@ -99,7 +90,6 @@ function DeleteQuiz({ id, deleteQuizGroup }) {
         alert("Unsuccessful");
         refreshPage();
       }
->>>>>>> deee927c1bff317404f2580cdc935ddd084afe33
 
       setShowConfirmDelete(false);
       setLoading(false);
