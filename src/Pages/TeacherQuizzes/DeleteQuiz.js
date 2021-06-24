@@ -37,7 +37,10 @@ function DeleteQuiz({ id, deleteQuizGroup }) {
   const { removeUser, userDetails, addQuiz } = useContext(UserContext);
   const [showConfirmDelete, setShowConfirmDelete] = useState(false);
   const [loading, setLoading] = useState(false);
-
+  //Refresh Page
+  const refreshPage = () => {
+    window.location.reload();
+  };
   // console.log(deleteQuizGroup);
 
   const deleteQuiz = async () => {
@@ -49,10 +52,25 @@ function DeleteQuiz({ id, deleteQuizGroup }) {
       };
       console.log(userDetails.access);
       ///api/edit-quiz/${id}
+<<<<<<< HEAD
       await axios.get(
         `https://api.progressiveminds.in/api/quiz/${id}/delete`,
         config
       );
+=======
+      const res = await axios.get(
+        `https://api.progressiveminds.in/api/quiz/${id}/delete`,
+        config
+      );
+      if (res.status === 200) {
+        alert("Successful");
+        refreshPage();
+      }
+      if (res.status === 400) {
+        alert("Unsuccessful");
+        refreshPage();
+      }
+>>>>>>> deee927c1bff317404f2580cdc935ddd084afe33
       setShowConfirmDelete(false);
       setLoading(false);
     } catch (err) {
@@ -67,10 +85,21 @@ function DeleteQuiz({ id, deleteQuizGroup }) {
         headers: { Authorization: `Bearer ${userDetails.access}` },
       };
       ///api/edit-quiz/${id}
-      await axios.get(
+      const res = await axios.get(
         `https://api.progressiveminds.in/api/quizGroup/${id}/delete`,
         config
       );
+<<<<<<< HEAD
+=======
+      if (res.status === 200) {
+        alert("Successful");
+        refreshPage();
+      }
+      if (res.status === 400) {
+        alert("Unsuccessful");
+        refreshPage();
+      }
+>>>>>>> deee927c1bff317404f2580cdc935ddd084afe33
 
       setShowConfirmDelete(false);
       setLoading(false);
