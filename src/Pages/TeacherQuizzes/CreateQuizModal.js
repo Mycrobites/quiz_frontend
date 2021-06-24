@@ -91,10 +91,11 @@ const ScheduleClass = (props) => {
           <label>Quiz Group</label>
           <select
             name="Group Names"
-            onChange={(e) => setQuizGroupId(e.target.id)}
+            onChange={(e) => setQuizGroupId(e.target.value)}
           >
+          <option>Select from below</option>
           {apidata.map((elem) => (
-              <option id={elem.id} value={elem.name}>
+              <option  value={elem.id}>
                 {elem.name}
               </option>
             ))}
