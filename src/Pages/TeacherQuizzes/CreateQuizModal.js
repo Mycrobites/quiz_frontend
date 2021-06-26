@@ -17,7 +17,10 @@ const ScheduleClass = (props) => {
   const [quizInstructions, setQuizInstructions] = useState("");
   const [loading, setLoading] = useState(false);
   const modalRef = useRef(null);
-
+  
+  const refreshPage = () => {
+    window.location.reload();
+  };
   const editQuiz = async () => {
     if (!quizTitle || !quizDesc || !quizDuration || !startdate || !enddate)
       return alert("Please fill all the fields!");
@@ -39,6 +42,7 @@ const ScheduleClass = (props) => {
       };
       setLoading(true);
       await axios.post("/api/create-quiz", postData, config);
+      refreshPage();
       // fetchAllQuizzes();
       setShowCreateModal(false);
     } catch (err) {
