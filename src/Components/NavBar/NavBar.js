@@ -18,21 +18,21 @@ const NavBar = () => {
       <div className="service">
         {userDetails.role === "Student" && (
           <div className="user-name-nav scores ">
-            <p
+            {/* <p
               className="viewall"
               onClick={() => history.push(`/allscores/${userDetails.username}`)}
             >
               View All Scores
-            </p>
+            </p> */}
           </div>
         )}
       </div>
-      <div className="navbar-logo">
+      {/* <div className="navbar-logo">
         <CgNotes
           onClick={() => history.push("/")}
           style={{ cursor: "pointer", color: "white" }}
         />
-      </div>
+      </div> */}
 
       <div className="user-name-nav">
         <p className="user-name-name">Hello o, {userDetails.first_name}</p>
