@@ -11,7 +11,7 @@ const ScheduleClass = (props) => {
   const [quizTitle, setQuizTitle] = useState("");
   const [quizDesc, setQuizDesc] = useState("");
   const [quizDuration, setQuizDuration] = useState("");
-  const [quizGroupId, setQuizGroupId] = useState("");
+  const [quizGroupId, setQuizGroupId] = useState("test");
   const [startdate, setStartdate] = useState("");
   const [enddate, setEnddate] = useState("");
   const [quizInstructions, setQuizInstructions] = useState("");
@@ -70,7 +70,9 @@ const ScheduleClass = (props) => {
     window.addEventListener("click", handler);
     return () => window.removeEventListener("click", handler);
   });
-
+  const clickHandler = (elem) => {
+    console.log(elem.target.value);
+  };
   return (
     <div className="edit-quiz-modal">
       <div className="edit-quiz-modal-card" ref={modalRef}>
@@ -91,10 +93,11 @@ const ScheduleClass = (props) => {
           <label>Quiz Group</label>
           <select
             name="Group Names"
-            onChange={(e) => setQuizGroupId(e.target.id)}
+            onChange={(e) => setQuizGroupId(e.target.value)}
           >
-          {apidata.map((elem) => (
-              <option id={elem.id} value={elem.name}>
+            <option value="">Select option...</option>
+            {apidata.map((elem) => (
+              <option id={elem.id} value={elem.id}>
                 {elem.name}
               </option>
             ))}
