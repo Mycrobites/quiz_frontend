@@ -333,14 +333,6 @@ const StudentReport = () => {
           )}
 
           {isSubjectReport && (
-            // <>
-            //   {subjectwiseDifficulty.map((subject, index) => {
-            //     console.log("SUBJECT=>", subject);
-            //     for (const key in subject) {
-            //       return console.log("key=>", key);
-            //     }
-            //   })}
-            // </>
             <div>
               <p className="subject-report-title">Subject Report</p>
               <div className="report-card-2">
