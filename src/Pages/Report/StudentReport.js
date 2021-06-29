@@ -5,6 +5,7 @@ import { Chart } from "react-google-charts";
 import axios from "../../axios/axios";
 import Loader from "../../Components/Loader/LoadingBar";
 import ReactHtmlParser from "react-html-parser";
+import SubjectReport from "./SubjectReport";
 
 //CSS FILES
 import "./Report.css";
@@ -82,7 +83,6 @@ const StudentReport = () => {
   const handleQuizResponses = () => {
     console.log("USER RESPONSES:", userData.responses);
     setQuizResponses(userData.responses);
-    console.log("Responses=>", userData.responses);
   };
 
   const handleSubjectwiseDifficulty = () => {
@@ -209,7 +209,10 @@ const StudentReport = () => {
                 </p>
               </div>
               <div className="accuracy">
-                <p className="accuracy-1">
+                <p
+                  className="accuracy-1"
+                  onClick={() => console.log("+=>", userData)}
+                >
                   Accuracy:
                   <span style={{ color: "#214786", fontWeight: "600" }}>{`${(
                     (userData.correctquestion / userData.totalquestion) *
@@ -330,6 +333,14 @@ const StudentReport = () => {
           )}
 
           {isSubjectReport && (
+            // <>
+            //   {subjectwiseDifficulty.map((subject, index) => {
+            //     console.log("SUBJECT=>", subject);
+            //     for (const key in subject) {
+            //       return console.log("key=>", key);
+            //     }
+            //   })}
+            // </>
             <div>
               <p className="subject-report-title">Subject Report</p>
               <div className="report-card-2">
@@ -342,191 +353,259 @@ const StudentReport = () => {
                   </p> */}
                 </div>
                 <div className="subject">
-                  {subjectwiseDifficulty.map((subject, index) => {
-                    for (const key in subject) {
-                      return (
-                        <div>
-                          <h3 className="subject-title">{key}</h3>
-                          <p className="h-2">
-                            Accuracy :
-                            <span
-                              style={{ color: "#214786", fontWeight: "600" }}
-                            >
-                              {`${(
-                                ((subject[key]?.Easy?.correct
-                                  ? subject[key]?.Easy?.correct
-                                  : 0 + subject[key]?.Medium?.correct
-                                  ? subject[key]?.Medium?.correct
-                                  : 0 + subject[key]?.Hard?.correct
-                                  ? subject[key]?.Hard?.correct
-                                  : 0) /
-                                  ((subject[key]?.Easy?.correct
-                                    ? subject[key]?.Easy?.correct
-                                    : 0 + subject[key]?.Medium?.correct
-                                    ? subject[key]?.Medium?.correct
-                                    : 0 + subject[key]?.Hard?.correct
-                                    ? subject[key]?.Hard?.correct
+                  {Object.keys(subjectwiseDifficulty[0]).map((key) => {
+                    return (
+                      <div>
+                        <h3 className="subject-title">{key}</h3>
+                        <p className="h-2">
+                          Accuracy :
+                          <span style={{ color: "#214786", fontWeight: "600" }}>
+                            {`${(
+                              ((subjectwiseDifficulty[0][key]?.Easy?.correct
+                                ? subjectwiseDifficulty[0][key]?.Easy?.correct
+                                : 0 +
+                                  subjectwiseDifficulty[0][key]?.Medium?.correct
+                                ? subjectwiseDifficulty[0][key]?.Medium?.correct
+                                : 0 +
+                                  subjectwiseDifficulty[0][key]?.Hard?.correct
+                                ? subjectwiseDifficulty[0][key]?.Hard?.correct
+                                : 0) /
+                                ((subjectwiseDifficulty[0][key]?.Easy?.correct
+                                  ? subjectwiseDifficulty[0][key]?.Easy?.correct
+                                  : 0 +
+                                    subjectwiseDifficulty[0][key]?.Medium
+                                      ?.correct
+                                  ? subjectwiseDifficulty[0][key]?.Medium
+                                      ?.correct
+                                  : 0 +
+                                    subjectwiseDifficulty[0][key]?.Hard?.correct
+                                  ? subjectwiseDifficulty[0][key]?.Hard?.correct
+                                  : 0) +
+                                  (subjectwiseDifficulty[0][key]?.Easy
+                                    ?.incorrect
+                                    ? subjectwiseDifficulty[0][key]?.Easy
+                                        ?.incorrect
+                                    : 0 +
+                                      subjectwiseDifficulty[0][key]?.Medium
+                                        ?.incorrect
+                                    ? subjectwiseDifficulty[0][key]?.Medium
+                                        ?.incorrect
+                                    : 0 +
+                                      subjectwiseDifficulty[0][key]?.Hard
+                                        ?.incorrect
+                                    ? subjectwiseDifficulty[0][key]?.Hard
+                                        ?.incorrect
                                     : 0) +
-                                    (subject[key]?.Easy?.incorrect
-                                      ? subject[key]?.Easy?.incorrect
-                                      : 0 + subject[key]?.Medium?.incorrect
-                                      ? subject[key]?.Medium?.incorrect
-                                      : 0 + subject[key]?.Hard?.incorrect
-                                      ? subject[key]?.Hard?.incorrect
-                                      : 0) +
-                                    (subject[key]?.Easy?.not_attempted
-                                      ? subject[key]?.Easy?.not_attempted
-                                      : 0 + subject[key]?.Medium?.not_attempted
-                                      ? subject[key]?.Medium?.not_attempted
-                                      : 0 + subject[key]?.Hard?.not_attempted
-                                      ? subject[key]?.Hard?.not_attempted
-                                      : 0))) *
-                                100
-                              ).toFixed(2)}`}{" "}
-                              %
-                            </span>
-                          </p>
-                          <p className="h-2">
-                            Total Attempted Questions :{" "}
-                            <span
-                              style={{ color: "#214786", fontWeight: "600" }}
-                            >
-                              {`${
-                                (subject[key]?.Easy?.correct
-                                  ? subject[key]?.Easy?.correct
-                                  : 0 + subject[key]?.Medium?.correct
-                                  ? subject[key]?.Medium?.correct
-                                  : 0 + subject[key]?.Hard?.correct
-                                  ? subject[key]?.Hard?.correct
-                                  : 0) +
-                                (subject[key]?.Easy?.incorrect
-                                  ? subject[key]?.Easy?.incorrect
-                                  : 0 + subject[key]?.Medium?.incorrect
-                                  ? subject[key]?.Medium?.incorrect
-                                  : 0 + subject[key]?.Hard?.incorrect
-                                  ? subject[key]?.Hard?.incorrect
-                                  : 0) +
-                                (subject[key]?.Easy?.not_attempted
-                                  ? subject[key]?.Easy?.not_attempted
-                                  : 0 + subject[key]?.Medium?.not_attempted
-                                  ? subject[key]?.Medium?.not_attempted
-                                  : 0 + subject[key]?.Hard?.not_attempted
-                                  ? subject[key]?.Hard?.not_attempted
-                                  : 0)
-                              }`}{" "}
-                              (Correct:
-                              {`${
-                                subject[key]?.Easy?.correct
-                                  ? subject[key]?.Easy?.correct
-                                  : 0 + subject[key]?.Medium?.correct
-                                  ? subject[key]?.Medium?.correct
-                                  : 0 + subject[key]?.Hard?.correct
-                                  ? subject[key]?.Hard?.correct
-                                  : 0
-                              }`}{" "}
-                              , Incorrect:
-                              {`${
-                                subject[key]?.Easy?.incorrect
-                                  ? subject[key]?.Easy?.incorrect
-                                  : 0 + subject[key]?.Medium?.incorrect
-                                  ? subject[key]?.Medium?.incorrect
-                                  : 0 + subject[key]?.Hard?.incorrect
-                                  ? subject[key]?.Hard?.incorrect
-                                  : 0
-                              }`}
-                              )
-                            </span>
-                          </p>
-                          <div className="graph">
-                            <div className="bar-graph-2">
-                              <Chart
-                                width={"600px"}
-                                height={"300px"}
-                                chartType="Bar"
-                                loader={<div>Loading Chart</div>}
-                                data={[
-                                  ["", "Easy", "Medium", "Hard"],
-                                  [
-                                    "Correct",
-                                    subject[key]?.Easy?.correct,
-                                    subject[key]?.Medium?.correct,
-                                    subject[key]?.Hard?.correct,
-                                  ],
-                                  [
-                                    "Incorrect",
-                                    subject[key]?.Easy?.incorrect,
-                                    subject[key]?.Medium?.incorrect,
-                                    subject[key]?.Hard?.incorrect,
-                                  ],
-                                  [
-                                    "Unattempted",
-                                    subject[key]?.Easy?.not_attempted,
-                                    subject[key]?.Medium?.not_attempted,
-                                    subject[key]?.Hard?.not_attempted,
-                                  ],
-                                  [
-                                    "Total",
-                                    subject[key]?.Easy?.total_questions,
-                                    subject[key]?.Medium?.total_questions,
-                                    subject[key]?.Hard?.total_questions,
-                                  ],
-                                ]}
-                                options={{
-                                  chart: {
-                                    title: "",
-                                    subtitle: "",
-                                  },
-                                }}
-                              />
-                            </div>
-                            <div className="pie-chart-2">
-                              <Chart
-                                width={"475px"}
-                                height={"300px"}
-                                chartType="PieChart"
-                                loader={<div>Loading Chart</div>}
-                                data={[
-                                  ["Quiz", "Types of Questions"],
-                                  [
-                                    "Correct",
-                                    subject[key]?.Easy?.correct
-                                      ? subject[key]?.Easy?.correct
-                                      : 0 + subject[key]?.Medium?.correct
-                                      ? subject[key]?.Medium?.correct
-                                      : 0 + subject[key]?.Hard?.correct
-                                      ? subject[key]?.Hard?.correct
-                                      : 0,
-                                  ],
-                                  [
-                                    "Incorrect",
-                                    subject[key]?.Easy?.incorrect
-                                      ? subject[key]?.Easy?.incorrect
-                                      : 0 + subject[key]?.Medium?.incorrect
-                                      ? subject[key]?.Medium?.incorrect
-                                      : 0 + subject[key]?.Hard?.incorrect
-                                      ? subject[key]?.Hard?.incorrect
-                                      : 0,
-                                  ],
-                                  [
-                                    "Unattempted",
-                                    subject[key]?.Easy?.not_attempted
-                                      ? subject[key]?.Easy?.not_attempted
-                                      : 0 + subject[key]?.Medium?.not_attempted
-                                      ? subject[key]?.Medium?.not_attempted
-                                      : 0 + subject[key]?.Hard?.not_attempted
-                                      ? subject[key]?.Hard?.not_attempted
-                                      : 0,
-                                  ],
-                                ]}
-                                options={{
-                                  title: "Attempt Summary",
-                                }}
-                              />
-                            </div>
+                                  (subjectwiseDifficulty[0][key]?.Easy
+                                    ?.not_attempted
+                                    ? subjectwiseDifficulty[0][key]?.Easy
+                                        ?.not_attempted
+                                    : 0 +
+                                      subjectwiseDifficulty[0][key]?.Medium
+                                        ?.not_attempted
+                                    ? subjectwiseDifficulty[0][key]?.Medium
+                                        ?.not_attempted
+                                    : 0 +
+                                      subjectwiseDifficulty[0][key]?.Hard
+                                        ?.not_attempted
+                                    ? subjectwiseDifficulty[0][key]?.Hard
+                                        ?.not_attempted
+                                    : 0))) *
+                              100
+                            ).toFixed(2)}`}{" "}
+                            %
+                          </span>
+                        </p>
+                        <p className="h-2">
+                          Total Attempted Questions :{" "}
+                          <span style={{ color: "#214786", fontWeight: "600" }}>
+                            {`${
+                              (subjectwiseDifficulty[0][key]?.Easy?.correct
+                                ? subjectwiseDifficulty[0][key]?.Easy?.correct
+                                : 0 +
+                                  subjectwiseDifficulty[0][key]?.Medium?.correct
+                                ? subjectwiseDifficulty[0][key]?.Medium?.correct
+                                : 0 +
+                                  subjectwiseDifficulty[0][key]?.Hard?.correct
+                                ? subjectwiseDifficulty[0][key]?.Hard?.correct
+                                : 0) +
+                              (subjectwiseDifficulty[0][key]?.Easy?.incorrect
+                                ? subjectwiseDifficulty[0][key]?.Easy?.incorrect
+                                : 0 +
+                                  subjectwiseDifficulty[0][key]?.Medium
+                                    ?.incorrect
+                                ? subjectwiseDifficulty[0][key]?.Medium
+                                    ?.incorrect
+                                : 0 +
+                                  subjectwiseDifficulty[0][key]?.Hard?.incorrect
+                                ? subjectwiseDifficulty[0][key]?.Hard?.incorrect
+                                : 0) +
+                              (subjectwiseDifficulty[0][key]?.Easy
+                                ?.not_attempted
+                                ? subjectwiseDifficulty[0][key]?.Easy
+                                    ?.not_attempted
+                                : 0 +
+                                  subjectwiseDifficulty[0][key]?.Medium
+                                    ?.not_attempted
+                                ? subjectwiseDifficulty[0][key]?.Medium
+                                    ?.not_attempted
+                                : 0 +
+                                  subjectwiseDifficulty[0][key]?.Hard
+                                    ?.not_attempted
+                                ? subjectwiseDifficulty[0][key]?.Hard
+                                    ?.not_attempted
+                                : 0)
+                            }`}{" "}
+                            (Correct:
+                            {`${
+                              subjectwiseDifficulty[0][key]?.Easy?.correct
+                                ? subjectwiseDifficulty[0][key]?.Easy?.correct
+                                : 0 +
+                                  subjectwiseDifficulty[0][key]?.Medium?.correct
+                                ? subjectwiseDifficulty[0][key]?.Medium?.correct
+                                : 0 +
+                                  subjectwiseDifficulty[0][key]?.Hard?.correct
+                                ? subjectwiseDifficulty[0][key]?.Hard?.correct
+                                : 0
+                            }`}{" "}
+                            , Incorrect:
+                            {`${
+                              subjectwiseDifficulty[0][key]?.Easy?.incorrect
+                                ? subjectwiseDifficulty[0][key]?.Easy?.incorrect
+                                : 0 +
+                                  subjectwiseDifficulty[0][key]?.Medium
+                                    ?.incorrect
+                                ? subjectwiseDifficulty[0][key]?.Medium
+                                    ?.incorrect
+                                : 0 +
+                                  subjectwiseDifficulty[0][key]?.Hard?.incorrect
+                                ? subjectwiseDifficulty[0][key]?.Hard?.incorrect
+                                : 0
+                            }`}
+                            )
+                          </span>
+                        </p>
+                        <div className="graph">
+                          <div className="bar-graph-2">
+                            <Chart
+                              width={"600px"}
+                              height={"300px"}
+                              chartType="Bar"
+                              loader={<div>Loading Chart</div>}
+                              data={[
+                                ["", "Easy", "Medium", "Hard"],
+                                [
+                                  "Correct",
+                                  subjectwiseDifficulty[0][key]?.Easy?.correct,
+                                  subjectwiseDifficulty[0][key]?.Medium
+                                    ?.correct,
+                                  subjectwiseDifficulty[0][key]?.Hard?.correct,
+                                ],
+                                [
+                                  "Incorrect",
+                                  subjectwiseDifficulty[0][key]?.Easy
+                                    ?.incorrect,
+                                  subjectwiseDifficulty[0][key]?.Medium
+                                    ?.incorrect,
+                                  subjectwiseDifficulty[0][key]?.Hard
+                                    ?.incorrect,
+                                ],
+                                [
+                                  "Unattempted",
+                                  subjectwiseDifficulty[0][key]?.Easy
+                                    ?.not_attempted,
+                                  subjectwiseDifficulty[0][key]?.Medium
+                                    ?.not_attempted,
+                                  subjectwiseDifficulty[0][key]?.Hard
+                                    ?.not_attempted,
+                                ],
+                                [
+                                  "Total",
+                                  subjectwiseDifficulty[0][key]?.Easy
+                                    ?.total_questions,
+                                  subjectwiseDifficulty[0][key]?.Medium
+                                    ?.total_questions,
+                                  subjectwiseDifficulty[0][key]?.Hard
+                                    ?.total_questions,
+                                ],
+                              ]}
+                              options={{
+                                chart: {
+                                  title: "",
+                                  subtitle: "",
+                                },
+                              }}
+                            />
+                          </div>
+                          <div className="pie-chart-2">
+                            <Chart
+                              width={"475px"}
+                              height={"300px"}
+                              chartType="PieChart"
+                              loader={<div>Loading Chart</div>}
+                              data={[
+                                ["Quiz", "Types of Questions"],
+                                [
+                                  "Correct",
+                                  subjectwiseDifficulty[0][key]?.Easy?.correct
+                                    ? subjectwiseDifficulty[0][key]?.Easy
+                                        ?.correct
+                                    : 0 +
+                                      subjectwiseDifficulty[0][key]?.Medium
+                                        ?.correct
+                                    ? subjectwiseDifficulty[0][key]?.Medium
+                                        ?.correct
+                                    : 0 +
+                                      subjectwiseDifficulty[0][key]?.Hard
+                                        ?.correct
+                                    ? subjectwiseDifficulty[0][key]?.Hard
+                                        ?.correct
+                                    : 0,
+                                ],
+                                [
+                                  "Incorrect",
+                                  subjectwiseDifficulty[0][key]?.Easy?.incorrect
+                                    ? subjectwiseDifficulty[0][key]?.Easy
+                                        ?.incorrect
+                                    : 0 +
+                                      subjectwiseDifficulty[0][key]?.Medium
+                                        ?.incorrect
+                                    ? subjectwiseDifficulty[0][key]?.Medium
+                                        ?.incorrect
+                                    : 0 +
+                                      subjectwiseDifficulty[0][key]?.Hard
+                                        ?.incorrect
+                                    ? subjectwiseDifficulty[0][key]?.Hard
+                                        ?.incorrect
+                                    : 0,
+                                ],
+                                [
+                                  "Unattempted",
+                                  subjectwiseDifficulty[0][key]?.Easy
+                                    ?.not_attempted
+                                    ? subjectwiseDifficulty[0][key]?.Easy
+                                        ?.not_attempted
+                                    : 0 +
+                                      subjectwiseDifficulty[0][key]?.Medium
+                                        ?.not_attempted
+                                    ? subjectwiseDifficulty[0][key]?.Medium
+                                        ?.not_attempted
+                                    : 0 +
+                                      subjectwiseDifficulty[0][key]?.Hard
+                                        ?.not_attempted
+                                    ? subjectwiseDifficulty[0][key]?.Hard
+                                        ?.not_attempted
+                                    : 0,
+                                ],
+                              ]}
+                              options={{
+                                title: "Attempt Summary",
+                              }}
+                            />
                           </div>
                         </div>
-                      );
-                    }
+                      </div>
+                    );
                   })}
                 </div>
               </div>
