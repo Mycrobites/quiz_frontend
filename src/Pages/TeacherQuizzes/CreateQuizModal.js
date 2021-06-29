@@ -18,6 +18,9 @@ const ScheduleClass = (props) => {
   const [loading, setLoading] = useState(false);
   const modalRef = useRef(null);
 
+  const refreshPage = () => {
+    window.location.reload();
+  };
   const editQuiz = async () => {
     if (!quizTitle || !quizDesc || !quizDuration || !startdate || !enddate)
       return alert("Please fill all the fields!");
@@ -39,6 +42,7 @@ const ScheduleClass = (props) => {
       };
       setLoading(true);
       await axios.post("/api/create-quiz", postData, config);
+      refreshPage();
       // fetchAllQuizzes();
       setShowCreateModal(false);
     } catch (err) {
@@ -95,11 +99,9 @@ const ScheduleClass = (props) => {
             name="Group Names"
             onChange={(e) => setQuizGroupId(e.target.value)}
           >
-            <option value="">Select option...</option>
+            <option>Select from below</option>
             {apidata.map((elem) => (
-              <option id={elem.id} value={elem.id}>
-                {elem.name}
-              </option>
+              <option value={elem.id}>{elem.name}</option>
             ))}
           </select>
           <br />

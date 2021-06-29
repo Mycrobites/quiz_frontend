@@ -43,6 +43,9 @@ export default function TransitionsModal() {
     setmessage("");
   };
 
+  const refreshPage = () => {
+    window.location.reload();
+  };
   
   const createGroup = async () => {
     setloading(true);
@@ -60,13 +63,14 @@ export default function TransitionsModal() {
         config
       );
       if(data){
-          setloading(false);
+        setloading(false);
       }
       setQuizTitle("");
       setQuizDescription("");
       setdata(data);
       setError(false);
       setmessage("New Quiz Group created successfully");
+      refreshPage();
       console.log(data);
     } catch (err) {
       console.log(err.message);

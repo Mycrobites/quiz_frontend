@@ -20,7 +20,7 @@ const StudentReport = () => {
   const [isScoreCard, setIsScoreCard] = useState(true);
   const [isSubjectReport, setIsSubjectReport] = useState(false);
   const [isComparativeReport, setIsComparativeReport] = useState(false);
-  const [answerkey,setAnswerkey] = useState(false);
+  const [answerkey, setAnswerkey] = useState(false);
 
   //Data Handling
   const [userData, setUserData] = useState([]);
@@ -82,6 +82,7 @@ const StudentReport = () => {
   const handleQuizResponses = () => {
     console.log("USER RESPONSES:", userData.responses);
     setQuizResponses(userData.responses);
+    console.log("Responses=>", userData.responses);
   };
 
   const handleSubjectwiseDifficulty = () => {
@@ -158,7 +159,7 @@ const StudentReport = () => {
                   color: isComparativeReport ? "#214786" : "#ffffff",
                   outline: "none",
                   border: "none",
-                  marginRight: "2px"
+                  marginRight: "2px",
                 }}
                 onClick={() => {
                   setIsComparativeReport(true);
@@ -286,33 +287,48 @@ const StudentReport = () => {
             </div>
           )}
           {answerkey && (
-                  <div className="answerkey">
-                  <h3 className="answer-key-title">Answer Key</h3>
-                  {quizResponses.map((response, index) => {
-                    return (
-                      <div
-                        key={index}
-                        className="answer"
+            <div className="answerkey">
+              <h3 className="answer-key-title">Answer Key</h3>
+              {quizResponses.map((response, index) => {
+                return (
+                  <div key={index} className="answer">
+                    <div
+                      className="answer-key-question"
+                      style={{ marginLeft: "4vw" }}
+                    >
+                      <h3 className="number">
+                        Question - {response?.question_number}
+                      </h3>
+                      <h3 className="ques-img">
+                        {ReactHtmlParser(response?.question)}
+                      </h3>
+                      <h3
+                        className="correct-answer"
+                        style={{
+                          background:
+                            response["your answer"] ===
+                            response["correct answer"]
+                              ? "#66ff33"
+                              : "red",
+                          color:
+                            response["your answer"] ===
+                            response["correct answer"]
+                              ? "black"
+                              : "white",
+                        }}
                       >
-                        <div className="answer-key-question" style={{marginLeft:"4vw"}}>
-                            <h3 className="number">
-                              Question - {response?.question_number}
-                            </h3>
-                            <h3 className="ques-img">{ReactHtmlParser(response?.question)}</h3>
-                            <h3 className="correct-answer" style={{background:response["your answer"].slice(7,8) === response["correct answer"].slice(7,8) ? "#66ff33" : "red",
-                                                                  color:response["your answer"].slice(7,8) === response["correct answer"].slice(7,8) ? "black" : "white"}}>
-                              Your Answer : {response["your answer"].slice(7,8)}
-                            </h3>
-                            <h3 className="correct-answer">
-                              Correct Answer : {response["correct answer"].slice(7,8)}
-                            </h3>
-                        </div>
-                      </div>
-                    );
-                  })}
-                </div>
-                )}
-            
+                        Your Answer : {response["your answer"]}
+                      </h3>
+                      <h3 className="correct-answer">
+                        Correct Answer : {response["correct answer"]}
+                      </h3>
+                    </div>
+                  </div>
+                );
+              })}
+            </div>
+          )}
+
           {isSubjectReport && (
             <div>
               <p className="subject-report-title">Subject Report</p>
@@ -602,9 +618,8 @@ const StudentReport = () => {
                     </tr>
                   </table>
                 </div>
-                
               </div>
-              </div>
+            </div>
           )}
         </>
       )}

@@ -43,6 +43,8 @@ const TeacherQuizzes = () => {
   // const [quizzes, setQuizzes] = useState(getQuizDatafromSessionStorage);
 
   const [deleteQuiz, setDeleteQuiz] = useState(true);
+  
+ 
 
   const fetchquizzes = async () => {
     try {
@@ -54,6 +56,7 @@ const TeacherQuizzes = () => {
         `/api/get-all-quizzes/${userDetails.user_id}`,
         config
       );
+      
       setCompletedQuiz(data[groupnumber]["completed"]);
       setUpcoming(data[groupnumber]["upcoming"]);
       setActiveQuiz(data[groupnumber]["active"]);
