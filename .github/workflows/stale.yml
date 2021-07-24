@@ -19,7 +19,7 @@ jobs:
 #           key: ${{ secrets.KEY }}
           port: ${{ secrets.PORT }}
           script: |
-            cd /opt/teacher_lms_frontend 
+            cd /opt/quiz_frontend 
             git pull 
             npm prune 
             npm install 
