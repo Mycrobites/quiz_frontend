@@ -53,13 +53,11 @@ function Quizzes() {
       };
       setLoading(true);
       const { data } = await axios.get(`/api/get-all-quizzes/${userDetails.user_id}`, config);
-      console.log(data, "Now")
       setAttemptedQuiz(data[groupnumber]["attempted"]);
       setMissed(data[groupnumber]["missed"]);
       setUpcoming(data[groupnumber]["upcoming"]);
       setActiveQuiz(data[groupnumber]["active"]);
       setdata(data);
-
       for(let x = 0; x < data.length;x++){
         setGroupnames([...groupnames,data[x].name])
         
@@ -138,8 +136,6 @@ function Quizzes() {
   //   setCounts();
   // },[quizCounts.length]);
 
-  console.log(data)
-  console.log(attemptedquiz)
   console.log(quizCounts);
   console.log(upcomingquiz);
   return (
