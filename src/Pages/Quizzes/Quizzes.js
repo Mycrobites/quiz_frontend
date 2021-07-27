@@ -53,13 +53,13 @@ function Quizzes() {
       };
       setLoading(true);
       const { data } = await axios.get(`/api/get-all-quizzes/${userDetails.user_id}`, config);
+      console.log(data, "Now")
       setAttemptedQuiz(data[groupnumber]["attempted"]);
       setMissed(data[groupnumber]["missed"]);
       setUpcoming(data[groupnumber]["upcoming"]);
       setActiveQuiz(data[groupnumber]["active"]);
       setdata(data);
 
-      
       for(let x = 0; x < data.length;x++){
         setGroupnames([...groupnames,data[x].name])
         
@@ -138,6 +138,8 @@ function Quizzes() {
   //   setCounts();
   // },[quizCounts.length]);
 
+  console.log(data)
+  console.log(attemptedquiz)
   console.log(quizCounts);
   console.log(upcomingquiz);
   return (
@@ -412,10 +414,10 @@ function Quizzes() {
                                 End Date : {quiz.endtime.slice(0,10) + "     " + quiz.endtime.slice(11,16)+ " GMT"}
                               </p>
                             </div>
-                            {quiz.resultid && (
+                            { quiz.id && (
                               <div className="view-result">
                                 <button className="view-result-button" 
-                                onClick={() => history.push(`/studentreport/${quiz.resultid}`)}>View Result</button>
+                                onClick={() => history.push(`/studentreport/${quiz.id}`)}>View Result</button>
                             </div>
                             )}
                           </div>
