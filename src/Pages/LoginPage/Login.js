@@ -29,6 +29,7 @@ const Login = () => {
       });
       setLoading(false);
       updateUser(data);
+      localStorage.setItem("username", username);
       history.push("/");
     } catch (err) {
       setError({

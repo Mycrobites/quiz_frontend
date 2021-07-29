@@ -37,8 +37,11 @@ const StudentReport = () => {
       headers: { Authorization: `Bearer ${userDetails.access}` },
     };
     try {
+      console.log("user=>", localStorage.getItem("username"));
       const { data } = await axios.get(
-        `/api/getstudentreport/${testid}`,
+        `/api/getresult/${localStorage.getItem("username")}/${testid}`,
+        // `/api/getstudentresult/${testid}`,
+        // `/api/requestScoreForResult/${testid}`,
         config
       );
       console.log("DATA", data);
