@@ -39,9 +39,7 @@ const StudentReport = () => {
     try {
       console.log("user=>", localStorage.getItem("username"));
       const { data } = await axios.get(
-        `/api/getresult/${localStorage.getItem("username")}/${testid}`,
-        // `/api/getstudentresult/${testid}`,
-        // `/api/requestScoreForResult/${testid}`,
+        `/api/getstudentreport/${localStorage.getItem("username")}/${testid}`,
         config
       );
       console.log("DATA", data);
