@@ -116,6 +116,7 @@ const QuizPage = () => {
           key: res.key,
           answer: res.selectetedAnswer,
         })),
+        time_taken: userCurrentQuiz?.test_time
       };
       await axios.post("/api/create-response", res, config);
       submitTest();
@@ -151,6 +152,7 @@ const QuizPage = () => {
           key: res.key,
           answer: res.selectetedAnswer,
         })),
+        time_taken: userCurrentQuiz?.test_time
       };
       await axios.post("/api/create-response", res, config);
       submitTest();
