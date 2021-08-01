@@ -227,7 +227,7 @@ const StudentReport = () => {
                   </span>
                 </p>
                 <p className="pace">
-                  Pace: {userData.pace}
+                  Pace: {userData.time_taken}
                 </p>
               </div>
               <div className="graph">
