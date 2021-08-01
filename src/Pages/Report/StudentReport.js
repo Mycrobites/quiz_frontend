@@ -631,7 +631,7 @@ const StudentReport = () => {
                         {userData.marks_obtained.toFixed(2)}
                       </td>
                       <td className="col-3">
-                        {userData.marks_obtained.toFixed(2)}
+                        {averageData.marks_obtained.toFixed(2)}
                       </td>
                       <td className="col-4">
                         {topperData.marks_obtained.toFixed(2)}
