@@ -226,6 +226,9 @@ const StudentReport = () => {
                     {`Total attempted Questions: ${userData.attempted} of ${userData.totalquestion} (Correct:${userData.correctquestion} Incorrect:${userData.incorrectquestion})`}
                   </span>
                 </p>
+                <p className="pace">
+                  Pace: {userData.pace}
+                </p>
               </div>
               <div className="graph">
                 <div className="bar-graph">

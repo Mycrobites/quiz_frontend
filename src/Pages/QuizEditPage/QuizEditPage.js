@@ -39,25 +39,51 @@ const QuizEditPage = () => {
 
     const addAllQuestions = (e) => {
     console.log(e.target.checked);
-    if (e.target.checked) {
-      setSelectedQuestions([]);
-      let allQ = [];
-      questionBank.forEach((question, index) => {
-        allQ.push(question.id);
-      });
-      setSelectedQuestions(allQ);
-      let checkboxes = document.getElementsByClassName("checkboxip");
-      let length = checkboxes.length;
-      for (let i = 0; i < length; i++) {
-        checkboxes[i].checked = e.target.checked;
+
+    if(showFilter && filteredQuestionBank){
+      if (e.target.checked) {
+        setSelectedQuestions([]);
+        let allQ = [];
+        filteredQuestionBank.forEach((question, index) => {
+          allQ.push(question.id);
+        });
+        setSelectedQuestions(allQ);
+        let checkboxes = document.getElementsByClassName("checkboxip");
+        let length = checkboxes.length;
+        for (let i = 0; i < length; i++) {
+          checkboxes[i].checked = e.target.checked;
+        }
+      } else {
+        setSelectedQuestions([]);
+        let checkboxes = document.getElementsByClassName("checkboxip");
+        let length = checkboxes.length;
+        for (let i = 0; i < length; i++) {
+          checkboxes[i].checked = e.target.checked;
+        }
       }
-    } else {
-      setSelectedQuestions([]);
-      let checkboxes = document.getElementsByClassName("checkboxip");
-      let length = checkboxes.length;
-      for (let i = 0; i < length; i++) {
-        checkboxes[i].checked = e.target.checked;
+    } else{
+
+      if (e.target.checked) {
+        setSelectedQuestions([]);
+        let allQ = [];
+        questionBank.forEach((question, index) => {
+          allQ.push(question.id);
+        });
+        setSelectedQuestions(allQ);
+        let checkboxes = document.getElementsByClassName("checkboxip");
+        let length = checkboxes.length;
+        for (let i = 0; i < length; i++) {
+          checkboxes[i].checked = e.target.checked;
+        }
+      } else {
+        setSelectedQuestions([]);
+        let checkboxes = document.getElementsByClassName("checkboxip");
+        let length = checkboxes.length;
+        for (let i = 0; i < length; i++) {
+          checkboxes[i].checked = e.target.checked;
+        }
       }
+      
     }
   };
   

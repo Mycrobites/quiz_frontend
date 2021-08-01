@@ -99,7 +99,8 @@
 }
 
 .accuracy-1,
-.attempted {
+.attempted,
+.pace {
   font-family: "Montserrat", sans-serif;
   font-weight: 600;
   font-size: 2.5vh;

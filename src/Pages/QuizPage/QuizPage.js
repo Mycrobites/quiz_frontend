@@ -119,6 +119,7 @@ const QuizPage = () => {
       };
       await axios.post("/api/create-response", res, config);
       submitTest();
+      history.push(`/feedback/`);
       // removeUser();
     } catch (err) {
       console.log(err.message);
@@ -159,6 +160,29 @@ const QuizPage = () => {
     }
     setIsLoading(false);
   };
+
+  const saveResponse = async() => {
+    if(responses.length === 0){
+      return
+    }
+    try {
+      const config = {
+        headers: { Authorization: `Bearer ${userDetails.access}` },
+      };
+      const res = {
+        quiz: id,
+        user: userDetails?.user_id,
+        response: responses?.map((res) => ({
+          key: res.key,
+          answer: res.selectetedAnswer,
+        })),
+      };
+      await axios.post("/api/create-response", res, config);
+    } catch(err) {
+      console.log(err.message);
+    }
+  }
+
   useEffect(() => {
     const fetchQuestion = async () => {
       try {
@@ -289,7 +313,7 @@ const QuizPage = () => {
                           <FormControlLabel
                             key={idx}
                             value={option}
-                            name={idx + 1}
+                            name={ `${idx} + ${1}` }
                             control={<Radio onClick={handleResponse} />}
                             label={parse(option)}
                           />
@@ -329,6 +353,7 @@ const QuizPage = () => {
                   Next
                 </button>
                 <button onClick={clearResponse}>Clear Response</button>
+                <button onClick={saveResponse}>Save responses</button>
               </div>
             </div>
             {showSubmit && (
