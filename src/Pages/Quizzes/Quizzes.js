@@ -337,30 +337,26 @@ function Quizzes() {
                         return (
                           <div className="active-quiz">
                             <div className="active-quiz-description">
-                            <p className="active-quiz-title">
-                                  {ReactHtmlParser(quiz.title)}
-                                </p>
-                                <p className="active-quiz-des">
-                                  {ReactHtmlParser(quiz.desc)}
-                                </p>
-                                {/* <b>Instructions</b> */}
-                              {/* <p className="instructions-box">
-                                {ReactHtmlParser(quiz.instructions)}
-                              </p> */}
-                                <p className="question-time">
-                                  Duration :  {quiz.duration} 
-                                </p>
-                                <p className="start">
-                                  Start Date : {quiz.starttime.slice(0,10) + "     " + quiz.starttime.slice(11,16)+ " GMT"}
-                                </p>
-                                <p className="end">
-                                  End Date : {quiz.endtime.slice(0,10) + "     " + quiz.endtime.slice(11,16)+ " GMT"}
-                                </p>
+                              <p className="active-quiz-title">
+                                {ReactHtmlParser(quiz.title)}
+                              </p>
+                              <p className="active-quiz-des">
+                                {ReactHtmlParser(quiz.desc)}
+                              </p>
+                                  {/* <b>Instructions</b> */}
+                                {/* <p className="instructions-box">
+                                  {ReactHtmlParser(quiz.instructions)}
+                                </p> */}
+                              <p className="question-time">
+                                Duration :  {quiz.duration} 
+                              </p>
+                              <p className="start">
+                                Start Date : {quiz.starttime.slice(0,10) + "     " + quiz.starttime.slice(11,16)+ " GMT"}
+                              </p>
+                              <p className="end">
+                                End Date : {quiz.endtime.slice(0,10) + "     " + quiz.endtime.slice(11,16)+ " GMT"}
+                              </p>
                             </div>
-                                <StartTest 
-                              duration={quiz.duration}
-                              instructions={quiz.instructions}
-                              id={quiz.id}/>
                           </div>
                         )
                       })}
