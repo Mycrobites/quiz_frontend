@@ -74,6 +74,12 @@
   font-size: 16px;
 }
 
+.marks-distribution {
+  position: relative;
+  top: 0;
+  right: 30px;
+}
+
 .marks-distribution > * {
   margin: 5px 0;
   font-weight: 500;

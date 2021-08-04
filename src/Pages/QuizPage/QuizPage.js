@@ -42,6 +42,7 @@ const QuizPage = () => {
   const history = useHistory();
   const mountedRef = useRef(true);
   const { id: quizid, duration: quizDuration, test_time } = userCurrentQuiz;
+  const [saveAndContinueDisabeled, setSaveAndContinueDisabled] = useState(false)
 
   const handlePrevious = () => {
     if (index > 0) {
@@ -164,6 +165,7 @@ const QuizPage = () => {
   };
 
   const saveResponse = async() => {
+    setSaveAndContinueDisabled(true)
     if(responses.length === 0){
       return
     }
@@ -178,6 +180,7 @@ const QuizPage = () => {
           key: res.key,
           answer: res.selectetedAnswer,
         })),
+        time_taken : userCurrentQuiz?.test_time,
       };
       await axios.post("/api/create-response", res, config);
     } catch(err) {
@@ -355,7 +358,7 @@ const QuizPage = () => {
                   Next
                 </button>
                 <button onClick={clearResponse}>Clear Response</button>
-                <button onClick={saveResponse}>Save responses</button>
+                <button onClick={saveResponse} disabled = {saveAndContinueDisabeled}>Save and continue</button>
               </div>
             </div>
             {showSubmit && (
