@@ -360,7 +360,7 @@ const QuizPage = () => {
                   Next
                 </button>
                 <button onClick={clearResponse}>Clear Response</button>
-                <button onClick={saveResponse} disabled = {saveAndContinueDisabeled}>Save and continue</button>
+                {/* <button onClick={saveResponse} disabled = {saveAndContinueDisabeled}>Save and continue</button> */}
               </div>
             </div>
             {showSubmit && (
