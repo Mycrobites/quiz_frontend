@@ -69,10 +69,9 @@ const QuizPage = () => {
 
   const handleResponse = (e) => {
     const { value, name } = e.target;
-    console.log(value, name, "check")
     let ans = "";
     if (name) {
-      ans = name;
+      ans = value;
     } else {
       ans = value;
     }
