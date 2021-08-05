@@ -71,7 +71,7 @@ const QuizPage = () => {
     const { value, name } = e.target;
     let ans = "";
     if (name) {
-      ans = value;
+      ans = name;
     } else {
       ans = value;
     }
