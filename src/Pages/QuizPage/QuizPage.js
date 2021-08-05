@@ -47,6 +47,7 @@ const QuizPage = () => {
   const handlePrevious = () => {
     if (index > 0) {
       setIndex(index - 1);
+      setSaveAndContinueDisabled(true)
     } else {
       setIndex(0);
     }
@@ -55,6 +56,7 @@ const QuizPage = () => {
   const handleNext = () => {
     if (index < quiz?.length - 1) {
       setIndex(index + 1);
+      setSaveAndContinueDisabled(false)
     } else {
       setIndex(quiz?.length - 1);
     }
