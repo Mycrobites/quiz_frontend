@@ -69,6 +69,7 @@ const QuizPage = () => {
 
   const handleResponse = (e) => {
     const { value, name } = e.target;
+    console.log(value, name, "check")
     let ans = "";
     if (name) {
       ans = name;
@@ -320,7 +321,7 @@ const QuizPage = () => {
                           <FormControlLabel
                             key={idx}
                             value={option}
-                            name={ `${idx} + ${1}` }
+                            name={ `${idx + 1}` }
                             control={<Radio onClick={handleResponse} />}
                             label={parse(option)}
                           />
