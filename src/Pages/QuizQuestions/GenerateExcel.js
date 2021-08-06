@@ -2,7 +2,7 @@ import React, { useState, useContext } from "react";
 import { useParams } from "react-router-dom";
 import UserContext from "../../Context/UserContext";
 import axios from "../../axios/axios";
-import './GenerateExcel.css';
+import "./GenerateExcel.css";
 
 const GenerateExcel = () => {
   const { id } = useParams();
@@ -17,6 +17,7 @@ const GenerateExcel = () => {
         quizid: id,
         email_send: email,
       };
+      console.log("genrating result =>", postData);
       const config = {
         headers: { Authorization: `Bearer ${userDetails.access}` },
       };
@@ -39,15 +40,19 @@ const GenerateExcel = () => {
     <div className="generate-result-1">
       <p className="generate-result-head">Generate Result</p>
       <div className="generate-result">
-          <input
-            type="email"
-            value={email}
-            placeholder="Enter your E-mail to get excel sheet of result."
-            onChange={(e) => setEmail(e.target.value)}
-          />
-          <button onClick={generateExcel} className="generate-result-btn">Generate Result</button>
+        <input
+          type="email"
+          value={email}
+          placeholder="Enter your E-mail to get excel sheet of result."
+          onChange={(e) => setEmail(e.target.value)}
+        />
+        <button onClick={generateExcel} className="generate-result-btn">
+          Generate Result
+        </button>
       </div>
-      <p id="response">{responseData}</p>
+      <p id="response">
+        {responseData ? "Done" : "email will be send in a minute"}
+      </p>
     </div>
   );
 };
