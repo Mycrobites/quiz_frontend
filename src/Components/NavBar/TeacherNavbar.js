@@ -1,12 +1,13 @@
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { useHistory } from "react-router-dom";
 import { FiLogOut } from "react-icons/fi";
 import { CgNotes } from "react-icons/cg";
+import { FaBars } from "react-icons/fa";
 import ReactTooltip from "react-tooltip";
 import UserContext from "../../Context/UserContext";
 import "./TeacherNavbar.css";
 
-const TeacherNavBar = () => {
+const TeacherNavBar = ({ show, setShow }) => {
   const { removeUser, userDetails } = useContext(UserContext);
   const history = useHistory();
   console.log(userDetails);
@@ -14,6 +15,7 @@ const TeacherNavBar = () => {
   return (
     <div className="navbar">
       <div className="navbar-container">
+        <FaBars className="ham" onClick={() => setShow(!show)} />
         <div className="navbar-logo">
           <CgNotes
             onClick={() => history.push("/")}

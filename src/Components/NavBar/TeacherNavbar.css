@@ -8,7 +8,7 @@
     rgba(0, 0, 0, 0.06) 0px 2px 4px -1px;
   color: white;
   width: 100%;
-  height: 70px;
+  height: 60px;
   display: grid;
   place-items: center;
   font-size: 1.2em;
@@ -58,6 +58,12 @@
   padding: 10px;
   cursor: pointer;
 }
+.ham {
+  width: 30px;
+  height: 30px;
+  display: none;
+  color: white;
+}
 
 @media only screen and (max-width: 786px) {
   .navbar {
@@ -68,7 +74,11 @@
     margin: 0 10px;
   }
 }
-
+@media (max-width: 599px) {
+  .ham {
+    display: block;
+  }
+}
 @media (max-width: 500px) {
   .navbar-logo svg {
     font-size: 40px;

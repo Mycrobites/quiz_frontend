@@ -32,7 +32,7 @@ const TeacherQuizzes = () => {
   const [groupnumber, setGroupnumber] = useState(0);
   const [data, setdata] = useState([]);
   const [groupnames, setGroupnames] = useState([]);
-  const [groupIds , setGroupIds] = useState([]);
+  const [groupIds, setGroupIds] = useState([]);
   const [index, setindex] = useState(0);
   const [quizCounts, setQuizCounts] = useState([]);
   const [open, setopen] = useState(true);
@@ -42,9 +42,8 @@ const TeacherQuizzes = () => {
 
   // const [quizzes, setQuizzes] = useState(getQuizDatafromSessionStorage);
 
+  const [show, setShow] = useState(false);
   const [deleteQuiz, setDeleteQuiz] = useState(true);
-  
- 
 
   const fetchquizzes = async () => {
     try {
@@ -56,20 +55,20 @@ const TeacherQuizzes = () => {
         `/api/get-all-quizzes/${userDetails.user_id}`,
         config
       );
-      
+
       setCompletedQuiz(data[groupnumber]["completed"]);
       setUpcoming(data[groupnumber]["upcoming"]);
       setActiveQuiz(data[groupnumber]["active"]);
       setdata(data);
-     
+
       console.log(data);
-      data.map((names , key) => {
-        setGroupnames([...groupnames, names.name])
-      })
+      data.map((names, key) => {
+        setGroupnames([...groupnames, names.name]);
+      });
 
       // for (let x = 0;   x < data.length; x++) {
       //   setGroupIds([...groupIds , data[x].id])
-        
+
       // }
       // console.log(groupIds);
       // console.log(groupnamesIds);
@@ -112,21 +111,21 @@ const TeacherQuizzes = () => {
     let groupIds = [];
     for (let x = 0; x < data.length; x++) {
       groups.push(data[x].name);
-      groupIds.push(data[x].id)
+      groupIds.push(data[x].id);
     }
     setGroupnames(groups);
     setGroupIds(groupIds);
   };
 
   // console.log(groupnames);
-  
+
   // console.log(groupIds);
 
   useEffect(() => {
     fetchquizzes();
   }, []);
   // console.log(data[index].name);
- 
+
   useEffect(() => {
     setgroups();
   }, [groupnames.length]);
@@ -146,106 +145,111 @@ const TeacherQuizzes = () => {
     <div className="teacher-quizzes">
       {!loading && (
         <div className="all">
-          <TeacherNavbar />
+          <TeacherNavbar show={show} setShow={setShow} />
 
           <div className="cont">
-            <div className="side">
-              <TransitionsModal />
-              {showCreateModal && (
-                <CreateQuizModal
-                  apidata={data}
-                  userDetails={userDetails}
-                  setShowCreateModal={setShowCreateModal}
-                />
-              )}
-              <div
-                className="create-group"
-                onClick={() => setShowCreateModal(!showCreateModal)}
-              >
-                <p>Create Quiz</p>
-                <AddCircleOutlineRoundedIcon />
-              </div>
-              {groupnames.length > 0 &&
-                quizCounts.length > 0 &&
-                groupnames.map((group, idx) => {
-                  return (
-                    <>
-                      <div
-                        className="side-bar-item-advanced-1"
-                        onClick={() => {
-                          setopen(!open);
-                          setopen(!open);
-                          setGroupdata(group);
-                          setDeleteQuiz(true);
-                        }}
-                      >
-                        {group}
-                        {/* <button 
+            <div className={show ? "side" : "side side_toggle"}>
+              <div className="transparent">
+                <TransitionsModal />
+                {showCreateModal && (
+                  <CreateQuizModal
+                    apidata={data}
+                    userDetails={userDetails}
+                    setShowCreateModal={setShowCreateModal}
+                  />
+                )}
+                <div
+                  className="create-group"
+                  onClick={() => setShowCreateModal(!showCreateModal)}
+                >
+                  <p>Create Quiz</p>
+                  <AddCircleOutlineRoundedIcon />
+                </div>
+                {groupnames.length > 0 &&
+                  quizCounts.length > 0 &&
+                  groupnames.map((group, idx) => {
+                    return (
+                      <>
+                        <div
+                          className="side-bar-item-advanced-1"
+                          onClick={() => {
+                            setopen(!open);
+                            setopen(!open);
+                            setGroupdata(group);
+                            setDeleteQuiz(true);
+                          }}
+                        >
+                          {group}
+                          {/* <button 
                                       onClick={() => setDeleteQuiz(true)}
                                       class="delete-icon" ><AiFillDelete /></button> */}
-                        {deleteQuiz && (
-                          <DeleteQuiz id={groupIds[idx]} deleteQuizGroup={deleteQuiz} />
-                        )}
-                      </div>
-                      <div
-                        className="tabs"
-                        style={{
-                          display:
-                            data[index].name === group && open
-                              ? "block"
-                              : "none",
-                        }}
-                      >
-                        <div className="type-count">
-                          <p
-                            className="side-bar-item"
-                            onClick={() => {
-                              setactive(true);
-                              setupcoming(false);
-                              setcompleted(false);
-                            }}
-                          >
-                            Active{" "}
-                          </p>
-                          <p className="side-bar-item">
-                            {quizCounts[idx].active}
-                          </p>
+                          {deleteQuiz && (
+                            <DeleteQuiz
+                              id={groupIds[idx]}
+                              deleteQuizGroup={deleteQuiz}
+                            />
+                          )}
                         </div>
-                        <div className="type-count">
-                          <p
-                            className="side-bar-item"
-                            onClick={() => {
-                              setactive(false);
-                              setupcoming(true);
-                              setcompleted(false);
-                            }}
-                          >
-                            Upcoming
-                          </p>
-                          <p className="side-bar-item">
-                            {quizCounts[idx].upcoming}
-                          </p>
-                        </div>
+                        <div
+                          className="tabs"
+                          style={{
+                            display:
+                              data[index].name === group && open
+                                ? "block"
+                                : "none",
+                          }}
+                        >
+                          <div className="type-count">
+                            <p
+                              className="side-bar-item"
+                              onClick={() => {
+                                setactive(true);
+                                setupcoming(false);
+                                setcompleted(false);
+                              }}
+                            >
+                              Active{" "}
+                            </p>
+                            <p className="side-bar-item">
+                              {quizCounts[idx].active}
+                            </p>
+                          </div>
+                          <div className="type-count">
+                            <p
+                              className="side-bar-item"
+                              onClick={() => {
+                                setactive(false);
+                                setupcoming(true);
+                                setcompleted(false);
+                              }}
+                            >
+                              Upcoming
+                            </p>
+                            <p className="side-bar-item">
+                              {quizCounts[idx].upcoming}
+                            </p>
+                          </div>
 
-                        <div className="type-count">
-                          <p
-                            className="side-bar-item"
-                            onClick={() => {
-                              setactive(false);
-                              setupcoming(false);
-                              setcompleted(true);
-                            }}
-                          >
-                            Completed
-                          </p>
-                          <p className="side-bar-item">
-                            {quizCounts[idx].completed}
-                          </p>
+                          <div className="type-count">
+                            <p
+                              className="side-bar-item"
+                              onClick={() => {
+                                setactive(false);
+                                setupcoming(false);
+                                setcompleted(true);
+                              }}
+                            >
+                              Completed
+                            </p>
+                            <p className="side-bar-item">
+                              {quizCounts[idx].completed}
+                            </p>
+                          </div>
                         </div>
-                      </div>
-                    </>
-                  );
-                })}
+                      </>
+                    );
+                  })}
+              </div>
             </div>
             <div className="mainbar">
               {activequiz.length > 0 &&

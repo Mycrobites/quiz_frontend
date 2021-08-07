@@ -8,7 +8,10 @@ const TeacherHomePage = () => {
   return (
     <div className="teacher-homepage">
       <TeacherNavbar />
-      <div className="homepage-card" onClick={() => history.push("/allquizzes")}>
+      <div
+        className="homepage-card"
+        onClick={() => history.push("/allquizzes")}
+      >
         <div className="homepage-card-icon">
           <FaEdit />
         </div>
