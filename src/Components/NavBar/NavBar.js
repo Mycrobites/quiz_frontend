@@ -2,44 +2,48 @@ import { useContext } from "react";
 import { useHistory } from "react-router-dom";
 import { FiLogOut } from "react-icons/fi";
 import { CgNotes } from "react-icons/cg";
+import { FaBars } from "react-icons/fa";
 import ReactTooltip from "react-tooltip";
 import UserContext from "../../Context/UserContext";
 import "./NavBar.css";
 import ExitToAppIcon from "@material-ui/icons/ExitToApp";
 import { Avatar, IconButton } from "@material-ui/core";
 
-const NavBar = () => {
+const NavBar = ({ show, setShow }) => {
   const { removeUser, userDetails } = useContext(UserContext);
   const history = useHistory();
   console.log(userDetails);
 
   return (
-    <div className="navbar-student">
-      <div className="service">
-        {userDetails.role === "Student" && (
-          <div className="user-name-nav scores ">
-            {/* <p
+    <div className="main-nav">
+      <div className="navbar-student">
+        <FaBars className="ham" onClick={() => setShow(!show)} />
+        <div className="service">
+          {userDetails.role === "Student" && (
+            <div className="user-name-nav scores ">
+              {/* <p
               className="viewall"
               onClick={() => history.push(`/allscores/${userDetails.username}`)}
             >
               View All Scores
             </p> */}
-          </div>
-        )}
-      </div>
-      {/* <div className="navbar-logo">
+            </div>
+          )}
+        </div>
+        {/* <div className="navbar-logo">
         <CgNotes
           onClick={() => history.push("/")}
           style={{ cursor: "pointer", color: "white" }}
         />
       </div> */}
 
-      <div className="user-name-nav">
-        <p className="user-name-name">Hello , {userDetails.first_name}</p>
-        <button onClick={removeUser} className="nav-logout" data-tip="logout">
-          <FiLogOut />
-        </button>
-        <ReactTooltip place="bottom" type="dark" effect="solid" />
+        <div className="user-name-nav">
+          <p className="user-name-name">Hello , {userDetails.first_name}</p>
+          <button onClick={removeUser} className="nav-logout" data-tip="logout">
+            <FiLogOut />
+          </button>
+          <ReactTooltip place="bottom" type="dark" effect="solid" />
+        </div>
       </div>
     </div>
   );
