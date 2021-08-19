@@ -163,3 +163,38 @@
   margin-right: 3vw;
   margin-top: 2vh;
 }
+.graph {
+  width: 100%;
+}
+.bar-graph,
+.pie-chart {
+  width: 100%;
+}
+.BarChart,
+.PieChart {
+  width: 100% !important;
+  height: auto !important;
+}
+@media (max-width: 768px) {
+  .container {
+    margin: 0 auto !important;
+    width: 95% !important;
+  }
+  .graph {
+    flex-direction: column !important;
+  }
+  .BarChart,
+  .PieChart {
+    width: 100% !important;
+    height: auto !important;
+  }
+  .bar-graph {
+    width: 100% !important;
+    height: auto !important;
+    margin: 20px 0 40px;
+  }
+  .bar-graph,
+  .pie-chart {
+    width: 100% !important;
+  }
+}

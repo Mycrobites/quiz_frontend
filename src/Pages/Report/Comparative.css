@@ -91,6 +91,15 @@
   align-items: center;
 }
 
+@media (max-width: 668px) {
+  .answer-key-question {
+    flex-direction: column;
+  }
+  .correct-answer {
+    margin: 5px 0;
+  }
+}
+
 .answer-key-title {
   font-family: "Montserrat", sans-serif;
   margin-top: 10vh;

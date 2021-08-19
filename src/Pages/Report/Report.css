@@ -142,3 +142,17 @@
 .container {
   margin-left: 4vw;
 }
+
+@media (max-width: 628px) {
+  .table {
+    margin-left: 0vw;
+    margin-right: 0vw;
+  }
+  .col-1,
+  .col-2,
+  .col-3,
+  .col-4,
+  .col-5 {
+    font-size: 2vw;
+  }
+}

@@ -226,15 +226,12 @@ const StudentReport = () => {
                     {`Total attempted Questions: ${userData.attempted} of ${userData.totalquestion} (Correct:${userData.correctquestion} Incorrect:${userData.incorrectquestion})`}
                   </span>
                 </p>
-                <p className="pace">
-                  Pace: {userData.time_taken}
-                </p>
+                <p className="pace">Pace: {userData.time_taken}</p>
               </div>
               <div className="graph">
                 <div className="bar-graph">
                   <Chart
-                    width={"600px"}
-                    height={"300px"}
+                    className="BarChart"
                     chartType="Bar"
                     loader={<div>Loading Chart</div>}
                     data={[
@@ -274,8 +271,9 @@ const StudentReport = () => {
                 </div>
                 <div className="pie-chart">
                   <Chart
-                    width={"500px"}
-                    height={"300px"}
+                    width={"100%"}
+                    height={"auto"}
+                    className="PieChart"
                     chartType="PieChart"
                     loader={<div>Loading Chart</div>}
                     data={[
@@ -482,10 +480,9 @@ const StudentReport = () => {
                           </span>
                         </p>
                         <div className="graph">
-                          <div className="bar-graph-2">
+                          <div className="bar-graph">
                             <Chart
-                              width={"600px"}
-                              height={"300px"}
+                              className="BarChart"
                               chartType="Bar"
                               loader={<div>Loading Chart</div>}
                               data={[
@@ -533,10 +530,9 @@ const StudentReport = () => {
                               }}
                             />
                           </div>
-                          <div className="pie-chart-2">
+                          <div className="pie-chart">
                             <Chart
-                              width={"475px"}
-                              height={"300px"}
+                              className="PieChart"
                               chartType="PieChart"
                               loader={<div>Loading Chart</div>}
                               data={[
