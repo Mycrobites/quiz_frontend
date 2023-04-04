@@ -154,10 +154,9 @@ function Report() {
           <p className="time">
             {day} , {ISTTime.getDate()} {month} {hoursIST} : {minutesIST} {ampm}
           </p>
-          <div className="report-card">
+          <div className="report-card"  style={{width: "100%"}}>
             <div className="nav">
               <p
-                style={{ backgroundColor: "#ffffff", color: "#214786" }}
                 className="nav-item scorecard active"
                 onClick={() =>
                   history.push(`/report/${userDetails.username}/${id}`)
@@ -200,8 +199,8 @@ function Report() {
             </div>
             <div className="accuracy">
               <p className="accuracy-1">
-                Accuracy:
-                <span style={{ color: "#214786", fontWeight: "600" }}>{`${(
+                Accuracy: 
+                <span style={{ color: "black", fontWeight: "600" }}>{`${(
                   (correctQ / totalQ) *
                   100
                 ).toFixed(2)}`}</span>
@@ -224,8 +223,8 @@ function Report() {
                 )}
                 {analysis && (
                   <Chart
-                    width={"600px"}
-                    height={"300px"}
+                    width={"300px"}
+                    height={"100px"}
                     chartType="Bar"
                     loader={<div>Loading Chart</div>}
                     data={[
@@ -261,8 +260,8 @@ function Report() {
               </div>
               <div className="pie-chart">
                 <Chart
-                  width={"500px"}
-                  height={"300px"}
+                  width={"200px"}
+                  height={"200px"}
                   chartType="PieChart"
                   loader={<div>Loading Chart</div>}
                   data={[
@@ -273,7 +272,7 @@ function Report() {
                   ]}
                   options={{
                     title: "Attempt Summary",
-                  }}
+                  }} 
                 />
               </div>
             </div>

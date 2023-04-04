@@ -19,27 +19,30 @@
   font-size: 2.3vh;
   overflow-wrap: break-word;
   word-wrap: break-word;
-  font-family: "Montserrat", sans-serif;
+    font-family: 'Poppins', sans-serif;
+
   font-weight: 600;
   margin-top: 1vh;
   margin-bottom: 1vh;
 }
 
 .generate-result-btn {
-  background: #0000ff;
+  background: #6D3FC7;
   padding: 1vw;
   border-width: 0;
   border-radius: 15px;
   color: white;
-  font-family: "Montserrat", sans-serif;
+    font-family: 'Poppins', sans-serif;
+
   font-weight: 600;
   margin-left: -15vw;
 }
 
 .generate-result-head {
-  font-family: "Montserrat", sans-serif;
+  font-family: 'Poppins', sans-serif;
+  text-align: center;
   font-weight: 600;
-  margin-left: 36vw;
+  margin: auto;
   padding-top: 4vh;
   font-size: 4vh;
   font-weight: bolder;
@@ -48,6 +51,7 @@
 #response {
   margin-top: -40vh;
   margin-left: 13vw;
-  font-family: "Montserrat", sans-serif;
+    font-family: 'Poppins', sans-serif;
+
   font-weight: 600;
 }

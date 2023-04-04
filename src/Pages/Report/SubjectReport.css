@@ -2,7 +2,8 @@
   margin-left: 3vw;
   margin-top: 2vh;
   font-size: 4vh;
-  font-family: "Montserrat", sans-serif;
+    font-family: 'Poppins', sans-serif;
+
   font-weight: 600;
 }
 
@@ -11,7 +12,8 @@
   color: gray;
   margin-left: 3vw;
   margin-top: -1.5vh;
-  font-family: "Montserrat", sans-serif;
+    font-family: 'Poppins', sans-serif;
+
 }
 
 .active {
@@ -19,11 +21,8 @@
   color: #214786;
 }
 
-.report-card {
-  border-top: 1.5px solid lightgray;
-  margin-left: 5vw;
-  margin-right: 5vw;
-  margin-top: 8vh;
+.report-center{
+  margin: auto;
 }
 
 .nav {
@@ -40,7 +39,8 @@
   padding-left: 1vw;
   padding-top: 2vh;
   padding-bottom: 2vh;
-  font-family: "Montserrat", sans-serif;
+    font-family: 'Poppins', sans-serif;
+
   border-right: 2.5px solid white;
 }
 
@@ -72,14 +72,16 @@
 }
 
 .rank-des {
-  font-family: "Montserrat", sans-serif;
+    font-family: 'Poppins', sans-serif;
+
   font-weight: bolder;
 }
 
 .rank-rank {
-  font-family: "Montserrat", sans-serif;
-  color: #214786;
-  font-weight: 900;
+    font-family: 'Poppins', sans-serif;
+
+  color: black;
+  font-weight: 400;
   font-size: 3vh;
 }
 
@@ -87,14 +89,16 @@
   margin-top: 4vh;
 }
 .score-txt {
-  font-family: "Montserrat", sans-serif;
+    font-family: 'Poppins', sans-serif;
+
   font-weight: 600;
   font-size: 2.5vh;
 }
 
 .accuracy-1,
 .attempted {
-  font-family: "Montserrat", sans-serif;
+    font-family: 'Poppins', sans-serif;
+
   font-weight: 600;
   font-size: 2.5vh;
 }
@@ -113,13 +117,15 @@
 }
 
 .h-1 {
-  font-family: "Montserrat", sans-serif;
+    font-family: 'Poppins', sans-serif;
+
   font-weight: 600;
   font-size: 5vh;
 }
 
 .h-2 {
-  font-family: "Montserrat", sans-serif;
+    font-family: 'Poppins', sans-serif;
+
   font-weight: 600;
   font-size: 2.4vh;
 }
@@ -139,14 +145,16 @@
 }
 
 .subject-title {
-  font-family: "Montserrat", sans-serif;
+    font-family: 'Poppins', sans-serif;
+
   font-weight: 600;
   font-size: 4vh;
   margin-bottom: 2vh;
 }
 
 .subject-report-title {
-  font-family: "Montserrat", sans-serif;
+    font-family: 'Poppins', sans-serif;
+
   font-weight: 600;
   font-size: 4vh;
   margin-left: 3.3vw;
@@ -172,9 +180,10 @@
 }
 .BarChart,
 .PieChart {
-  width: 100% !important;
+  width: 90%;
   height: auto !important;
 }
+
 @media (max-width: 768px) {
   .container {
     margin: 0 auto !important;
@@ -197,4 +206,15 @@
   .pie-chart {
     width: 100% !important;
   }
+}
+
+table{
+  font-family: 'Poppins', sans-serif;
+}
+
+@media only screen and (max-width: 900px) {
+.rank{
+  display: block !important;
+  width: 85vw !important;
+}
 }

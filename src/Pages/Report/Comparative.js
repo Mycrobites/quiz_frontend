@@ -180,7 +180,7 @@ function Comparative() {
           <p className="time">
             {day} , {ISTTime.getDate()} {month} {hoursIST} : {minutesIST} {ampm}
           </p>
-          <div className="report-card">
+          <div className="report-card" style={{width: "100%"}}>
             <div className="nav">
               <p
                 className="nav-item scorecard"
@@ -211,7 +211,7 @@ function Comparative() {
               <table>
                 {available && (
                   <>
-                    <tr>
+                    <tr className="tr-head">
                       <th className="col1"> </th>
                       <th className="col2">Your Detail</th>
                       <th className="col3">Average</th>

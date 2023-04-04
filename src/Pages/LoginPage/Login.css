@@ -7,12 +7,10 @@
 
 .login-page-contents {
   width: 90vw;
-  max-width: 1168px;
   margin: auto;
   height: 100vh;
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  grid-gap: 20px;
+  grid-template-columns: 1.5fr 1fr;
 }
 
 .login-image {
@@ -21,8 +19,7 @@
 }
 
 .login-image img {
-  width: 80%;
-  object-fit: contain;
+  width: 1500px;
   filter: drop-shadow(2px 6px rgba(0, 0, 0, 0.1));
 }
 
@@ -33,13 +30,14 @@
 }
 
 .login-clip-path {
-  clip-path: polygon(0 0, 100% 0, 100% 55%, 0 75%);
-  background: linear-gradient(to bottom, #00aeff, white);
+  clip-path: polygon(0% 0%, 100% 0%, 100% 36.49%, 89.54% 32.54%, 84.06% 31.48%, 78.74% 31.86%, 73.52% 32.65%, 68.58% 35.25%, 59.94% 40.97%, 52.58% 46.59%, 45.12% 51.88%, 37.14% 56.06%, 31.62% 58.4%, 26.01% 60.2%, 19.51% 61.08%, 13.01% 60.2%, 6.43% 57.55%, 0% 53.9%);
+
+  background: linear-gradient(to bottom, #40189D,#6D3FC7);
   position: absolute;
   top: 0%;
   left: 0%;
-  width: 100vw;
-  height: 100vh;
+  width: 100%;
+  height: 100%;
 }
 
 .login-page form {
@@ -50,6 +48,7 @@
   min-height: 350px;
   margin: 0 30px;
   max-width: 400px;
+  font-family: 'Poppins', sans-serif;
   width: 90%;
   padding: 25px;
   max-width: 400px;
@@ -86,7 +85,7 @@ input::placeholder {
   margin-bottom: 20px;
 }
 
-.login-page button {
+/* .login-page .login-page button {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -94,18 +93,60 @@ input::placeholder {
   border: none;
   outline: none;
   color: white;
-  background: rgb(0, 140, 255);
+  background: #6D3FC7;
   cursor: pointer;
   padding: 10px;
   font-size: 1.1em;
   font-weight: 700;
   border-radius: 5px;
-}
+} */
 
-.login-page button:hover {
+/* .login-page .login-page button:hover {
   background: white;
   color: black;
   border: 1px solid black;
+} */
+
+.login-page button {
+  --color: #6D3FC7;
+  font-family: inherit;
+  display: inline-block;
+  width: 100%;
+  height: 2.6em;
+  line-height: 2.5em;
+  overflow: hidden;
+  font-size: 17px;
+  z-index: 1;
+  color: var(--color);
+  border: 2px solid var(--color);
+  border-radius: 6px;
+  position: relative;
+  background-color: white;
+}
+
+.login-page button::before {
+  position: absolute;
+  content: "";
+  background: var(--color);
+  width: 1500px;
+  height: 1500px;
+  z-index: -1;
+  border-radius: 5%;
+}
+
+.login-page button:hover {
+  color: white;
+}
+
+.login-page button:before {
+  top: 100%;
+  left: 100%;
+  transition: .3s all;
+}
+
+.login-page button:hover::before {
+  top: -30px;
+  left: -30px;
 }
 
 .username label p:first-child,
@@ -140,9 +181,23 @@ input::placeholder {
   color: rgba(0, 0, 0, 0.5);
 }
 
+
 @media (max-width: 915px) {
   .login-image img {
     width: 100%;
+  }
+  .login-page-contents{
+    height: 50vh;
+    width: 100vw;
+  }
+  .login-clip-path {
+    clip-path: polygon(0% 0%, 99.64% 0%, 99.64% 23.19%, 93.9% 21.07%, 87.57% 19.39%, 82.81% 18.71%, 77.96% 18.66%, 73.29% 18.71%, 68.66% 19.08%, 62.62% 19.82%, 56.79% 21.14%, 50.55% 22.34%, 44.73% 23.59%, 38.86% 24.68%, 32.57% 25.76%, 26.19% 26.55%, 21.19% 26.95%, 16.82% 27.16%, 13.41% 27.16%, 10.05% 26.74%, 7.73% 26.21%, 5.59% 25.5%, 3.53% 24.68%, 0.64% 23.11%, 0% 22.76%);
+    background: linear-gradient(to bottom, #40189D,#6D3FC7);
+    position: absolute;
+    top: 0%;
+    left: 0%;
+    width: 100%;
+    height: 100%;
   }
 }
 
@@ -151,17 +206,27 @@ input::placeholder {
     display: none;
   }
   .form-holder {
-    width: 90vw;
+    width: 100vw;
   }
   .login-clip-path {
     clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
-    background: linear-gradient(to bottom, #00aeff, #eee);
+    background: linear-gradient(to bottom, #40189D,#6D3FC7);
+  }
+  .login-page-contents{
+    align-items: center;
+  }
+  .login-page form {
+    margin: 0;
+    margin-top: 20%;
   }
 }
 
 @media only screen and (max-width: 500px) {
   .login-page form {
-    width: 90vw;
     margin: 0;
+    margin-top: 20%;
+  }
+  .form-holder{
+    width: 100vw;
   }
 }

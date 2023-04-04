@@ -1,7 +1,7 @@
 import axios from "axios";
 
 export default axios.create({
-  baseURL: "https://api.progressiveminds.in",
+  baseURL: "http://127.0.0.1:8000/",
 });
 
 // old base url : https://quiz-mycrobites.herokuapp.com

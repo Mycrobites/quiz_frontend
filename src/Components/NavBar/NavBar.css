@@ -1,5 +1,5 @@
 .main-nav {
-  background: rgb(0, 140, 255);
+  background: #6D3FC7;
   box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 6px -1px,
     rgba(0, 0, 0, 0.06) 0px 2px 4px -1px;
   color: white;
@@ -12,11 +12,10 @@
 }
 .navbar-student {
   box-shadow: none;
-  width: 90vw;
-  max-width: 1168px;
+  width: 100vw;
   margin: auto;
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
   align-items: center;
 }
 
@@ -27,13 +26,21 @@
 }
 
 .user-name-name {
-  font-family: "Montserrat", sans-serif;
+  font-family: 'Poppins', sans-serif;
   font-weight: 600;
   color: white;
+  font-size: large;
+}
+
+.user-name-nav p{
+  font-family: 'Poppins', sans-serif;
+  font-weight: 600;
+  color: white;
+  font-size: large;
 }
 .service {
   display: flex;
-  width: 60vw;
+  width: 50vw;
   justify-content: space-between;
   align-items: center;
   margin-left: 16vw;
@@ -41,12 +48,14 @@
 }
 
 .service > p {
-  font-family: "Montserrat", sans-serif;
+    font-family: 'Poppins', sans-serif;
+
   font-weight: 600;
 }
 
 .user-name {
-  font-family: "Montserrat", sans-serif;
+    font-family: 'Poppins', sans-serif;
+
   margin-top: -2vh;
 }
 

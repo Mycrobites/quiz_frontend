@@ -79,7 +79,7 @@ const PreviewFeedBack = () => {
         config
       );
       setQuestions(data.question);
-      console.log(data);
+      console.log("FeedbackData",data);
     } catch (err) {
       console.log(err);
     }
@@ -118,6 +118,7 @@ const PreviewFeedBack = () => {
       )}
 
       <div className="feedback-page">
+        {console.log("question",questions)}
         {questions.map((question, index) => {
           return (
             <div key={question.id}>

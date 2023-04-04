@@ -9,7 +9,7 @@ import React from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import Typography from "@material-ui/core/Typography";
 import Slider from "@material-ui/core/Slider";
-
+const API_HOST = process.env.REACT_APP_API_HOST
 const useStyles = makeStyles({
   root: {
     width: "100%",
@@ -113,9 +113,10 @@ const FeedBack = () => {
         headers: { Authorization: `Bearer ${userDetails.access}` },
       };
       const { data } = await axios.get(
-        `https://api.progressiveminds.in/api/FeedbackQs/${userCurrentQuiz.id}/get`,
+        `${API_HOST}/api/FeedbackQs/${userCurrentQuiz.id}/get`,
         config
       );
+      console.log("FeedbackData",data)
       // console.log(data.question);
       setQuestions(data.question);
       let arr = new Array(data.question.length);

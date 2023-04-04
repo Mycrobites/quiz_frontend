@@ -117,8 +117,8 @@ const CustomFeedback = () => {
             </button>
             <button
               onClick={() => history.push(`/previewfeedback/${id}`)}
-              className="select bn"
-              style={{ height: "5vh" }}
+              className="select bn prevfeed"
+              
             >
               Preview Feedback
             </button>

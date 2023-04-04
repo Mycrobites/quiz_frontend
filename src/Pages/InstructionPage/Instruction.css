@@ -1,22 +1,29 @@
 .instruction-page {
   width: 100%;
+  height: 100%;
   display: grid;
   place-items: center;
-  margin: 20px auto;
+  padding: 20px;
+  background-color: #f2f2f2;
+  min-height: 100vh;
+  font-family: 'Poppins', sans-serif;
+
 }
 
 .instruction-container {
-  max-width: 998px;
-  width: 95vw;
+  width: 60vw;
   margin: auto;
-  padding: 10px 30px;
+  padding: 30px 30px;
   border: 1px solid lightgray;
   z-index: 10;
+  background-color: #e5dbf7;
+  border-radius: 10px;
 }
 
 .instruction-page > div {
   margin: 25px 0;
 }
+
 
 .instruction-page > div h2 {
   margin: 10px 0;
@@ -38,22 +45,22 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 40px;
-  width: 200px;
+  height: 4%;
+  width: 35%;
   border: none;
   outline: none;
   color: white;
-  background: rgb(0, 140, 255);
+  background-color: #6D3FC7;
   cursor: pointer;
   padding: 10px;
   font-size: 1.1em;
   font-weight: 700;
+  border-radius: 6px;
 }
 
 .instruction-timer button:hover {
-  background: white;
-  color: black;
-  border: 1px solid black;
+  background: #6139b2;
+  color: white;
 }
 
 .instruction-countdown {
@@ -63,12 +70,16 @@
 
 .instruction-header {
   text-align: center;
-  font-weight: 700;
+  font-weight: 600;
   margin-bottom: 20px;
 }
 
 .instruction-header > * {
   margin: 10px 0;
+}
+
+.instruction-header p {
+  font-weight: 500;
 }
 
 @media (max-width: 500px) {

@@ -28,6 +28,7 @@ const useStyles = makeStyles((theme) => ({
   paper: {
     backgroundColor: theme.palette.background.paper,
     padding: theme.spacing(2, 4, 3),
+    borderRadius: 10,
   },
 }));
 
@@ -41,7 +42,7 @@ function DeleteQuiz({ id, deleteQuizGroup }) {
   const refreshPage = () => {
     window.location.reload();
   };
-  // console.log(deleteQuizGroup);
+  console.log("deleteQuizGrp",deleteQuizGroup);
 
   const deleteQuiz = async () => {
     console.log("working");
@@ -74,6 +75,7 @@ function DeleteQuiz({ id, deleteQuizGroup }) {
     console.log("working");
     setLoading(true);
     try {
+
       const config = {
         headers: { Authorization: `Bearer ${userDetails.access}` },
       };
@@ -147,7 +149,8 @@ function DeleteQuiz({ id, deleteQuizGroup }) {
                   className="view"
                   style={{ paddingLeft: "1.5vw", paddingRight: "1.5vw" }}
                   onClick={() => {
-                    deleteQuizGroup ? delete_QuizGroup() : deleteQuiz();
+                    console.log("Delete", deleteQuizGroup);
+                    delete_QuizGroup() ;
                   }}
                 >
                   Yes

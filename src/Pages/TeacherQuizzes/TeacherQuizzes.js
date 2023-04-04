@@ -183,6 +183,7 @@ const TeacherQuizzes = () => {
                           {/* <button 
                                       onClick={() => setDeleteQuiz(true)}
                                       class="delete-icon" ><AiFillDelete /></button> */}
+                                      
                           {deleteQuiz && (
                             <DeleteQuiz
                               id={groupIds[idx]}
@@ -199,7 +200,7 @@ const TeacherQuizzes = () => {
                                 : "none",
                           }}
                         >
-                          <div className="type-count">
+                          <div className="type-count first-type-count">
                             <p
                               className="side-bar-item"
                               onClick={() => {
@@ -230,7 +231,7 @@ const TeacherQuizzes = () => {
                             </p>
                           </div>
 
-                          <div className="type-count">
+                          <div className="type-count last-type-count">
                             <p
                               className="side-bar-item"
                               onClick={() => {
@@ -253,13 +254,13 @@ const TeacherQuizzes = () => {
             </div>
             <div className="mainbar">
               {activequiz.length > 0 &&
-                upcoming == false &&
-                completed == false &&
+                upcoming === false &&
+                completed === false &&
                 data.length > 0 && (
                   <div className="active">
                     <div className="active-active">
                       <p className="active-title">
-                        {data[index].name} - Active
+                        {data[index].name}
                       </p>
                     </div>
                     {activequiz.map((quiz, index) => {
@@ -303,6 +304,7 @@ const TeacherQuizzes = () => {
                                     instructions={quiz.instructions}
                                     id={quiz.id}/> */}
                           <div className="but">
+                            <div>
                             <button
                               className="view"
                               onClick={() =>
@@ -311,6 +313,7 @@ const TeacherQuizzes = () => {
                             >
                               View
                             </button>
+                            </div>
                             <EditQuiz
                               id={quiz.id}
                               title={quiz.title}
@@ -329,9 +332,9 @@ const TeacherQuizzes = () => {
                   </div>
                 )}
 
-              {activequiz.length == 0 &&
-                upcoming == false &&
-                completed == false &&
+              {activequiz.length === 0 &&
+                upcoming === false &&
+                completed === false &&
                 data.length > 0 && (
                   <div className="active">
                     <div className="active-active">
@@ -348,8 +351,8 @@ const TeacherQuizzes = () => {
                 )}
 
               {upcomingquiz.length > 0 &&
-                active == false &&
-                completed == false &&
+                active === false &&
+                completed === false &&
                 data.length > 0 && (
                   <div className="active">
                     <div className="active-active">
@@ -416,9 +419,9 @@ const TeacherQuizzes = () => {
                   </div>
                 )}
 
-              {upcomingquiz.length == 0 &&
-                active == false &&
-                completed == false &&
+              {upcomingquiz.length === 0 &&
+                active === false &&
+                completed === false &&
                 data.length > 0 && (
                   <div className="active">
                     <div className="active-active">
@@ -434,7 +437,7 @@ const TeacherQuizzes = () => {
                   </div>
                 )}
 
-              {/* {(missedquiz.length > 0 && active == false && attempted == false && upcoming == false && data.length > 0) && (
+              {/* {(missedquiz.length > 0 && active === false && attempted === false && upcoming === false && data.length > 0) && (
                           <div className="active">
                           <div className="active-active">
                               <p className="active-title">{data[index].name} - Missed</p>
@@ -472,7 +475,7 @@ const TeacherQuizzes = () => {
                         </div>
                         )} */}
 
-              {/* {(missedquiz.length == 0 && active == false && attempted == false && upcoming == false && data.length > 0) && (
+              {/* {(missedquiz.length === 0 && active === false && attempted === false && upcoming === false && data.length > 0) && (
                                  <div className="active">
                                   <div className="active-active">
                                       <p className="active-title">{data[index].name} - Missed</p>
@@ -484,8 +487,8 @@ const TeacherQuizzes = () => {
                            )} */}
 
               {completedquiz.length > 0 &&
-                active == false &&
-                upcoming == false &&
+                active === false &&
+                upcoming === false &&
                 data && (
                   <div className="active">
                     <div className="active-active">
@@ -558,9 +561,9 @@ const TeacherQuizzes = () => {
                   </div>
                 )}
 
-              {completedquiz.length == 0 &&
-                active == false &&
-                upcoming == false &&
+              {completedquiz.length === 0 &&
+                active === false &&
+                upcoming === false &&
                 data.length > 0 && (
                   <div className="active">
                     <div className="active-active">

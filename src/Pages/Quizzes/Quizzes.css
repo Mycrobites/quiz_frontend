@@ -19,14 +19,18 @@
   margin-left: 16vw;
   margin-right: 8vw;
 }
-
+.home-page{
+  background-color: #F2F2F2;
+}
 .service > p {
-  font-family: "Montserrat", sans-serif;
+    font-family: 'Poppins', sans-serif;
+
   font-weight: 600;
 }
 
 .user-name {
-  font-family: "Montserrat", sans-serif;
+    font-family: 'Poppins', sans-serif;
+
 }
 
 .nav:hover {
@@ -36,6 +40,7 @@
 
 .content-home {
   display: flex;
+  height: 100%;
   min-height: 100vh;
   justify-content: center;
   /* margin-top: 2vh; */
@@ -43,6 +48,11 @@
 
   /* padding-left: 1vw;
   padding-right: 1vw; */
+  margin: 1%;
+  margin-bottom: 0%;
+  --transition__duration: 1s;
+  --transition__easing: ease-in-out;
+  animation-name: wipe-in-down;
 }
 
 .side-bar {
@@ -55,8 +65,8 @@
   min-height: inherit;
   padding-right: 1vw;
   margin-bottom: 4vh;
-  right: 0;
   transition: all 0.4s ease;
+
 }
 
 .main-bar {
@@ -68,7 +78,8 @@
 .title-side {
   display: flex;
   background: #008cff;
-  font-family: "Montserrat", sans-serif;
+    font-family: 'Poppins', sans-serif;
+
   color: white;
   justify-content: space-around;
   border-top-left-radius: 5px;
@@ -80,7 +91,8 @@
 .title-5 {
   margin-top: 2.5vh;
   margin-bottom: 2.3vh;
-  font-family: "Montserrat", sans-serif;
+    font-family: 'Poppins', sans-serif;
+
 }
 
 .instructions-box {
@@ -101,10 +113,11 @@
 }
 
 .side-bar-item {
-  background: #d4e7f7;
+  background: #e5dbf7;
   margin-bottom: 0px;
   cursor: pointer;
-  font-family: "Montserrat", sans-serif;
+    font-family: 'Poppins', sans-serif;
+
   padding: 1.5vh;
 }
 
@@ -112,6 +125,10 @@
   align-items: center;
   justify-content: center;
   padding-right: 5vw;
+}
+
+.transparent{
+  border-radius: 20%;
 }
 
 .counter {
@@ -128,13 +145,27 @@
   padding-left: 3vw;
   padding-top: 2vh;
   padding-bottom: 1.5vh;
-  font-family: "Montserrat", sans-serif;
+    font-family: 'Poppins', sans-serif;
+
+}
+
+
+
+.type-count-last{
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: #e5dbf7;
+  width: 100%;
 }
 
 .side-bar-item-advanced-1 {
   display: flex;
-  background: #008cff;
-  font-family: "Montserrat", sans-serif;
+  background: #6D3FC7;
+    font-family: 'Poppins', sans-serif;
+
   color: white;
   justify-content: space-around;
   /* border-left: 4px solid #5abcff; */
@@ -143,13 +174,17 @@
   margin-top: 0.2vh;
   padding-top: 2.5vh;
   padding-bottom: 2.5vh;
+  margin-bottom: 1vh;
   cursor: pointer;
+  border-radius: 10px;
+  padding-left: 20px;
 }
 
 .side-bar-item-advanced-2 {
   display: flex;
   background: #f2f2f2;
-  font-family: "Montserrat", sans-serif;
+    font-family: 'Poppins', sans-serif;
+
   color: black;
   justify-content: space-around;
   border-left: 4px solid #59b45f;
@@ -163,7 +198,8 @@
 .side-bar-item-advanced-3 {
   display: flex;
   background: #f2f2f2;
-  font-family: "Montserrat", sans-serif;
+    font-family: 'Poppins', sans-serif;
+
   color: black;
   justify-content: space-around;
   border-left: 4px solid #fc5c5c;
@@ -176,14 +212,10 @@
 
 .active {
   box-sizing: border-box;
-  box-shadow: -1px 4px 20px -6px rgba(0, 0, 0, 0.4);
-  height: 85vh;
-  padding-left: 1vw;
+  height: 80vh;
   overflow: scroll;
-  padding-right: 1vw;
+  padding: 1vw;
   border-radius: 15px;
-  padding-bottom: 1vw;
-  margin-bottom: 4vh;
 }
 
 .active::-webkit-scrollbar {
@@ -191,16 +223,17 @@
 }
 
 .active-title {
-  font-family: "Montserrat", sans-serif;
+    font-family: 'Poppins', sans-serif;
+
   font-weight: 800;
-  padding-top: 2vh;
-  padding-left: 25vw;
   color: white;
+  text-align: center;
+  padding: 1% 0;
 }
 
 .active-active {
   border-bottom: 1px solid lightgray;
-  background: #008cff;
+  background: #6D3FC7;
   margin-top: 1vh;
   border-radius: 15px;
   padding-bottom: 1vh;
@@ -208,20 +241,17 @@
 
 .active-quiz {
   box-sizing: border-box;
-  box-shadow: -1px 4px 20px -6px rgba(0, 0, 0, 0.4);
-  margin-bottom: 3vh;
-  padding-left: 1vw;
-  padding-right: 1vw;
-  padding-top: 1vw;
-  padding-bottom: 1vw;
+  background-color: #6c3fc712;
+  padding: 1vw;
   border-radius: 15px;
   margin-top: 2vh;
   display: flex;
-  align-items: center;
+  justify-content: space-between;
 }
 
 .active-quiz-description {
   width: 70%;
+  color: black;
 }
 
 .active-quiz-title,
@@ -229,7 +259,8 @@
 .question-time,
 .start,
 .end {
-  font-family: "Montserrat", sans-serif;
+    font-family: 'Poppins', sans-serif;
+
 }
 
 .active-quiz-des,
@@ -237,24 +268,31 @@
 .start,
 .end {
   margin-bottom: 0px;
+  font-size: small;
 }
 
 .active-quiz-title {
   font-weight: 800;
 }
 
+.tabs{
+  cursor: pointer;
+}
+
 .view-result-button {
-  margin-left: 3vw;
   border-width: 0px;
-  background: #008cff;
+  background: #6D3FC7;
   color: white;
-  font-family: "Montserrat", sans-serif;
+  font-family: 'Poppins', sans-serif;
   border-radius: 10px;
   padding: 0.5vw 1vw;
+  cursor: pointer;
 }
 
 .empty {
-  font-family: "Montserrat", sans-serif;
+    font-family: 'Poppins', sans-serif;
+
+  color: black;
 }
 
 .group {
@@ -265,7 +303,8 @@
 }
 
 .group > p {
-  font-family: "Montserrat", sans-serif;
+    font-family: 'Poppins', sans-serif;
+
 }
 
 .change-group {
@@ -273,18 +312,26 @@
   color: white;
   padding: 0.5vw 1vw;
   border-width: 0px;
-  font-family: "Montserrat", sans-serif;
+    font-family: 'Poppins', sans-serif;
+
   border-radius: 15px;
 
   margin-left: 1vw;
+}
+
+.type-count-first{
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
 }
 
 .type-count {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  background: #d4e7f7;
+  background: #e5dbf7;
   width: 100%;
+  padding-left: 4%;
+  padding-right: 4%;
 }
 
 .collapsible {
@@ -329,4 +376,42 @@
     width: 90%;
     position: absolute;
   }
+  .view-result-button {
+    padding: 1vw 1.5vw;
+    width: 100px;
+  }
+  .active{
+    padding: 2vw;
+    height: 80vh;
+  }
+  .active-quiz {
+    padding: 5vw;
+  }
+  
+}
+
+@keyframes wipe-in-down {
+  from {
+    clip-path: inset(0 0 100% 0);
+  }
+  to {
+    clip-path: inset(0 0 0 0);
+  }
+}
+
+[transition-style="in:wipe:down"] {
+  animation: 2.5s cubic-bezier(.25, 1, .30, 1) wipe-in-down both;
+}
+
+@keyframes wipe-in-right {
+  from {
+    clip-path: inset(0 100% 0 0);
+  }
+  to {
+    clip-path: inset(0 0 0 0);
+  }
+}
+
+[transition-style="in:wipe:right"] {
+  animation: 2.5s cubic-bezier(.25, 1, .30, 1) wipe-in-right both;
 }

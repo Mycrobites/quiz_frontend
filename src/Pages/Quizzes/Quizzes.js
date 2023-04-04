@@ -143,7 +143,7 @@ function Quizzes() {
           <NavBar show={show} setShow={setShow} />
 
           <div className="content-home">
-            <div className={show ? "side-bar" : "side-bar side_toggle"}>
+            <div className={show ? "side-bar" : "side-bar side_toggle"} transition-style="in:wipe:right">
               <div className="transparent">
                 {groupnames.length > 0 &&
                   groupnames.map((group, idx) => {
@@ -168,15 +168,15 @@ function Quizzes() {
                                 : "none",
                           }}
                         >
-                          <div className="type-count">
-                            <p
-                              className="side-bar-item"
-                              onClick={() => {
+                          <div className="type-count type-count-first" onClick={() => {
                                 setactive(true);
                                 setupcoming(false);
                                 setattempted(false);
                                 setmissed(false);
-                              }}
+                              }}>
+                            <p
+                              className="side-bar-item"
+                              
                             >
                               Active{" "}
                             </p>
@@ -184,15 +184,15 @@ function Quizzes() {
                               {quizCounts[idx].active}
                             </p>
                           </div>
-                          <div className="type-count">
-                            <p
-                              className="side-bar-item"
-                              onClick={() => {
+                          <div className="type-count" onClick={() => {
                                 setactive(false);
                                 setupcoming(true);
                                 setattempted(false);
                                 setmissed(false);
-                              }}
+                              }}>
+                            <p
+                              className="side-bar-item"
+                              
                             >
                               Upcoming
                             </p>
@@ -201,15 +201,15 @@ function Quizzes() {
                             </p>
                           </div>
 
-                          <div className="type-count">
-                            <p
-                              className="side-bar-item"
-                              onClick={() => {
+                          <div className="type-count" onClick={() => {
                                 setactive(false);
                                 setupcoming(false);
                                 setattempted(true);
                                 setmissed(false);
-                              }}
+                              }}>
+                            <p
+                              className="side-bar-item"
+                              
                             >
                               Attempted
                             </p>
@@ -218,19 +218,19 @@ function Quizzes() {
                             </p>
                           </div>
 
-                          <div className="type-count">
-                            <p
-                              className="side-bar-item"
-                              onClick={() => {
+                          <div className="type-count-last type-count"  onClick={() => {
                                 setactive(false);
                                 setupcoming(false);
                                 setattempted(false);
                                 setmissed(true);
-                              }}
+                              }} >
+                            <p
+                              className="side-bar-item missed"
+                             style={{borderBottomLeftRadius:"10px"}}
                             >
                               Missed
                             </p>
-                            <p className="side-bar-item">
+                            <p className="side-bar-item missednumber" style={{borderBottomRightRadius:"10px"}}>
                               {quizCounts[idx].missed}
                             </p>
                           </div>
@@ -240,11 +240,11 @@ function Quizzes() {
                   })}
               </div>
             </div>
-            <div className="main-bar">
+            <div className="main-bar" transition-style="in:wipe:down">
               {activequiz.length > 0 &&
-                upcoming == false &&
-                attempted == false &&
-                missed == false &&
+                upcoming === false &&
+                attempted === false &&
+                missed === false &&
                 data.length > 0 && (
                   <div className="active">
                     <div className="active-active">
@@ -254,7 +254,7 @@ function Quizzes() {
                     </div>
                     {activequiz.map((quiz, index) => {
                       return (
-                        <div className="active-quiz">
+                        <div className="active-quiz" key={index}>
                           <div className="active-quiz-description">
                             <p className="active-quiz-title">
                               {ReactHtmlParser(quiz.title)}
@@ -299,15 +299,15 @@ function Quizzes() {
                   </div>
                 )}
 
-              {activequiz.length == 0 &&
-                upcoming == false &&
-                attempted == false &&
-                missed == false &&
+              {activequiz.length === 0 &&
+                upcoming === false &&
+                attempted === false &&
+                missed === false &&
                 data.length > 0 && (
                   <div className="active">
                     <div className="active-active">
                       <p className="active-title">
-                        {data[index].name} - Active
+                        {data[index].name} 
                       </p>
                     </div>
                     <div className="active-quiz">
@@ -319,9 +319,9 @@ function Quizzes() {
                 )}
 
               {upcomingquiz.length > 0 &&
-                active == false &&
-                attempted == false &&
-                missed == false &&
+                active === false &&
+                attempted === false &&
+                missed === false &&
                 data.length > 0 && (
                   <div className="active">
                     <div className="active-active">
@@ -370,10 +370,10 @@ function Quizzes() {
                   </div>
                 )}
 
-              {upcomingquiz.length == 0 &&
-                active == false &&
-                attempted == false &&
-                missed == false &&
+              {upcomingquiz.length === 0 &&
+                active === false &&
+                attempted === false &&
+                missed === false &&
                 data.length > 0 && (
                   <div className="active">
                     <div className="active-active">
@@ -390,9 +390,9 @@ function Quizzes() {
                 )}
 
               {missedquiz.length > 0 &&
-                active == false &&
-                attempted == false &&
-                upcoming == false &&
+                active === false &&
+                attempted === false &&
+                upcoming === false &&
                 data.length > 0 && (
                   <div className="active">
                     <div className="active-active">
@@ -438,10 +438,10 @@ function Quizzes() {
                   </div>
                 )}
 
-              {missedquiz.length == 0 &&
-                active == false &&
-                attempted == false &&
-                upcoming == false &&
+              {missedquiz.length === 0 &&
+                active === false &&
+                attempted === false &&
+                upcoming === false &&
                 data.length > 0 && (
                   <div className="active">
                     <div className="active-active">
@@ -458,9 +458,9 @@ function Quizzes() {
                 )}
 
               {attemptedquiz.length > 0 &&
-                active == false &&
-                missed == false &&
-                upcoming == false &&
+                active === false &&
+                missed === false &&
+                upcoming === false &&
                 data && (
                   <div className="active">
                     <div className="active-active">
@@ -518,10 +518,10 @@ function Quizzes() {
                   </div>
                 )}
 
-              {attemptedquiz.length == 0 &&
-                active == false &&
-                missed == false &&
-                upcoming == false &&
+              {attemptedquiz.length === 0 &&
+                active === false &&
+                missed === false &&
+                upcoming === false &&
                 data.length > 0 && (
                   <div className="active">
                     <div className="active-active">

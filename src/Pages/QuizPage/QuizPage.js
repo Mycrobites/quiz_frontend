@@ -84,6 +84,7 @@ const QuizPage = () => {
       } else return ques;
     });
     setResponses(newResponses);
+    console.log("newResponses", newResponses)
     sessionStorage.setItem("quiz-responses", JSON.stringify(newResponses));
   };
 
@@ -114,14 +115,16 @@ const QuizPage = () => {
       };
       const res = {
         quiz: id,
-        user: userDetails?.user_id,
+        user: userDetails.user_id,
         response: responses.map((res) => ({
           key: res.key,
           answer: res.selectetedAnswer,
         })),
         time_taken: userCurrentQuiz?.test_time
       };
+      console.log("response", res)
       await axios.post("/api/create-response", res, config);
+      console.log("response", res)
       submitTest();
       history.push(`/feedback/`);
       // removeUser();
@@ -285,27 +288,23 @@ const QuizPage = () => {
               ></div>
             </div>
             <div className="question-page-left">
+            <h3>Question: {index + 1}</h3>
               <div className="quiz-question">
-                <h3>Question: {index + 1}</h3>
+                
                 <div className="question-details">
                   <h2>
                     <MathJax.Html html={quiz[index]?.question} />
                   </h2>
                   <div className="marks-distribution">
-                    <p>Correct: {quiz[index]?.correct_marks} marks</p>
+                    <p><span style={{color: "#05c705"}}>Correct:</span> {quiz[index]?.correct_marks} marks</p>
                     <p>
-                      Incorrect:{" "}
+                      <span style={{color:"red"}}>Incorrect:</span> {" "}
                       {quiz[index]?.negative_marks === 0
                         ? quiz[index]?.negative_marks
                         : `-${quiz[index]?.negative_marks}`}{" "}
                       marks
                     </p>
-                    <p className="flag-question" onClick={handleFlagQuestion}>
-                      <IoFlag />
-                      {responses[index]?.flag
-                        ? "Unflag Question"
-                        : "Flag Question"}
-                    </p>
+                    
                   </div>
                 </div>
 
@@ -335,32 +334,39 @@ const QuizPage = () => {
                     />
                   )}
                 </div>
+                <p className="flag-question-quiz" onClick={handleFlagQuestion}>
+                      <IoFlag />
+                      {responses[index]?.flag
+                        ? "Unflag Question"
+                        : "Flag Question"}
+                    </p>
               </div>
               <div className="navigation-btn">
                 <button
-                  style={{ display: "block" }}
+                  style={{ display: "flex" }}
                   disabled={index === 0 ? true : false}
                   onClick={handlePrevious}
                 >
                   Previous
                 </button>
-                {index === quiz.length - 1 && (
-                  <button
-                    style={{ display: "block" }}
-                    onClick={() => setShowSubmit(true)}
-                  >
-                    Submit test
-                  </button>
-                )}
+                
                 <button
-                  style={{ display: "block" }}
+                  style={{ display: "flex" }}
                   disabled={index === quiz.length - 1 ? true : false}
                   onClick={handleNext}
                 >
                   Next
                 </button>
-                <button onClick={clearResponse}>Clear Response</button>
+                <button onClick={clearResponse} style={{ display: "flex" }}>Clear Response</button>
                 {/* <button onClick={saveResponse} disabled = {saveAndContinueDisabeled}>Save and continue</button> */}
+                {index === quiz.length - 1 && (
+                  <button
+                    style={{ display: "flex" }}
+                    onClick={() => setShowSubmit(true)}
+                  >
+                    Submit Test
+                  </button>
+                )}
               </div>
             </div>
             {showSubmit && (

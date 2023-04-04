@@ -52,32 +52,35 @@ const StudentReport = () => {
     }
     setIsLoading(false);
   };
+  // console.log("User Dataaaaa",userData)
 
   const handleOverallDifficulty = () => {
     // console.log("USER DATA ANALYSIS:", userData.analysis[`Question 1`]);
     console.log("HANDLEOVERALLDIFFICULTY");
     let diff = new Array(3);
-    const { analysis } = userData;
-    console.log(analysis);
+    const analysis = userData;
+    // console.log("analysis",analysis);
+    // console.log("analysis Id",analysis.id);
     for (const key in analysis) {
+      // console.log("keyyy",key)
       // console.log(`${key}: ${analysis[key]}`);
-      if (key.includes("dificulty")) {
+      if (key.includes("subjectwise_difficulty")) {
         if (key.includes("Easy")) {
-          console.log(analysis[key]);
+          console.log("easy ",analysis[key]);
           diff[0] = analysis[key];
         }
         if (key.includes("Medium")) {
-          console.log(analysis[key]);
+          console.log("medium ",analysis[key]);
           diff[1] = analysis[key];
         }
         if (key.includes("Hard")) {
-          console.log(analysis[key]);
+          console.log("hard ",analysis[key]);
           diff[2] = analysis[key];
         }
         // diff.push(userData.analysis[key]);
       }
     }
-    console.log(diff);
+    console.log("difficulty",diff);
     setOverallDifficulty(diff);
   };
 
@@ -117,77 +120,81 @@ const StudentReport = () => {
         <>
           <div className="report-card">
             <div className="report-nav">
-              <button
-                style={{
-                  backgroundColor: isScoreCard ? "#ffffff" : "#214786",
-                  color: isScoreCard ? "#214786" : "#ffffff",
-                  outline: "none",
-                  border: "none",
-                  marginRight: "2px",
-                }}
-                className="nav-item-2 scorecard "
-                onClick={() => {
-                  setIsScoreCard(true);
-                  setIsSubjectReport(false);
-                  setIsComparativeReport(false);
-                  setAnswerkey(false);
-                }}
-              >
-                Scorecard
-              </button>
-              <button
-                className="nav-item-2 subject-report"
-                style={{
-                  backgroundColor: isSubjectReport ? "#ffffff" : "#214786",
-                  color: isSubjectReport ? "#214786" : "#ffffff",
-                  outline: "none",
-                  border: "none",
-                  marginRight: "2px",
-                }}
-                onClick={() => {
-                  setIsSubjectReport(true);
-                  setIsScoreCard(false);
-                  setIsComparativeReport(false);
-                  setAnswerkey(false);
-                }}
-              >
-                Subject Report
-              </button>
-              <button
-                className="nav-item-2 comparative-report"
-                style={{
-                  backgroundColor: isComparativeReport ? "#ffffff" : "#214786",
-                  color: isComparativeReport ? "#214786" : "#ffffff",
-                  outline: "none",
-                  border: "none",
-                  marginRight: "2px",
-                }}
-                onClick={() => {
-                  setIsComparativeReport(true);
-                  setIsScoreCard(false);
-                  setIsSubjectReport(false);
-                  setAnswerkey(false);
-                }}
-              >
-                Comparative Report
-              </button>
-              <button
-                className="nav-item-2 comparative-report"
-                style={{
-                  backgroundColor: answerkey ? "#ffffff" : "#214786",
-                  color: answerkey ? "#214786" : "#ffffff",
-                  outline: "none",
-                  border: "none",
-                }}
-                onClick={() => {
-                  setIsComparativeReport(false);
-                  setIsScoreCard(false);
-                  setIsSubjectReport(false);
-                  setAnswerkey(true);
-                }}
-              >
-                Q & A List
-              </button>
+              <div className="report-center" >
+                <button
+                  style={{
+                    backgroundColor: isScoreCard ? "#ffffff" : "#214786",
+                    color: "#ffffff",
+                    textDecoration: isScoreCard ? "underline": "",
+                    outline: "none",
+                    border: "none",
+                    marginRight: "2px",
+                  }}
+                  className="nav-item-2 scorecard "
+                  onClick={() => {
+                    setIsScoreCard(true);
+                    setIsSubjectReport(false);
+                    setIsComparativeReport(false);
+                    setAnswerkey(false);
+                  }}
+                >
+                  Scorecard
+                </button>
+                <button
+                  className="nav-item-2 subject-report"
+                  style={{
+                    backgroundColor: isSubjectReport ? "#ffffff" : "#214786",
+                    color: isSubjectReport ? "white" : "#ffffff",
+                    outline: "none",
+                    border: "none",
+                    marginRight: "2px",
+                  }}
+                  onClick={() => {
+                    setIsSubjectReport(true);
+                    setIsScoreCard(false);
+                    setIsComparativeReport(false);
+                    setAnswerkey(false);
+                  }}
+                >
+                  Subject Report
+                </button>
+                <button
+                  className="nav-item-2 comparative-report"
+                  style={{
+        
+                    color:"#ffffff",
+                    textDecoration: isComparativeReport ? "underline" : "",
+                    outline: "none",
+                    border: "none",
+                    marginRight: "2px",
+                  }}
+                  onClick={() => {
+                    setIsComparativeReport(true);
+                    setIsScoreCard(false);
+                    setIsSubjectReport(false);
+                    setAnswerkey(false);
+                  }}
+                >
+                  Comparative Report
+                </button>
+                <button
+                  className="nav-item-2 comparative-report"
+                  style={{
+                    backgroundColor: answerkey ? "#ffffff" : "#214786",
+                    color: answerkey ? "#214786" : "#ffffff",
+                    outline: "none",
+                    border: "none",
+                  }}
+                  onClick={() => {
+                    setIsComparativeReport(false);
+                    setIsScoreCard(false);
+                    setIsSubjectReport(false);
+                    setAnswerkey(true);
+                  }}
+                >
+                  Q & A List
+                </button>
+              </div>
             </div>
           </div>
           {isScoreCard && (
@@ -215,18 +222,18 @@ const StudentReport = () => {
                   onClick={() => console.log("+=>", userData)}
                 >
                   Accuracy:
-                  <span style={{ color: "#214786", fontWeight: "600" }}>{`${(
+                  <span style={{ color: "black", fontWeight: "600" }}>{` ${(
                     (userData.correctquestion / userData.totalquestion) *
                     100
                   ).toFixed(2)}`}</span>
                 </p>
                 <p className="attempted">
                   Total attempted questions:
-                  <span style={{ color: "#214786", fontWeight: "700" }}>
-                    {`Total attempted Questions: ${userData.attempted} of ${userData.totalquestion} (Correct:${userData.correctquestion} Incorrect:${userData.incorrectquestion})`}
+                  <span style={{ color: "black", fontWeight: "600" }}>
+                    {`Total attempted Questions: ${userData.attempted} of ${userData.totalquestion} (Correct: ${userData.correctquestion} Incorrect: ${userData.incorrectquestion})`}
                   </span>
                 </p>
-                <p className="pace">Pace: {userData.time_taken}</p>
+                <p className="pace">Pace: <span style={{fontWeight: "600"}}>{userData.time_taken}</span></p>
               </div>
               <div className="graph">
                 <div className="bar-graph">
@@ -235,7 +242,7 @@ const StudentReport = () => {
                     chartType="Bar"
                     loader={<div>Loading Chart</div>}
                     data={[
-                      ["", "Easy", "Medium", "Hard"],
+                      ["Attempted Questions", "Easy", "Medium", "Hard"],
                       [
                         "Correct",
                         overallDifficulty[0]?.correct_questions,
@@ -271,8 +278,6 @@ const StudentReport = () => {
                 </div>
                 <div className="pie-chart">
                   <Chart
-                    width={"100%"}
-                    height={"auto"}
                     className="PieChart"
                     chartType="PieChart"
                     loader={<div>Loading Chart</div>}
@@ -294,7 +299,7 @@ const StudentReport = () => {
           {answerkey && (
             <div className="answerkey">
               <h3 className="answer-key-title">Answer Key</h3>
-              {quizResponses.map((response, index) => {
+              {quizResponses && quizResponses.map((response, index) => {
                 return (
                   <div key={index} className="answer">
                     <div
@@ -312,12 +317,12 @@ const StudentReport = () => {
                         style={{
                           background:
                             response["your answer"] ===
-                            response["correct answer"]
+                              response["correct answer"]
                               ? "#66ff33"
                               : "red",
                           color:
                             response["your answer"] ===
-                            response["correct answer"]
+                              response["correct answer"]
                               ? "black"
                               : "white",
                         }}
@@ -347,7 +352,8 @@ const StudentReport = () => {
                   </p> */}
                 </div>
                 <div className="subject">
-                  {Object.keys(subjectwiseDifficulty[0]).map((key) => {
+                  {Object.keys(subjectwiseDifficulty).length!=0 && Object.keys(subjectwiseDifficulty).map((key) => {
+                    console.log("jhjc",subjectwiseDifficulty)
                     return (
                       <div>
                         <h3 className="subject-title">{key}</h3>
@@ -359,52 +365,52 @@ const StudentReport = () => {
                                 ? subjectwiseDifficulty[0][key]?.Easy?.correct
                                 : 0 +
                                   subjectwiseDifficulty[0][key]?.Medium?.correct
-                                ? subjectwiseDifficulty[0][key]?.Medium?.correct
-                                : 0 +
-                                  subjectwiseDifficulty[0][key]?.Hard?.correct
-                                ? subjectwiseDifficulty[0][key]?.Hard?.correct
-                                : 0) /
+                                  ? subjectwiseDifficulty[0][key]?.Medium?.correct
+                                  : 0 +
+                                    subjectwiseDifficulty[0][key]?.Hard?.correct
+                                    ? subjectwiseDifficulty[0][key]?.Hard?.correct
+                                    : 0) /
                                 ((subjectwiseDifficulty[0][key]?.Easy?.correct
                                   ? subjectwiseDifficulty[0][key]?.Easy?.correct
                                   : 0 +
                                     subjectwiseDifficulty[0][key]?.Medium
                                       ?.correct
-                                  ? subjectwiseDifficulty[0][key]?.Medium
+                                    ? subjectwiseDifficulty[0][key]?.Medium
                                       ?.correct
-                                  : 0 +
-                                    subjectwiseDifficulty[0][key]?.Hard?.correct
-                                  ? subjectwiseDifficulty[0][key]?.Hard?.correct
-                                  : 0) +
+                                    : 0 +
+                                      subjectwiseDifficulty[0][key]?.Hard?.correct
+                                      ? subjectwiseDifficulty[0][key]?.Hard?.correct
+                                      : 0) +
                                   (subjectwiseDifficulty[0][key]?.Easy
                                     ?.incorrect
                                     ? subjectwiseDifficulty[0][key]?.Easy
-                                        ?.incorrect
+                                      ?.incorrect
                                     : 0 +
                                       subjectwiseDifficulty[0][key]?.Medium
                                         ?.incorrect
-                                    ? subjectwiseDifficulty[0][key]?.Medium
+                                      ? subjectwiseDifficulty[0][key]?.Medium
                                         ?.incorrect
-                                    : 0 +
-                                      subjectwiseDifficulty[0][key]?.Hard
-                                        ?.incorrect
-                                    ? subjectwiseDifficulty[0][key]?.Hard
-                                        ?.incorrect
-                                    : 0) +
+                                      : 0 +
+                                        subjectwiseDifficulty[0][key]?.Hard
+                                          ?.incorrect
+                                        ? subjectwiseDifficulty[0][key]?.Hard
+                                          ?.incorrect
+                                        : 0) +
                                   (subjectwiseDifficulty[0][key]?.Easy
                                     ?.not_attempted
                                     ? subjectwiseDifficulty[0][key]?.Easy
-                                        ?.not_attempted
+                                      ?.not_attempted
                                     : 0 +
                                       subjectwiseDifficulty[0][key]?.Medium
                                         ?.not_attempted
-                                    ? subjectwiseDifficulty[0][key]?.Medium
+                                      ? subjectwiseDifficulty[0][key]?.Medium
                                         ?.not_attempted
-                                    : 0 +
-                                      subjectwiseDifficulty[0][key]?.Hard
-                                        ?.not_attempted
-                                    ? subjectwiseDifficulty[0][key]?.Hard
-                                        ?.not_attempted
-                                    : 0))) *
+                                      : 0 +
+                                        subjectwiseDifficulty[0][key]?.Hard
+                                          ?.not_attempted
+                                        ? subjectwiseDifficulty[0][key]?.Hard
+                                          ?.not_attempted
+                                        : 0))) *
                               100
                             ).toFixed(2)}`}{" "}
                             %
@@ -413,69 +419,66 @@ const StudentReport = () => {
                         <p className="h-2">
                           Total Attempted Questions :{" "}
                           <span style={{ color: "#214786", fontWeight: "600" }}>
-                            {`${
-                              (subjectwiseDifficulty[0][key]?.Easy?.correct
+                            {`${(subjectwiseDifficulty[0][key]?.Easy?.correct
                                 ? subjectwiseDifficulty[0][key]?.Easy?.correct
                                 : 0 +
                                   subjectwiseDifficulty[0][key]?.Medium?.correct
-                                ? subjectwiseDifficulty[0][key]?.Medium?.correct
-                                : 0 +
-                                  subjectwiseDifficulty[0][key]?.Hard?.correct
-                                ? subjectwiseDifficulty[0][key]?.Hard?.correct
-                                : 0) +
+                                  ? subjectwiseDifficulty[0][key]?.Medium?.correct
+                                  : 0 +
+                                    subjectwiseDifficulty[0][key]?.Hard?.correct
+                                    ? subjectwiseDifficulty[0][key]?.Hard?.correct
+                                    : 0) +
                               (subjectwiseDifficulty[0][key]?.Easy?.incorrect
                                 ? subjectwiseDifficulty[0][key]?.Easy?.incorrect
                                 : 0 +
                                   subjectwiseDifficulty[0][key]?.Medium
                                     ?.incorrect
-                                ? subjectwiseDifficulty[0][key]?.Medium
+                                  ? subjectwiseDifficulty[0][key]?.Medium
                                     ?.incorrect
-                                : 0 +
-                                  subjectwiseDifficulty[0][key]?.Hard?.incorrect
-                                ? subjectwiseDifficulty[0][key]?.Hard?.incorrect
-                                : 0) +
+                                  : 0 +
+                                    subjectwiseDifficulty[0][key]?.Hard?.incorrect
+                                    ? subjectwiseDifficulty[0][key]?.Hard?.incorrect
+                                    : 0) +
                               (subjectwiseDifficulty[0][key]?.Easy
                                 ?.not_attempted
                                 ? subjectwiseDifficulty[0][key]?.Easy
-                                    ?.not_attempted
+                                  ?.not_attempted
                                 : 0 +
                                   subjectwiseDifficulty[0][key]?.Medium
                                     ?.not_attempted
-                                ? subjectwiseDifficulty[0][key]?.Medium
+                                  ? subjectwiseDifficulty[0][key]?.Medium
                                     ?.not_attempted
-                                : 0 +
-                                  subjectwiseDifficulty[0][key]?.Hard
-                                    ?.not_attempted
-                                ? subjectwiseDifficulty[0][key]?.Hard
-                                    ?.not_attempted
-                                : 0)
-                            }`}{" "}
+                                  : 0 +
+                                    subjectwiseDifficulty[0][key]?.Hard
+                                      ?.not_attempted
+                                    ? subjectwiseDifficulty[0][key]?.Hard
+                                      ?.not_attempted
+                                    : 0)
+                              }`}{" "}
                             (Correct:
-                            {`${
-                              subjectwiseDifficulty[0][key]?.Easy?.correct
+                            {`${subjectwiseDifficulty[0][key]?.Easy?.correct
                                 ? subjectwiseDifficulty[0][key]?.Easy?.correct
                                 : 0 +
                                   subjectwiseDifficulty[0][key]?.Medium?.correct
-                                ? subjectwiseDifficulty[0][key]?.Medium?.correct
-                                : 0 +
-                                  subjectwiseDifficulty[0][key]?.Hard?.correct
-                                ? subjectwiseDifficulty[0][key]?.Hard?.correct
-                                : 0
-                            }`}{" "}
+                                  ? subjectwiseDifficulty[0][key]?.Medium?.correct
+                                  : 0 +
+                                    subjectwiseDifficulty[0][key]?.Hard?.correct
+                                    ? subjectwiseDifficulty[0][key]?.Hard?.correct
+                                    : 0
+                              }`}{" "}
                             , Incorrect:
-                            {`${
-                              subjectwiseDifficulty[0][key]?.Easy?.incorrect
+                            {`${subjectwiseDifficulty[0][key]?.Easy?.incorrect
                                 ? subjectwiseDifficulty[0][key]?.Easy?.incorrect
                                 : 0 +
                                   subjectwiseDifficulty[0][key]?.Medium
                                     ?.incorrect
-                                ? subjectwiseDifficulty[0][key]?.Medium
+                                  ? subjectwiseDifficulty[0][key]?.Medium
                                     ?.incorrect
-                                : 0 +
-                                  subjectwiseDifficulty[0][key]?.Hard?.incorrect
-                                ? subjectwiseDifficulty[0][key]?.Hard?.incorrect
-                                : 0
-                            }`}
+                                  : 0 +
+                                    subjectwiseDifficulty[0][key]?.Hard?.incorrect
+                                    ? subjectwiseDifficulty[0][key]?.Hard?.incorrect
+                                    : 0
+                              }`}
                             )
                           </span>
                         </p>
@@ -541,53 +544,53 @@ const StudentReport = () => {
                                   "Correct",
                                   subjectwiseDifficulty[0][key]?.Easy?.correct
                                     ? subjectwiseDifficulty[0][key]?.Easy
-                                        ?.correct
+                                      ?.correct
                                     : 0 +
                                       subjectwiseDifficulty[0][key]?.Medium
                                         ?.correct
-                                    ? subjectwiseDifficulty[0][key]?.Medium
+                                      ? subjectwiseDifficulty[0][key]?.Medium
                                         ?.correct
-                                    : 0 +
-                                      subjectwiseDifficulty[0][key]?.Hard
-                                        ?.correct
-                                    ? subjectwiseDifficulty[0][key]?.Hard
-                                        ?.correct
-                                    : 0,
+                                      : 0 +
+                                        subjectwiseDifficulty[0][key]?.Hard
+                                          ?.correct
+                                        ? subjectwiseDifficulty[0][key]?.Hard
+                                          ?.correct
+                                        : 0,
                                 ],
                                 [
                                   "Incorrect",
                                   subjectwiseDifficulty[0][key]?.Easy?.incorrect
                                     ? subjectwiseDifficulty[0][key]?.Easy
-                                        ?.incorrect
+                                      ?.incorrect
                                     : 0 +
                                       subjectwiseDifficulty[0][key]?.Medium
                                         ?.incorrect
-                                    ? subjectwiseDifficulty[0][key]?.Medium
+                                      ? subjectwiseDifficulty[0][key]?.Medium
                                         ?.incorrect
-                                    : 0 +
-                                      subjectwiseDifficulty[0][key]?.Hard
-                                        ?.incorrect
-                                    ? subjectwiseDifficulty[0][key]?.Hard
-                                        ?.incorrect
-                                    : 0,
+                                      : 0 +
+                                        subjectwiseDifficulty[0][key]?.Hard
+                                          ?.incorrect
+                                        ? subjectwiseDifficulty[0][key]?.Hard
+                                          ?.incorrect
+                                        : 0,
                                 ],
                                 [
                                   "Unattempted",
                                   subjectwiseDifficulty[0][key]?.Easy
                                     ?.not_attempted
                                     ? subjectwiseDifficulty[0][key]?.Easy
-                                        ?.not_attempted
+                                      ?.not_attempted
                                     : 0 +
                                       subjectwiseDifficulty[0][key]?.Medium
                                         ?.not_attempted
-                                    ? subjectwiseDifficulty[0][key]?.Medium
+                                      ? subjectwiseDifficulty[0][key]?.Medium
                                         ?.not_attempted
-                                    : 0 +
-                                      subjectwiseDifficulty[0][key]?.Hard
-                                        ?.not_attempted
-                                    ? subjectwiseDifficulty[0][key]?.Hard
-                                        ?.not_attempted
-                                    : 0,
+                                      : 0 +
+                                        subjectwiseDifficulty[0][key]?.Hard
+                                          ?.not_attempted
+                                        ? subjectwiseDifficulty[0][key]?.Hard
+                                          ?.not_attempted
+                                        : 0,
                                 ],
                               ]}
                               options={{

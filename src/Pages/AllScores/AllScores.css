@@ -1,16 +1,18 @@
 .all-scores {
   background: #f3f3f3;
   padding-bottom: 6vh;
-  font-family: "Montserrat", sans-serif;
+    font-family: 'Poppins', sans-serif;
+
   height: 120vh;
 }
 
 .all-scores-title {
   font-size: 5vh;
-  font-family: "Montserrat", sans-serif;
+  font-family: 'Poppins', sans-serif;
+  text-align: center;
   padding-top: 5vh;
   font-weight: 800;
-  margin-left: 42vw;
+
 }
 
 .tests {
@@ -19,11 +21,13 @@
   margin-left: 18vw;
   margin-right: 18vw;
   justify-content: space-around;
-  font-family: "Montserrat", sans-serif;
+    font-family: 'Poppins', sans-serif;
+
 }
 
 .tests > p {
-  font-family: "Montserrat", sans-serif;
+    font-family: 'Poppins', sans-serif;
+
   font-weight: bolder;
 }
 
@@ -45,6 +49,7 @@
 }
 
 .tests-card > p {
-  font-family: "Montserrat", sans-serif;
+    font-family: 'Poppins', sans-serif;
+
   background: white;
 }

@@ -43,11 +43,11 @@ const Instruction = ({ match }) => {
     <div className="instruction-page">
       <div className="instruction-container">
         <div className="instruction-header">
-          <h1>Test Instruction</h1>
+          <h1>Test Instructions</h1>
           <p>Please read the instructions carefully.</p>
         </div>
 
-        <div className="instruction-two">
+        <div className="instruction-two" style={{textAlign: "center"}}>
           <p>{ReactHtmlParser(instructions)}</p>
         </div>
         <div className="instruction-timer">
@@ -55,7 +55,7 @@ const Instruction = ({ match }) => {
           <Timer onComplete={onComplete} duration={30000} />
           {showbtn && (
             <button
-              onClick={() => history.push(`/quizpage/${userCurrentQuiz.id}`)}
+              onClick={() => history.push(`/quizpage/${userCurrentQuiz.id}`)} className="instruction-button"
             >
               Proceed to Test
             </button>

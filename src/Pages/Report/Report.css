@@ -3,13 +3,14 @@
   margin-top: 2vh;
   margin-bottom: 2vh;
   font-size: 4vh;
-  font-family: "Montserrat", sans-serif;
+    font-family: 'Poppins', sans-serif;
+
   font-weight: 600;
 }
 
 .active {
   background-color: white;
-  color: #214786;
+  color: white;
 }
 
 .time {
@@ -17,54 +18,54 @@
   color: gray;
   margin-left: 3vw;
   margin-top: 1vh;
-  font-family: "Montserrat", sans-serif;
+    font-family: 'Poppins', sans-serif;
+
 }
 
-.report-card {
-  border-top: 1.5px solid lightgray;
-  margin-left: 3vw;
-  margin-right: 3vw;
-  margin-top: 8vh;
-}
 
 .report-nav {
   display: flex;
   align-items: center;
-  margin-left: 0.3vw;
-  margin-top: 0.5vh;
+  background: #6D3FC7;
+  height: 12vh;
+  width: 100%;
 }
 
 .nav-item-2 {
-  background: #214786;
+  background: #6D3FC7 !important;
   color: white;
-  padding-right: 1vw;
-  padding-left: 1vw;
-  padding-top: 2vh;
-  padding-bottom: 2vh;
-  font-family: "Montserrat", sans-serif;
-  border-right: 2.5px solid white;
+  padding: 1vw 1vw;
+    font-family: 'Poppins', sans-serif;
+
+  font-size: medium;
 }
 
-.nav-item:hover {
+.nav-item-2:hover {
   background: white;
   border-top: 3px solid #214786;
-  color: #214786;
+  color: white;
+  text-decoration: underline;
+  transition: 0.2s all;
 }
 
 .container {
-  margin: 0 auto;
-  width: 80%;
+  width: 100%;
+  padding: 2% 5%;
+  overflow-x: hidden;
 }
-
+.active{
+  color: white !important;
+}
 .rank {
   display: flex;
   margin-top: 4vh;
+  width: 90vw;
 }
 
 .rank-card,
 .marks-card {
   background: #f5f5f5;
-  width: 100%;
+  
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -78,14 +79,16 @@
 }
 
 .rank-des {
-  font-family: "Montserrat", sans-serif;
+    font-family: 'Poppins', sans-serif;
+
   font-weight: bolder;
 }
 
 .rank-rank {
-  font-family: "Montserrat", sans-serif;
-  color: #214786;
-  font-weight: 900;
+    font-family: 'Poppins', sans-serif;
+
+  color: black;
+  font-weight: 400;
   font-size: 3vh;
 }
 
@@ -93,16 +96,18 @@
   margin-top: 4vh;
 }
 .score-txt {
-  font-family: "Montserrat", sans-serif;
-  font-weight: 600;
+    font-family: 'Poppins', sans-serif;
+
+  font-weight: 400;
   font-size: 2.5vh;
 }
 
 .accuracy-1,
 .attempted,
 .pace {
-  font-family: "Montserrat", sans-serif;
-  font-weight: 600;
+    font-family: 'Poppins', sans-serif;
+
+  font-weight: 400;
   font-size: 2.5vh;
 }
 
@@ -116,7 +121,6 @@
 
 .graph {
   margin-top: 4vh;
-  display: flex;
   margin-bottom: 4vh;
 }
 
@@ -124,10 +128,15 @@
   border: 2px solid lightgray;
   margin-right: 6px;
   padding: 1.5vh;
+  width: 100%;
+  margin-bottom: 1%;
 }
 
 .pie-chart {
   border: 2px solid lightgray;
+  width: 100%;
+  z-index: 2;
+
 }
 
 .head_ {
@@ -135,13 +144,12 @@
   margin-top: 2vh;
   margin-bottom: 2vh;
   font-size: 4vh;
-  font-family: "Montserrat", sans-serif;
+    font-family: 'Poppins', sans-serif;
+
   font-weight: 600;
 }
 
-.container {
-  margin-left: 4vw;
-}
+
 
 @media (max-width: 628px) {
   .table {
@@ -155,4 +163,29 @@
   .col-5 {
     font-size: 2vw;
   }
+  .container{
+    overflow-y: scroll;
+    font-size: small !important;
+  }
+}
+
+@media only screen and (max-width: 900px) {
+  .container{
+  margin: auto;  
+  width: 100%;
+  padding: 0% 5%;
+}
+.rank{
+  display: block;
+}
+.score-txt{
+  font-size: large;
+}
+
+.accuracy-1,
+.attempted,
+.pace {
+  font-weight: 400;
+  font-size: large;
+}
 }

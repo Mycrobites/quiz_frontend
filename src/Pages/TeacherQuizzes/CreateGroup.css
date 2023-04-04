@@ -1,5 +1,6 @@
 .modal-title {
-  font-family: "Montserrat", sans-serif;
+    font-family: 'Poppins', sans-serif;
+
   font-weight: bolder;
   margin-left: 13vw;
   margin-right: 14vw;
@@ -18,7 +19,8 @@
 }
 
 .modal-label {
-  font-family: "Montserrat", sans-serif;
+    font-family: 'Poppins', sans-serif;
+
   margin-bottom: 2vh;
   font-weight: 600;
 }
@@ -28,11 +30,12 @@
   height: 5vh;
   padding-left: 0.5vw;
   padding-right: 0.5vw;
-  font-family: "Montserrat", sans-serif;
+    font-family: 'Poppins', sans-serif;
+
 }
 
 .create-group-button {
-  background: #008cff;
+  background: #6D3FC7;
   border-width: 0px;
   color: white;
   padding-left: 1vw;
@@ -58,7 +61,8 @@
 }
 
 .quiz-group-message-message {
-  font-family: "Montserrat", sans-serif;
+    font-family: 'Poppins', sans-serif;
+
   font-weight: 600;
   font-size: 2vh;
   background: #d4e7f7;

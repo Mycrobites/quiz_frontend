@@ -8,17 +8,21 @@ import './CreateGroup.css';
 import UserContext from "../../Context/UserContext";
 import axios from "../../axios/axios";
 import Loader from "../../Components/Loader/LoadingBar";
+import { BorderAllRounded } from "@material-ui/icons";
 
 const useStyles = makeStyles((theme) => ({
   modal: {
     display: 'flex',
     alignItems: 'center',
     justifyContent: 'center',
-    borderWidth:'0px'
+    
   },
   paper: {
     backgroundColor: theme.palette.background.paper,
     padding: theme.spacing(2, 4, 3),
+    border: 0,
+    borderRadius: 10,
+    borderColor: 'white'
   },
 }));
 

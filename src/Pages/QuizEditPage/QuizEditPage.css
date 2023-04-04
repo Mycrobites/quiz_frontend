@@ -3,6 +3,7 @@
   max-width: 998px;
   margin: 20px auto;
   padding-bottom: 20px;
+  font-family: 'Poppins', sans-serif;
 }
 
 .quiz-question-header {
@@ -27,7 +28,7 @@
   border: none;
   outline: none;
   color: white;
-  background: rgb(0, 140, 255);
+  background: #6D3FC7;
   cursor: pointer;
   padding: 5px 10px;
   font-size: 15px;
@@ -50,9 +51,9 @@
   justify-content: space-between;
   align-items: center !important;
   margin: 20px 0;
-  border: 1px solid rgba(0, 0, 0, 0.7);
   padding: 10px;
   border-radius: 8px;
+  background-color: #e5dbf7;
 }
 
 .qb-question .question-content {
@@ -143,7 +144,6 @@
 }
 
 .marks {
-  align-self: flex-start;
   margin-top: 10px;
   margin-left: 10px;
 }
@@ -151,7 +151,6 @@
 .marks p {
   font-size: 12px;
   font-weight: 600;
-  text-align: right;
   color: rgba(0, 0, 0, 0.6);
   margin-bottom: 3px;
 }
@@ -225,12 +224,14 @@
   padding-left: 10px !important;
 }
 .question-tags p {
-  border: 1px solid rgba(0, 0, 0, 0.5);
-  padding: 3px;
-  border-radius: 2px;
+  border: 0;
+  padding: 5px;
+  border-radius: 5px;
   margin: 0 5px;
   font-size: 12px;
   font-weight: 500;
+  background-color: #6D3FC7;
+  color: white;
 }
 
 .sdk {
@@ -267,5 +268,33 @@
 
 .sel1 {
   margin-left: 1vw;
-  font-family: "Montserrat", sans-serif;
+    font-family: 'Poppins', sans-serif;
+
+}
+select{
+  margin-top: 2px;
+}
+
+.filter-buttons button{
+  background-color: #6D3FC7;
+}
+
+@media (max-width: 599px){
+  .option > * {
+    font-size: 14px;
+    font-weight: 500;
+  }
+  .question-tags{
+    display: grid;
+    grid-template-columns: auto auto auto auto auto;
+  }
+  .qb-question{
+    display: block;
+  }
+  .marks{
+    display: flex;
+  }
+  .marks p{
+    margin: 10px;
+  }
 }

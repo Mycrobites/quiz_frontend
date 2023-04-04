@@ -22,7 +22,7 @@ function AllScores() {
   const [isLoading, setIsLoading] = useState(false);
   const [data, setData] = useState([]);
   const { userDetails } = useContext(UserContext);
-  // console.log(details);
+  console.log("UserDetails Context",userDetails);
 
   const fetchReportId = async () => {
     setIsLoading(true);
@@ -61,6 +61,7 @@ function AllScores() {
             <p>Test Title</p>
             {/* <p>Test Date</p> */}
           </div>
+          {console.log("Datamap",data)}
           {data.map((test, index) => {
             return (
               <div

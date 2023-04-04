@@ -2,17 +2,23 @@
   display: flex;
   /* align-items: center;
   justify-content: center; */
-  border: 2px solid lightgray;
   margin-top: 12vh;
   margin-right: 4vw;
   margin-left: 5.5vw;
 }
+table, td, th {
+  border: 1px solid lightgray;
+}
+table{
+  border-collapse: collapse;
+}
+td{
+  padding: 0.5%;
+}
+
 
 .col-1 {
   width: 30vw;
-  border-top: 2px solid lightgray;
-  border-right: 2px solid lightgray;
-  font-family: "Montserrat", sans-serif;
   margin-left: -10px;
   padding-top: 0.5vh;
   padding-bottom: 0.5vh;
@@ -21,33 +27,26 @@
 }
 
 .col-2 {
-  border-top: 2px solid lightgray;
-  border-right: 2px solid lightgray;
-  font-family: "Montserrat", sans-serif;
-  padding-left: 10vw;
+
+  text-align: center;
   font-size: 2.3vh;
 }
 .col-3 {
   width: 30vw;
-  border-top: 2px solid lightgray;
-  font-family: "Montserrat", sans-serif;
-  border-right: 2px solid lightgray;
-  padding-left: 10vw;
+  text-align: center;
   font-size: 2.3vh;
 }
 
 .col-4 {
   width: 30vw;
-  border-top: 2px solid lightgray;
-  font-family: "Montserrat", sans-serif;
-  padding-left: 10vw;
+
+  text-align: center;
   font-size: 2.3vh;
 }
 
 .col1 {
   width: 30vw;
-  border-right: 2px solid lightgray;
-  font-family: "Montserrat", sans-serif;
+
   padding-top: 1vh;
   padding-bottom: 1vh;
   font-size: 2.3vh;
@@ -55,33 +54,32 @@
 
 .col2 {
   width: 30vw;
-  border-right: 2px solid lightgray;
-  font-family: "Montserrat", sans-serif;
+  font-family: 'Poppins', sans-serif;
   padding-left: 2vw;
   padding-top: 1vh;
   padding-bottom: 1vh;
-  background: #214786;
+  background: #40189D;
   color: white;
   font-size: 2.3vh;
 }
 
 .col3 {
   width: 30vw;
-  border-right: 2px solid lightgray;
-  font-family: "Montserrat", sans-serif;
+  font-family: 'Poppins', sans-serif;
   padding-top: 1vh;
   padding-bottom: 1vh;
-  background: #214786;
+  background: #40189D;
   color: white;
   font-size: 2.3vh;
 }
 
 .col4 {
   width: 30vw;
-  font-family: "Montserrat", sans-serif;
+    font-family: 'Poppins', sans-serif;
+
   padding-top: 1vh;
   padding-bottom: 1vh;
-  background: #214786;
+  background: #40189D;
   color: white;
   font-size: 2.3vh;
 }
@@ -101,13 +99,15 @@
 }
 
 .answer-key-title {
-  font-family: "Montserrat", sans-serif;
+    font-family: 'Poppins', sans-serif;
+
   margin-top: 10vh;
   font-size: 4vh;
   margin-left: 38vw;
 }
 .number {
-  font-family: "Montserrat", sans-serif;
+    font-family: 'Poppins', sans-serif;
+
   margin-right: 1vw;
   font-weight: bolder;
   font-weight: 0.5vw;
@@ -127,7 +127,8 @@
   background: #66ff33;
   padding: 0.5vw;
   border-radius: 15px;
-  font-family: "Montserrat", sans-serif;
+    font-family: 'Poppins', sans-serif;
+
   font-size: 2.5vh;
   margin-left: 1vw;
 }

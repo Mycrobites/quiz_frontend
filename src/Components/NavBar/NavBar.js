@@ -38,7 +38,7 @@ const NavBar = ({ show, setShow }) => {
       </div> */}
 
         <div className="user-name-nav">
-          <p className="user-name-name">Hello , {userDetails.first_name}</p>
+          <p className="user-name-name">Hello, {userDetails.first_name}</p>
           <button onClick={removeUser} className="nav-logout" data-tip="logout">
             <FiLogOut />
           </button>

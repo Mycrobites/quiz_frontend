@@ -1,9 +1,11 @@
 .quiz-page {
-  width: 100%;
+  width: 100vw;
+  overflow-x: hidden;
   display: flex;
   justify-content: space-between;
   padding-top: 60px;
   line-height: 1.4;
+  font-family: 'Poppins', sans-serif;
 }
 
 .quiz-page img {
@@ -23,10 +25,13 @@
 }
 
 .navigation-btn {
-  display: flex;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: 1fr;
+  grid-column-gap: 10px;
+  grid-row-gap: 0px;
+  width: 90%;
   justify-content: space-between;
-  padding: 30px;
-  min-width: 700px;
 }
 
 .quiz-question {
@@ -37,6 +42,7 @@
   display: flex;
   flex-direction: column;
   align-items: stretch;
+  background-color: #e5dbf7;
 }
 
 .quiz-options {
@@ -64,7 +70,8 @@
 
 .question-details {
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
+  width: 100%;
   margin: 10px 0 30px 0;
 }
 
@@ -75,14 +82,14 @@
 }
 
 .marks-distribution {
-  position: relative;
+  display: block;
 }
 
 .marks-distribution > * {
   margin: 5px 0;
   font-weight: 500;
 }
-.marks-distribution .flag-question {
+.flag-question-quiz {
   cursor: pointer;
   display: flex;
   align-items: center;
@@ -99,39 +106,39 @@
 }
 
 .navigation-btn button {
-  display: flex;
-  justify-content: center;
   align-items: center;
+  justify-content: center;
+  width: 100%;
+  padding: 20px 50px;
   font-size: 1em;
-  width: 100px;
   height: 50px;
   cursor: pointer;
   border: none;
   outline: none;
   color: white;
   font-weight: 600;
-  background: rgb(0, 162, 255);
+  background: #6D3FC7;
+  border-radius: 10px;
 }
 
 .navigation-btn button:hover {
-  background: inherit;
-  color: black;
-  border: 1px solid black;
+  background: #5c23cf;
+  color: white;
 }
 
 .navigation-btn button:disabled {
-  opacity: 0.5;
+  opacity: 1;
   cursor: default;
 }
 .navigation-btn button:disabled:hover {
-  background-color: rgb(0, 162, 255);
+  background-color: #5f24d5;
   color: #fff;
   border: none;
 }
 
 .quiz-status {
   min-width: 250px;
-  border: 1px solid rgb(170, 170, 170);
+  border: 1px solid rgb(0, 0, 0);
   padding: 20px;
   display: flex;
   flex-direction: column;
@@ -139,6 +146,7 @@
   margin-right: 100px;
   min-height: 450px;
   margin-bottom: 20px;
+  border-radius: 10px;
 }
 
 .quiz-navigation-stats {
@@ -219,7 +227,7 @@
 }
 .question-progress {
   height: 100%;
-  background: rgb(0, 191, 255);
+  background: #6D3FC7;
 }
 .countdown-div {
   margin-bottom: 20px;
@@ -281,12 +289,12 @@
   outline: none;
   color: white;
   font-weight: 600;
-  background: rgb(0, 162, 255);
+  background: #6D3FC7;
 }
 .confirm-button button:hover {
   border: 1px solid black;
-  color: black;
-  background: white;
+  color: white;
+  background: #622ad1;
 }
 .submit-pop-text {
   font-size: 0.9em;
@@ -329,16 +337,17 @@
     width: 100%;
   }
   .navigation-btn {
-    display: flex;
-    justify-content: space-between;
-    padding: 50px;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: 1fr;
+    grid-column-gap: 5px;
+    grid-row-gap: 0px;
     width: 100%;
-    min-width: 200px;
   }
-  .navigation-btn button {
-    width: 100px;
-    height: 50px;
-    font-size: 0.85em;
+
+  .navigation-btn button{
+    width: 100%;
+    margin-bottom: 20px;
   }
   .marks-distribution > * {
     margin: 5px 0;
@@ -393,10 +402,39 @@
   .quiz-status {
     margin-right: 0;
   }
+  .navigation-btn {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: 1fr;
+    grid-column-gap: 5px;
+    grid-row-gap: 0px;
+    width: 100%;
+  }
+
+  .navigation-btn button{
+    width: 100%;
+  }
 }
 
 .checked-answer {
   background-color: rgb(0, 214, 0);
+}
+
+@media (max-width: 600px) {
+  .navigation-btn {
+    width: 100%;
+    padding: 20px 0;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+    grid-column-gap: 5px;
+    grid-row-gap: 5px;
+  }
+
+  .navigation-btn button{
+    width: 100%;
+    margin: 0;
+  }
 }
 
 @media (max-width: 500px) {
@@ -408,7 +446,18 @@
     width: 140px;
   }
   .navigation-btn {
-    padding: 50px 10px;
+    width: 100%;
+    padding: 20px 0;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+    grid-column-gap: 5px;
+    grid-row-gap: 5px;
+  }
+
+  .navigation-btn button{
+    width: 100%;
+    margin: 0;
   }
 }
 @media (max-width: 370px) {
@@ -419,7 +468,42 @@
     padding: 5px;
     width: 130px;
   }
-  .navigation-btn button {
-    width: 75px;
+  .navigation-btn {
+    width: auto;
+    padding: 20px 0;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+    grid-column-gap: 5px;
+    grid-row-gap: 5px;
+  }
+
+  .navigation-btn button{
+    width: 100%;
+    margin: 0;
+  }
+}
+
+@media (max-width: 300px) {
+  .submit-popup {
+    padding: 10px 15px;
+  }
+  .confirm-button button {
+    padding: 5px;
+    width: 130px;
+  }
+  .navigation-btn {
+    width: 100%;
+    padding: 20px 0;
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    grid-template-rows: repeat(4, 1fr);
+    grid-column-gap: 5px;
+    grid-row-gap: 5px;
+  }
+
+  .navigation-btn button{
+    width: 100%;
+    margin: 0;
   }
 }

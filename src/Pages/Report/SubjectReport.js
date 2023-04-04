@@ -88,6 +88,7 @@ function SubjectReport() {
         `/api/getresult/${username}/${id}`,
         config
       );
+      console.log("dataaa", data)
       if (data) {
         setIsLoading(false);
       }
@@ -135,6 +136,7 @@ function SubjectReport() {
         <>
           <p className="head">Subject Report</p>
           <p className="time">
+            {console.log("",day)}
             {day} , {ISTTime.getDate()} {month} {hoursIST} : {minutesIST} {ampm}
           </p>
           <div className="report-card">

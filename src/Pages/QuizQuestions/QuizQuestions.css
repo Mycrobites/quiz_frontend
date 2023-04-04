@@ -19,7 +19,7 @@
     align-items: center;
     outline: none;
     color: #fff;
-    background: rgb(0, 140, 255);
+    background: #6D3FC7;
     cursor: pointer;
     padding: 4px 10px;
     font-size: 1.1em;
@@ -27,12 +27,11 @@
     width: auto;
     border-radius: 5px;
     font-size: 15px;
-    border: 1px solid rgb(0, 140, 255);
+    border: 0;
   }
   .quiz-question-header-1 button:hover {
-    background: white;
-    color: black;
-    border: 1px solid black;  
+    background: #6228d6;
+    color: white;
 }
 
   
@@ -140,14 +139,13 @@
   .question-right-container .marks p {
     font-size: 12px;
     font-weight: 600;
-    text-align: right;
     color: rgba(0, 0, 0, 0.6);
     margin-bottom: 3px;
   }
   
   .question-right-container button {
-    margin-left: 50%;
-    transform: translateX(-50%);
+    margin-left: 0%;
+    /* transform: translateX(-50%); */
     margin-top: 5px;
   }
 
@@ -170,4 +168,10 @@
   margin: 0 5px;
   font-size: 12px;
   font-weight: 500;
+}
+
+@media (max-width: 599px) {
+  .quiz-question-header-1 {
+    display: initial;
+  }
 }
