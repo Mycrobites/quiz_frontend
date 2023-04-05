@@ -75,7 +75,7 @@ const PreviewFeedBack = () => {
         headers: { Authorization: `Bearer ${userDetails.access}` },
       };
       const { data } = await axios.get(
-        `https://api.progressiveminds.in/api/FeedbackQs/${id}/get`,
+        `https://quiz.knotters.org/api/FeedbackQs/${id}/get`,
         config
       );
       setQuestions(data.question);

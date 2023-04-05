@@ -54,7 +54,7 @@ function DeleteQuiz({ id, deleteQuizGroup }) {
       console.log(userDetails.access);
       ///api/edit-quiz/${id}
       const res = await axios.get(
-        `https://api.progressiveminds.in/api/quiz/${id}/delete`,
+        `https://quiz.knotters.org/api/quiz/${id}/delete`,
         config
       );
       if (res.status === 200) {
@@ -81,7 +81,7 @@ function DeleteQuiz({ id, deleteQuizGroup }) {
       };
       ///api/edit-quiz/${id}
       const res = await axios.get(
-        `https://api.progressiveminds.in/api/quizGroup/${id}/delete`,
+        `https://quiz.knotters.org/api/quizGroup/${id}/delete`,
         config
       );
       if (res.status === 200) {
