@@ -1,7 +1,7 @@
 import axios from "axios";
 
 export default axios.create({
-  baseURL: "https://quiz.knotters.org/",
+  baseURL: "https://api.quiz.knotters.org/",
 });
 
 // old base url : https://quiz-mycrobites.herokuapp.com
