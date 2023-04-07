@@ -75,7 +75,7 @@ const PreviewFeedBack = () => {
         headers: { Authorization: `Bearer ${userDetails.access}` },
       };
       const { data } = await axios.get(
-        `https://quiz.knotters.org/api/FeedbackQs/${id}/get`,
+        `https://api.quiz.knotters.org/api/FeedbackQs/${id}/get`,
         config
       );
       setQuestions(data.question);

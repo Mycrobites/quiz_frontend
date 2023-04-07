@@ -84,7 +84,6 @@ const QuizPage = () => {
       } else return ques;
     });
     setResponses(newResponses);
-    console.log("newResponses", newResponses)
     sessionStorage.setItem("quiz-responses", JSON.stringify(newResponses));
   };
 
@@ -160,6 +159,7 @@ const QuizPage = () => {
         })),
         time_taken: userCurrentQuiz?.test_time
       };
+      console.log("response2", res)
       await axios.post("/api/create-response", res, config);
       submitTest();
       removeUser();
@@ -187,6 +187,7 @@ const QuizPage = () => {
         })),
         time_taken : userCurrentQuiz?.test_time,
       };
+      console.log("response3", res)
       await axios.post("/api/create-response", res, config);
     } catch(err) {
       console.log(err.message);
@@ -234,7 +235,7 @@ const QuizPage = () => {
   });
 
   useEffect(() => {
-    addQuiz(quizid, quizDuration, test_time);
+    return ()=> addQuiz(quizid, quizDuration, test_time);
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 

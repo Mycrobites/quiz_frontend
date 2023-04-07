@@ -3,26 +3,26 @@ import UserContext from "../../Context/UserContext";
 import TeacherNavbar from "../../Components/NavBar/TeacherNavbar";
 import CreateQuizModal from "./CreateQuizModal";
 import Loader from "../../Components/Loader/LoadingBar";
-import { AiFillDelete } from "react-icons/ai";
-import QuizCard from "./QuizCard";
+// import { AiFillDelete } from "react-icons/ai";
+// import QuizCard from "./QuizCard";
 import axios from "../../axios/axios";
-import Carousel from "react-elastic-carousel";
+// import Carousel from "react-elastic-carousel";
 import "./TeacherQuizzes.css";
 import AddCircleOutlineRoundedIcon from "@material-ui/icons/AddCircleOutlineRounded";
-import { CircularProgress } from "@material-ui/core";
+// import { CircularProgress } from "@material-ui/core";
 import TransitionsModal from "./CreateGroup";
 import { useHistory } from "react-router-dom";
 import ReactHtmlParser from "react-html-parser";
-import StartTest from "../Quizzes/StartTest";
+// import StartTest from "../Quizzes/StartTest";
 import DeleteQuiz from "./DeleteQuiz";
 import EditQuiz from "./EditQuiz";
 
 const TeacherQuizzes = () => {
-  const [allquizzes, setAllquizzes] = useState(null);
+  // const [allquizzes, setAllquizzes] = useState(null);
   const [showCreateModal, setShowCreateModal] = useState(null);
   const [loading, setLoading] = useState(false);
   const [active, setactive] = useState(true);
-  const { removeUser, userDetails, addQuiz } = useContext(UserContext);
+  const {userDetails} = useContext(UserContext);
   const [upcoming, setupcoming] = useState(false);
   const [completed, setcompleted] = useState(false);
 

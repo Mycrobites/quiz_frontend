@@ -113,7 +113,7 @@ const FeedBack = () => {
         headers: { Authorization: `Bearer ${userDetails.access}` },
       };
       const { data } = await axios.get(
-        `${API_HOST}/api/FeedbackQs/${userCurrentQuiz.id}/get`,
+        `${API_HOST}api/FeedbackQs/${userCurrentQuiz.id}/get`,
         config
       );
       console.log("FeedbackData",data)
