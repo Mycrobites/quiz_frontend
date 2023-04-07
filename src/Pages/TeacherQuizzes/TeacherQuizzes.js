@@ -61,7 +61,7 @@ const TeacherQuizzes = () => {
       setActiveQuiz(data[groupnumber]["active"]);
       setdata(data);
 
-      console.log(data);
+      console.log("Data",data);
       data.map((names, key) => {
         setGroupnames([...groupnames, names.name]);
       });
