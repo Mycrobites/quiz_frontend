@@ -52,7 +52,7 @@ const StudentReport = () => {
     }
     setIsLoading(false);
   };
-  // console.log("User Dataaaaa",userData)
+  console.log("User Dataaaaa",userData)
 
   const handleOverallDifficulty = () => {
     // console.log("USER DATA ANALYSIS:", userData.analysis[`Question 1`]);
@@ -299,7 +299,13 @@ const StudentReport = () => {
           {answerkey && (
             <div className="answerkey">
               <h3 className="answer-key-title">Answer Key</h3>
-              {quizResponses && quizResponses.map((response, index) => {
+              {console.log("quizResponses",quizResponses)}
+              {quizResponses=="" && (
+                <div style={{backgroundColor:"#6D3FC7"}}>
+                  No Quiz Responses Available!
+                </div>
+              )}
+              {quizResponses.length>0 && quizResponses.map((response, index) => {
                 return (
                   <div key={index} className="answer">
                     <div

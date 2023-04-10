@@ -55,16 +55,19 @@ const TeacherQuizzes = () => {
         `/api/get-all-quizzes/${userDetails.user_id}`,
         config
       );
+      console.log("data2", data)
+      if(data.length>0){
+        setCompletedQuiz(data[groupnumber]["completed"]);
+        setUpcoming(data[groupnumber]["upcoming"]);
+        setActiveQuiz(data[groupnumber]["active"]);
+        setdata(data);
 
-      setCompletedQuiz(data[groupnumber]["completed"]);
-      setUpcoming(data[groupnumber]["upcoming"]);
-      setActiveQuiz(data[groupnumber]["active"]);
-      setdata(data);
-
-      console.log("Data",data);
-      data.map((names, key) => {
-        setGroupnames([...groupnames, names.name]);
+        console.log("Data",data);
+        data.map((names, key) => {
+          setGroupnames([...groupnames, names.name]);
+      
       });
+    }
 
       // for (let x = 0;   x < data.length; x++) {
       //   setGroupIds([...groupIds , data[x].id])
@@ -85,7 +88,7 @@ const TeacherQuizzes = () => {
         }
       }
       setQuizCounts(counts);
-
+      console.log("Data1", data)
       setLoading(false);
     } catch (err) {
       console.log(err.message);
@@ -97,7 +100,7 @@ const TeacherQuizzes = () => {
       if (data[y].name === group) {
         setindex(y);
       }
-      console.log(index);
+      console.log("index",index);
 
       setCompletedQuiz(data[index]["completed"]);
 

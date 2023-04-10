@@ -56,11 +56,18 @@ function Quizzes() {
       const config = {
         headers: { Authorization: `Bearer ${userDetails.access}` },
       };
+      console.log("Loading Before")
       setLoading(true);
+      console.log("Loading Before")
       const { data } = await axios.get(
         `/api/get-all-quizzes/${userDetails.user_id}`,
         config
       );
+      console.log("data1",data);
+      if(data.length==0){
+        alert("You have been added to no quiz grous yet!")
+      }
+      console.log("Afterrr")
       setAttemptedQuiz(data[groupnumber]["attempted"]);
       setMissed(data[groupnumber]["missed"]);
       setUpcoming(data[groupnumber]["upcoming"]);
@@ -81,8 +88,7 @@ function Quizzes() {
         }
       }
       setQuizCounts(counts);
-      console.log(data);
-
+      console.log("data",data);
       setLoading(false);
     } catch (err) {
       console.log(err.message);
@@ -90,13 +96,13 @@ function Quizzes() {
   };
 
   const setGroupdata = (group) => {
-    console.log(group);
+    console.log("group",group);
 
     for (let y = 0; y < data.length; y++) {
       if (data[y].name === group) {
         setindex(y);
       }
-      console.log(index);
+      console.log("index",index);
 
       setAttemptedQuiz(data[index]["attempted"]);
       setMissed(data[index]["missed"]);
@@ -116,7 +122,7 @@ function Quizzes() {
     }
     setGroupnames(groups);
   };
-  console.log(groupnames);
+  console.log("groupnames",groupnames);
 
   useEffect(() => {
     fetchquizzes();
@@ -134,8 +140,8 @@ function Quizzes() {
   //   setCounts();
   // },[quizCounts.length]);
 
-  console.log(quizCounts);
-  console.log(upcomingquiz);
+  console.log("quizCounts",quizCounts);
+  console.log("upcomingquiz",upcomingquiz);
   return (
     <div>
       {!loading && (
