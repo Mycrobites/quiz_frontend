@@ -1,0 +1,238 @@
+.add-question{
+    display: flex;
+    justify-content: center;
+}
+.quiz-main{
+    display: flex;
+    justify-content: center;
+    height: 30rem;
+    background-color: #6D3FC7;
+    /* position: relative; */
+    /* width: 30em; */
+}
+.quiz{
+    background-color: white;
+    padding: 2rem;
+}
+.quiz-comp{
+    display: flex;
+    flex-direction: column;
+    margin-top: 1rem;
+}
+.quiz-sub{
+    display: flex;
+    justify-content: center;
+    /* position: relative; */
+}
+.functionality{
+    display: flex;
+}
+.dropmenu{
+    z-index: 99999;
+    position: absolute;
+    overflow: visible;
+    border-width: 2px;
+    border-radius: 0.2rem;
+    padding: 2px 2px 4px  0px;
+    box-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
+    padding: 0.5rem;
+    background-color: white;
+    width: 10.5rem;
+}
+.dropContent:hover{
+    background-color: #6D3FC7;
+    color: azure;
+}
+.dropContent{
+    padding-left: 2px;
+    border-bottom: solid;
+    border-width: 1px;
+    margin-top: 1px;
+}
+.main-menu{
+    width: 8rem;
+}
+input.input-que,textarea{
+    width: 25rem;
+    background-color: rgba(249, 249, 245, 0.847);
+    border-bottom: 4px ;
+}
+.input-que{
+    /* border: none; */
+}
+.dropdown{
+    margin-left: 8rem;
+    z-index: 9999;
+}
+.dropdown h3{
+    /* text-align: center; */
+    padding-top: 0.5rem;
+    color: rgb(67, 65, 65);
+    /* z-index: 1000; */
+}
+.option1{
+    margin: 1rem 0;
+    /* border: none; */
+}
+input.option1{
+    width: 30rem;
+    border: none;
+    /* border-width: 3px; */
+}
+input.input-que{
+    height: 3.5rem;
+    border: none;
+    border-bottom: solid;
+    border-width: 3px;
+    border-color: #6D3FC7;
+    margin-bottom: 1rem;
+}
+ input.option1:hover{
+    border-bottom: solid;
+    border-width: 1px;
+} 
+.icon{
+    width: 1rem;
+    padding: 1rem 0rem 0rem 0.1rem  ;
+    z-index: -1;
+    cursor: pointer;
+}
+.short-ans{
+    font-weight: 100;
+    color: grey;
+    border-bottom-style: solid;
+    border-bottom-color: rgb(228, 223, 223);
+    width: 25rem;
+}
+.case1{
+    display: flex;
+}
+.num1{
+    display: flex;
+    padding-right: 2rem;
+    font-weight: 100;
+}
+.num1 h3{
+    color: gray;
+}
+.num2{
+    display: flex;
+    padding: 0px 2rem;
+}
+.num2 h3{
+    color: gray;
+}
+.icon1{
+    width: 1.8rem;
+    padding-left: 15px;
+    cursor: pointer;
+}
+.label{
+    display: flex;
+    margin: 1rem 0;
+}
+.label h3{
+    text-align: center;
+    padding: 1rem 1rem 0 0;
+    font-weight: 100;
+    color: grey;
+    font-style: normal;
+}
+input.label-input{
+    border: none;
+    border-bottom: solid;
+    border-width: 1px;
+    border-radius: 0%;
+}
+.drop-label{
+    position: absolute;
+    background-color: rgb(219, 218, 244);
+    z-index: 1;
+    border-width: 2px;
+    border-radius: 0.2rem;
+    /* padding: 2px 4px 4px  0px; */
+    box-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
+    padding: 3px 0.3rem;
+    cursor: pointer;
+}
+.drop-label2{
+    position: absolute;
+    margin-left: 2rem;
+    background-color: rgb(219, 218, 244);
+    z-index: 1;
+    border-width: 5px;
+    border-radius: 0.2rem;
+    /* padding: 2px 4px 4px  0px; */
+    box-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
+    /* padding-top: 3px; */
+    padding: 3px 0.3rem 0 ;
+    cursor: pointer;
+}
+.labelDrop2{
+    /* display: flex; */
+}
+.case3{
+    display: flex;
+    /* justify-content: space-evenly; */
+}
+.rows3{
+    /* margin-left: -10rem; */
+}
+.rowcase3{
+    display: flex;
+}
+.rowcase3 h3{
+    padding-top: 1rem;
+}
+.multiple-add{
+    cursor: pointer;
+    font-weight: lighter;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    border-style: dashed;
+    border-width: 1px;
+    border-radius: 1rem;
+    width: 6.2rem;
+    padding: 5px;
+}
+.cols3{
+    margin-left: 7rem;
+}
+input.col-input{
+    border: none;
+}
+input.col-input:hover{
+    border-bottom: solid;
+    border-width: 1px;
+    border-radius: 0%;
+}
+.add-col{
+    margin-top: 1rem;
+    cursor: pointer;
+}
+input.row-input{
+    border: none;
+}
+input.row-input:hover{
+    border-bottom: solid;
+    border-width: 1px;
+    border-radius: 0%; 
+}
+.add-row{
+    margin-top: 1rem;
+    cursor: pointer;
+}
+.dropmenu h3{
+    cursor: pointer;
+}
+.drop-main{
+    display: flex;
+    border-width: 1.5px;
+    border-style: ridge;
+    padding: 0.5rem;
+    font-weight: 100;
+    cursor: pointer;
+}
+.down1{
+    width: 1.5rem;
+    padding-top: 0.5rem;
+}
