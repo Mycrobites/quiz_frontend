@@ -106,6 +106,7 @@ input.input-que{
 }
 .case1{
     display: flex;
+    margin-top: 1rem;
 }
 .num1{
     display: flex;
@@ -173,6 +174,7 @@ input.label-input{
 }
 .case3{
     display: flex;
+    margin-top: 1rem;
     /* justify-content: space-evenly; */
 }
 .rows3{
