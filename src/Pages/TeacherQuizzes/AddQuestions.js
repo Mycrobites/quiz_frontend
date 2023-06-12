@@ -3,6 +3,8 @@ import "./AddQuestions.css";
 import close from "../Images/close.png"
 import down from '../Images/down.png'
 import down1 from '../Images/down1.png'
+import { CKEditor } from '@ckeditor/ckeditor5-react';
+import ClassicEditor from "@ckeditor/ckeditor5-build-classic";
 // import l from '../TeacherQuizzes/Images/'
 const AddQuestions = () => {
     const [ad , setAdd]= useState([''])
@@ -37,6 +39,11 @@ const click2= (e)=>{
           case "Linear":
               return (
                 <div>
+                <CKEditor
+                    editor={ ClassicEditor }
+                    data=""
+                    
+                />
                   {num && (
                     <div className="drop-label">
                       <h3
@@ -151,81 +158,120 @@ const click2= (e)=>{
               return (
                 <div id="short">
                   <h3 className="short-ans">Short answer</h3>
+                  <CKEditor
+                    editor={ ClassicEditor }
+                    data=""
+                    
+                />
                 </div>
               );
           case "Grid":
               return (
-              <div className='case3'>
-                <div className='rows3'>
-                  <h3>Rows</h3>
-                  <div className='rowcase3'>
-                    <input type="text" placeholder='Row 1' className='row-input'/>
-                  </div>
-                  {row.map((index) => {
-                    return (
-                      <div>
-                        <div className="functionality">
-                          <div>
-                            <input type="text" placeholder="Row 1" className='row-input' />
-                          </div>
-                          <div
-                            onClick={(i) => {
-                              const del = [...row];
-                              del.splice(i, 1);
-                              setRow(del);
-                            }}
-                          >
-                            <img src={close} className="icon" />
-                          </div>
-                        </div>
+                <div>
+                  <CKEditor editor={ClassicEditor} data="" />
+                  <div className="case3">
+                    <div className="rows3">
+                      <h3>Rows</h3>
+                      <div className="rowcase3">
+                        <input
+                          type="text"
+                          placeholder="Row 1"
+                          className="row-input"
+                        />
                       </div>
-                    );
-                  })}
-                  <h4 onClick={() => {
-                      setRow([...row, ""]);
-                    }} className='add-row'>Add Rows</h4>
-                </div>
-                <div className='cols3'>
-                <h3>Columns</h3>
-                  <div className='rowcase3'>
-                    <input type="text" placeholder='Column 1' className='col-input' />
-                  </div>
-                  {col.map((index) => {
-                    return (
-                      <div>
-                        <div className="functionality">
+                      {row.map((index) => {
+                        return (
                           <div>
-                            <input type="text" placeholder="Column 1" className='col-input' />
+                            <div className="functionality">
+                              <div>
+                                <input
+                                  type="text"
+                                  placeholder="Row 1"
+                                  className="row-input"
+                                />
+                              </div>
+                              <div
+                                onClick={(i) => {
+                                  const del = [...row];
+                                  del.splice(i, 1);
+                                  setRow(del);
+                                }}
+                              >
+                                <img src={close} className="icon" />
+                              </div>
+                            </div>
                           </div>
-                          <div
-                            onClick={(i) => {
-                              const del = [...col];
-                              del.splice(i, 1);
-                              setCol(del);
-                            }}
-                          >
-                            <img src={close} className="icon" />
-                          </div>
-                        </div>
+                        );
+                      })}
+                      <h4
+                        onClick={() => {
+                          setRow([...row, ""]);
+                        }}
+                        className="add-row"
+                      >
+                        Add Rows
+                      </h4>
+                    </div>
+                    <div className="cols3">
+                      <h3>Columns</h3>
+                      <div className="rowcase3">
+                        <input
+                          type="text"
+                          placeholder="Column 1"
+                          className="col-input"
+                        />
                       </div>
-                    );
-                  })}
-                  <h4 onClick={() => {
-                      setCol([...col, ""]);
-                    }} className='add-col'>Add Columns</h4>
+                      {col.map((index) => {
+                        return (
+                          <div>
+                            <div className="functionality">
+                              <div>
+                                <input
+                                  type="text"
+                                  placeholder="Column 1"
+                                  className="col-input"
+                                />
+                              </div>
+                              <div
+                                onClick={(i) => {
+                                  const del = [...col];
+                                  del.splice(i, 1);
+                                  setCol(del);
+                                }}
+                              >
+                                <img src={close} className="icon" />
+                              </div>
+                            </div>
+                          </div>
+                        );
+                      })}
+                      <h4
+                        onClick={() => {
+                          setCol([...col, ""]);
+                        }}
+                        className="add-col"
+                      >
+                        Add Columns
+                      </h4>
+                    </div>
+                  </div>
                 </div>
-              </div>
-              )
-              ;
-          case "Paragraph":
+              );
+          case "Long Answer":
                 return (
                   <div id="short">
-                    <h3 className="short-ans">Long-answer text</h3>
+                    {/* <h3 className="short-ans">Long-answer text</h3> */}
+                    <CKEditor
+                    editor={ ClassicEditor }
+                    data=""
+                    
+                />
                   </div>
                 );
           default:
               return (
                 <div id="multiple">
+                  <CKEditor editor={ClassicEditor} data="" />
                   <input
                     type="text"
                     placeholder="Option 1"
@@ -262,7 +308,7 @@ const click2= (e)=>{
                       setAdd([...ad, ""]);
                     }}
                   >
-                    <h3 className='multiple-add'>Add option</h3>
+                    <h3 className="multiple-add">Add option</h3>
                   </div>
                 </div>
               );
@@ -297,7 +343,8 @@ const click2= (e)=>{
                   <h3 id='Linear' onClick={click} className='dropContent'>Linear Scale</h3>
                   <h3 id='Grid' onClick={click} className='dropContent'>Grid</h3>
                   <h3 id='Short Answer' onClick={click} className='dropContent'>Short Answer</h3>
-                  <h3 id='Paragraph' onClick={click} className='dropContent'>Paragraph</h3>
+                  <h3 id='Long Answer' onClick={click} className='dropContent'>Long Answer</h3>
+                  
                 </div>
               )}
             </div>
