@@ -26,6 +26,7 @@
 }
 .functionality{
     display: flex;
+    align-items: center;
 }
 .dropmenu{
     z-index: 99999;
@@ -72,30 +73,36 @@ input.input-que,textarea{
 }
 .option1{
     margin: 1rem 0;
+    
     /* border: none; */
 }
 input.option1{
     width: 30rem;
-    border: none;
+    border-color: #6D3FC7;
+    border-width: 1px;
+    height: 2rem;
+    padding: 7px;
+    outline: none;
     /* border-width: 3px; */
 }
 input.input-que{
     height: 3.5rem;
     border: none;
     border-bottom: solid;
-    border-width: 3px;
+    border-width: 6px;
     border-color: #6D3FC7;
     margin-bottom: 1rem;
 }
  input.option1:hover{
     border-bottom: solid;
     border-width: 1px;
+    /* display: none; */
 } 
 .icon{
     width: 1rem;
-    padding: 1rem 0rem 0rem 0.1rem  ;
     z-index: -1;
     cursor: pointer;
+    margin-left: 5px;
 }
 .short-ans{
     font-weight: 100;
@@ -146,7 +153,7 @@ input.label-input{
     border-radius: 0%;
 }
 .drop-label{
-    position: absolute;
+    /* position: absolute; */
     background-color: rgb(219, 218, 244);
     z-index: 1;
     border-width: 2px;
@@ -195,6 +202,7 @@ input.label-input{
     border-radius: 1rem;
     width: 6.2rem;
     padding: 5px;
+    margin-bottom: 2rem;
 }
 .cols3{
     margin-left: 7rem;
@@ -238,3 +246,59 @@ input.row-input:hover{
     width: 1.5rem;
     padding-top: 0.5rem;
 }
+.newGrid{
+    background-color: rgb(219, 206, 239);
+    padding: 3rem;
+    margin-bottom: 1rem;
+    border-radius: 1rem;
+}
+.addsub{
+    display: flex;
+    justify-content: space-around;
+    margin: 2rem 0 3rem;
+}
+.addbut{
+    display: flex;
+    justify-content: center;
+    width: 7rem;
+    height: 2rem;
+    padding: 5px;
+    border-radius: 10rem;
+    background-color: #6D3FC7;
+    cursor: pointer;
+    color: aliceblue;
+    
+}
+.addSubmit{
+    display: flex;
+    justify-content: center;
+    width: 7rem;
+    height: 2rem;
+    padding: 5px;
+    border-radius: 10rem;
+    background-color: #6D3FC7;
+    cursor: pointer;
+    color: aliceblue;
+}
+.multi-default{
+    display: flex;
+    flex-direction: column;
+}
+/* sheetjs */
+.Sheet {
+    text-align: center;
+    /* padding: 20px; */
+  }
+  .table{
+    display: flex;
+    flex-direction: column;
+  }
+  table {
+    margin-top: 30px;
+  }
+#multiple{
+    background-color: rgb(219, 206, 239);
+    padding: 3rem;
+    margin-bottom: 1rem;
+    border-radius: 1rem;
+}  

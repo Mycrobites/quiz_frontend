@@ -5,6 +5,9 @@ import down from '../Images/down.png'
 import down1 from '../Images/down1.png'
 import { CKEditor } from '@ckeditor/ckeditor5-react';
 import ClassicEditor from "@ckeditor/ckeditor5-build-classic";
+import Linear from './Linear';
+import { FastForward } from '@material-ui/icons';
+import Sheet from './Sheet';
 // import l from '../TeacherQuizzes/Images/'
 const AddQuestions = () => {
     const [ad , setAdd]= useState([''])
@@ -20,6 +23,12 @@ const AddQuestions = () => {
     const [number2, setNumber2] = useState(5)
     const [drop2 , setDrop2] = useState(false)
     const [drop3 , setDrop3] = useState(false)
+    const [count, setCount] = useState(4);
+    const placeholderText = `Option : ${count}`;
+    function increment(){
+      setCount(prevCount => prevCount+1);
+    }
+    const [grid , showGrid] = useState([''])
     const click= (e)=>{
       const nam = e.currentTarget.id;
       setShow(nam);
@@ -39,119 +48,28 @@ const click2= (e)=>{
           case "Linear":
               return (
                 <div>
-                <CKEditor
-                    editor={ ClassicEditor }
-                    data=""
-                    
-                />
-                  {num && (
-                    <div className="drop-label">
-                      <h3
-                        id="0"
-                        onClick={(e) => {
-                          setNum(!num);
-                          setNumber1(e.target.id);
-                          // click1();
-                        }}
-                      >
-                        0
-                      </h3>
-                      <h3
-                        id="1"
-                        onClick={(e) => {
-                          setNum(!num);
-                          setNumber1(e.target.id);
-                        }}
-                      >
-                        1
-                      </h3>
-                    </div>
-                  )}
-                  <div className="case1">
-                    <div className="num1">
-                      <h3>{number1}</h3>
-                      <img
-                        src={down}
-                        className="icon1"
-                        onClick={() => {
-                          setNum(!num);
-                        }}
-                      />
-                    </div>
-
+                  
+                  {grid.map(() => {
+                    return <Linear
+                     />;
+                  })}
+                  <div className="addsub">
                     <div>
-                      <h3>to</h3>
-                    </div>
-                    <div className="labelDrop2">
-                      {num1 && (
-                        <div className="drop-label2">
-                          <h3
-                            id="2"
-                            onClick={(e) => {
-                              setNum1(!num1);
-                              setNumber2(e.target.id);
-                            }}
-                          >
-                            2
-                          </h3>
-                          <h3
-                            id="3"
-                            onClick={(e) => {
-                              setNum1(!num1);
-                              setNumber2(e.target.id);
-                            }}
-                          >
-                            3
-                          </h3>
-                          <h3
-                            id="4"
-                            onClick={(e) => {
-                              setNum1(!num1);
-                              setNumber2(e.target.id);
-                            }}
-                          >
-                            4
-                          </h3>
-                          <h3
-                            id="5"
-                            onClick={(e) => {
-                              setNum1(!num1);
-                              setNumber2(e.target.id);
-                            }}
-                          >
-                            5
-                          </h3>
-                        </div>
-                      )}
-                      <div className="num2">
-                        <h3>{number2}</h3>
-                        <img
-                          src={down}
-                          className="icon1"
-                          onClick={() => setNum1(!num1)}
-                        />
+                      <div
+                        className="addbut"
+                        onClick={() => {
+                          showGrid([...grid, ""]);
+                        }}
+                      >
+                        add question
                       </div>
                     </div>
+                    <div>
+                      <input type="submit" placeholder="submit" className='addSubmit'/>
+                    </div>
                   </div>
 
-                  <div>
-                    <div className="label">
-                      <h3>1</h3>
-                      <input
-                        type="text"
-                        placeholder="Label(optional)"
-                        className="label-input"
-                      />
-                    </div>
-                    <div className="label">
-                      <h3>5</h3>
-                      <input
-                        type="text"
-                        placeholder="Label(optional)"
-                        className="label-input"
-                      />
-                    </div>
-                  </div>
+                  {/* <Grid/> */}
                 </div>
               );
           case "Short Answer":
@@ -255,6 +173,16 @@ const click2= (e)=>{
                       </h4>
                     </div>
                   </div>
+                  
+                  <div className='addsub'>
+                    <div>
+                      <div className='addbut' >add question</div>
+                    </div>
+                    <div>
+                      <input type="submit" placeholder='submit' />
+                    </div>
+                  </div>
+                  
                 </div>
               );
           case "Long Answer":
@@ -270,47 +198,7 @@ const click2= (e)=>{
                 );
           default:
               return (
-                <div id="multiple">
-                  <CKEditor editor={ClassicEditor} data="" />
-                  <input
-                    type="text"
-                    placeholder="Option 1"
-                    className="option1"
-                  />
-                  {/* <div className=" "> */}
-
-                  {ad.map((index) => {
-                    return (
-                      <div>
-                        <div className="functionality">
-                          <div>
-                            <input
-                              type="text"
-                              placeholder="Option 1"
-                              className="option1"
-                            />
-                          </div>
-                          <div
-                            onClick={(i) => {
-                              const del = [...ad];
-                              del.splice(i, 1);
-                              setAdd(del);
-                            }}
-                          >
-                            <img src={close} className="icon" />
-                          </div>
-                        </div>
-                      </div>
-                    );
-                  })}
-                  <div
-                    onClick={() => {
-                      setAdd([...ad, ""]);
-                    }}
-                  >
-                    <h3 className="multiple-add">Add option</h3>
-                  </div>
-                </div>
+                
               );
       }
   }
@@ -323,12 +211,12 @@ const click2= (e)=>{
         </div>
         <div className="quiz-comp" >
           <div className="quiz-sub">
-            <input
+            {/* <input
               type="text"
               placeholder="Write your question"
               className="input-que "
               // style={{border:"none"}}
-            />
+            /> */}
             <div className="dropdown">
               <div className="drop-main" onClick={() => {setDrop(!drop); }}>
                 <h3 className='main-menu'>{show}</h3>
@@ -356,6 +244,7 @@ const click2= (e)=>{
         </div>
         
       </div>
+      {/* <Sheet/> */}
     </div>
   );
 }

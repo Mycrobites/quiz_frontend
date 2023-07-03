@@ -1,10 +1,8 @@
 .modal-title {
-    font-family: 'Poppins', sans-serif;
-
+  font-family: 'Poppins', sans-serif;
   font-weight: bolder;
   margin-left: 13vw;
   margin-right: 14vw;
-
   margin-bottom: 4vh;
 }
 
@@ -20,7 +18,6 @@
 
 .modal-label {
     font-family: 'Poppins', sans-serif;
-
   margin-bottom: 2vh;
   font-weight: 600;
 }
@@ -30,8 +27,7 @@
   height: 5vh;
   padding-left: 0.5vw;
   padding-right: 0.5vw;
-    font-family: 'Poppins', sans-serif;
-
+  font-family: 'Poppins', sans-serif;
 }
 
 .create-group-button {

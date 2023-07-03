@@ -2,6 +2,7 @@ import TeacherNavbar from "../../Components/NavBar/TeacherNavbar";
 import { useHistory } from "react-router-dom";
 import { FaEdit } from "react-icons/fa";
 import "./TeacherHomePage.css";
+import Sheet from "../TeacherQuizzes/Sheet";
 
 const TeacherHomePage = () => {
   const history = useHistory();
@@ -17,6 +18,7 @@ const TeacherHomePage = () => {
         </div>
         <button>Manage Quizzes</button>
       </div>
+      {/* <Sheet/> */}
     </div>
   );
 };
