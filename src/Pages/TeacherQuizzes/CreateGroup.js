@@ -10,12 +10,14 @@ import axios from "../../axios/axios";
 import Loader from "../../Components/Loader/LoadingBar";
 import { BorderAllRounded } from "@material-ui/icons";
 import AddQuestions from "./AddQuestions";
-
+import InfiniteScroll from 'react-infinite-scroll-component';
+import Sheet from "./Sheet";
 const useStyles = makeStyles((theme) => ({
   modal: {
     display: 'flex',
     alignItems: 'center',
     justifyContent: 'center',
+    position: "fixed",
     
   },
   paper: {
@@ -23,12 +25,31 @@ const useStyles = makeStyles((theme) => ({
     padding: theme.spacing(2, 4, 3),
     border: 0,
     borderRadius: 10,
-    borderColor: 'white'
+    borderColor: 'white',
+    
+  },
+}));
+const useStyles1 = makeStyles((theme) => ({
+  modal1: {
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'center',
+    position: "fixed",
+    
+  },
+  paper: {
+    backgroundColor: theme.palette.background.paper,
+    padding: theme.spacing(2, 4, 3),
+    border: 0,
+    // borderRadius: 10,
+    borderColor: 'white',
+    overflow :'auto'
   },
 }));
 
 export default function TransitionsModal() {
   const classes = useStyles();
+  const classes1 = useStyles1();
   const [open, setOpen] = useState(false);
   const [quiztitle,setQuizTitle] = useState("");
   const [quizdescription,setQuizDescription] = useState("");
@@ -164,10 +185,12 @@ export default function TransitionsModal() {
           <p>Add Question</p>
           <AddCircleOutlineRoundedIcon />
         </div>
+
         <Modal
           aria-labelledby="transition-modal-title"
           aria-describedby="transition-modal-description"
-          className={classes.modal}
+          preventScroll={true}
+          className={classes1.modal1}
           open={open2}
           onClose={handleClose2}
           closeAfterTransition
@@ -175,11 +198,17 @@ export default function TransitionsModal() {
           BackdropProps={{
             timeout: 500,
           }}
+          // style={useStyles}
         >
           <Fade in={open2}>
-            <AddQuestions/>
+            <InfiniteScroll dataLength={2000} hasMore={true}>
+              <div className={classes1.paper}>
+                <AddQuestions />
+              </div>
+            </InfiniteScroll>
           </Fade>
         </Modal>
+        {/* <Sheet/> */}
       </div>
     </div>
   );

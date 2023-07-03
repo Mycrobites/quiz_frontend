@@ -26,7 +26,10 @@
 }
 .functionality{
     display: flex;
+    align-items: center;
+    margin-top: 7px;
 }
+
 .dropmenu{
     z-index: 99999;
     position: absolute;
@@ -61,8 +64,11 @@ input.input-que,textarea{
     /* border: none; */
 }
 .dropdown{
-    margin-left: 8rem;
+    margin-left: 34rem;
     z-index: 9999;
+    display: flex;
+    align-items: flex-end;
+    margin-bottom: 2rem;
 }
 .dropdown h3{
     /* text-align: center; */
@@ -72,30 +78,36 @@ input.input-que,textarea{
 }
 .option1{
     margin: 1rem 0;
+    
     /* border: none; */
 }
 input.option1{
     width: 30rem;
-    border: none;
+    border-color: #6D3FC7;
+    border-width: 1px;
+    height: 2rem;
+    padding: 7px;
+    outline: none;
     /* border-width: 3px; */
 }
 input.input-que{
     height: 3.5rem;
     border: none;
     border-bottom: solid;
-    border-width: 3px;
+    border-width: 6px;
     border-color: #6D3FC7;
     margin-bottom: 1rem;
 }
  input.option1:hover{
     border-bottom: solid;
     border-width: 1px;
+    /* display: none; */
 } 
 .icon{
     width: 1rem;
-    padding: 1rem 0rem 0rem 0.1rem  ;
     z-index: -1;
     cursor: pointer;
+    margin-left: 5px;
 }
 .short-ans{
     font-weight: 100;
@@ -146,7 +158,7 @@ input.label-input{
     border-radius: 0%;
 }
 .drop-label{
-    position: absolute;
+    /* position: absolute; */
     background-color: rgb(219, 218, 244);
     z-index: 1;
     border-width: 2px;
@@ -178,10 +190,11 @@ input.label-input{
     /* justify-content: space-evenly; */
 }
 .rows3{
-    /* margin-left: -10rem; */
+    
 }
 .rowcase3{
     display: flex;
+    margin-top: 1rem;
 }
 .rowcase3 h3{
     padding-top: 1rem;
@@ -189,18 +202,25 @@ input.label-input{
 .multiple-add{
     cursor: pointer;
     font-weight: lighter;
+    color: white;
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-    border-style: dashed;
+    /* border-style: dashed; */
     border-width: 1px;
     border-radius: 1rem;
     width: 6.2rem;
     padding: 5px;
+    background-color: #6D3FC7;
+    margin-bottom: 2rem;
 }
 .cols3{
     margin-left: 7rem;
 }
 input.col-input{
     border: none;
+    margin-bottom: 5px;
+    padding: 5px;
+    border-radius: 2px;
+    /* margin-top: 1rem; */
 }
 input.col-input:hover{
     border-bottom: solid;
@@ -213,6 +233,9 @@ input.col-input:hover{
 }
 input.row-input{
     border: none;
+    margin-bottom: 5px;
+    padding: 5px;
+    border-radius: 2px;
 }
 input.row-input:hover{
     border-bottom: solid;
@@ -228,6 +251,7 @@ input.row-input:hover{
 }
 .drop-main{
     display: flex;
+    /* justify-content: flex-end; */
     border-width: 1.5px;
     border-style: ridge;
     padding: 0.5rem;
@@ -238,3 +262,71 @@ input.row-input:hover{
     width: 1.5rem;
     padding-top: 0.5rem;
 }
+.newGrid{
+    background-color: rgb(219, 206, 239);
+    padding: 3rem;
+    margin-bottom: 1rem;
+    border-radius: 1rem;
+}
+.addsub{
+    display: flex;
+    justify-content: space-around;
+    margin: 2rem 0 3rem;
+}
+.addbut{
+    display: flex;
+    justify-content: center;
+    width: 7rem;
+    height: 2rem;
+    padding: 5px;
+    border-radius: 10rem;
+    background-color: #6D3FC7;
+    cursor: pointer;
+    color: aliceblue;
+    
+}
+.addSubmit{
+    display: flex;
+    justify-content: center;
+    width: 7rem;
+    height: 2rem;
+    padding: 5px;
+    border-radius: 10rem;
+    background-color: #6D3FC7;
+    cursor: pointer;
+    color: aliceblue;
+}
+.multi-default{
+    display: flex;
+    flex-direction: column;
+}
+/* sheetjs */
+.Sheet {
+    text-align: center;
+    /* padding: 20px; */
+  }
+  .table{
+    display: flex;
+    flex-direction: column;
+  }
+  table {
+    margin-top: 30px;
+  }
+#multiple{
+    background-color: rgb(219, 206, 239);
+    padding: 3rem;
+    margin-bottom: 1rem;
+    border-radius: 1rem;
+}  
+.grid{
+    background-color: rgb(219, 206, 239);
+    padding: 3rem;
+    margin-bottom: 1rem;
+    border-radius: 1rem;
+}  
+#short{
+    background-color: rgb(219, 206, 239);
+    padding: 3rem;
+    margin-bottom: 1rem;
+    border-radius: 1rem;
+}  
