@@ -27,7 +27,9 @@
 .functionality{
     display: flex;
     align-items: center;
+    margin-top: 7px;
 }
+
 .dropmenu{
     z-index: 99999;
     position: absolute;
@@ -62,8 +64,11 @@ input.input-que,textarea{
     /* border: none; */
 }
 .dropdown{
-    margin-left: 8rem;
+    margin-left: 34rem;
     z-index: 9999;
+    display: flex;
+    align-items: flex-end;
+    margin-bottom: 2rem;
 }
 .dropdown h3{
     /* text-align: center; */
@@ -185,10 +190,11 @@ input.label-input{
     /* justify-content: space-evenly; */
 }
 .rows3{
-    /* margin-left: -10rem; */
+    
 }
 .rowcase3{
     display: flex;
+    margin-top: 1rem;
 }
 .rowcase3 h3{
     padding-top: 1rem;
@@ -196,12 +202,14 @@ input.label-input{
 .multiple-add{
     cursor: pointer;
     font-weight: lighter;
+    color: white;
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-    border-style: dashed;
+    /* border-style: dashed; */
     border-width: 1px;
     border-radius: 1rem;
     width: 6.2rem;
     padding: 5px;
+    background-color: #6D3FC7;
     margin-bottom: 2rem;
 }
 .cols3{
@@ -209,6 +217,10 @@ input.label-input{
 }
 input.col-input{
     border: none;
+    margin-bottom: 5px;
+    padding: 5px;
+    border-radius: 2px;
+    /* margin-top: 1rem; */
 }
 input.col-input:hover{
     border-bottom: solid;
@@ -221,6 +233,9 @@ input.col-input:hover{
 }
 input.row-input{
     border: none;
+    margin-bottom: 5px;
+    padding: 5px;
+    border-radius: 2px;
 }
 input.row-input:hover{
     border-bottom: solid;
@@ -236,6 +251,7 @@ input.row-input:hover{
 }
 .drop-main{
     display: flex;
+    /* justify-content: flex-end; */
     border-width: 1.5px;
     border-style: ridge;
     padding: 0.5rem;
@@ -297,6 +313,18 @@ input.row-input:hover{
     margin-top: 30px;
   }
 #multiple{
+    background-color: rgb(219, 206, 239);
+    padding: 3rem;
+    margin-bottom: 1rem;
+    border-radius: 1rem;
+}  
+.grid{
+    background-color: rgb(219, 206, 239);
+    padding: 3rem;
+    margin-bottom: 1rem;
+    border-radius: 1rem;
+}  
+#short{
     background-color: rgb(219, 206, 239);
     padding: 3rem;
     margin-bottom: 1rem;
