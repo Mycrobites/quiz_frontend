@@ -1,0 +1,30 @@
+/* DynamicTable.css */
+
+.table-container {
+  overflow-x: auto; /* Enable horizontal scrolling on smaller screens */
+}
+
+.responsive-table {
+  width: 100%; /* Make the table take up 100% of the container */
+  border-collapse: collapse;
+}
+
+.responsive-table th,
+.responsive-table td {
+  padding: 12px;
+  text-align: left;
+  border-bottom: 1px solid #ddd; /* Add a border between rows */
+}
+
+@media (max-width: 767px) {
+  .responsive-table th,
+  .responsive-table td {
+    display: block; /* Display table cells as block elements on smaller screens */
+    width: 100%; /* Make cells take up full width on smaller screens */
+    box-sizing: border-box; /* Include padding and border in cell's total width */
+  }
+
+  .responsive-table tbody tr {
+    margin-bottom: 10px; /* Add spacing between rows on smaller screens */
+  }
+}
