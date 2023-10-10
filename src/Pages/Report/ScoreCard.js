@@ -38,7 +38,6 @@ const ScoreCard = ({ userData, overallDifficulty }) => {
               alt="rank"
               style={{ height: "100px", width: "100px" }}
             />
-            fgfgfgff
           </p>
         </div>
         <div className="marks-card">

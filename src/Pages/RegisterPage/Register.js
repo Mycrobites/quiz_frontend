@@ -15,6 +15,7 @@ const Register = () => {
     password: "",
     firstName: "",
     lastName: "",
+    role: "",
     agreedToTerms: false, // Added agreedToTerms field to the form data
   });
   const [loading, setLoading] = useState(false);
@@ -42,10 +43,11 @@ const Register = () => {
         username: formData.username.trim(),
         password: formData.password,
         email: formData.email.trim(),
-        firstName: formData.firstName.trim(),
-        lastName: formData.lastName.trim(),
+        first_name: formData.firstName.trim(),
+        last_name: formData.lastName.trim(),
+        role: formData.role.trim(),
       });
-      console.log("2111sss", data);
+
       setLoading(false);
       updateUser(data);
       localStorage.setItem("username", formData.username);
