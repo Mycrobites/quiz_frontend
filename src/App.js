@@ -26,6 +26,7 @@ import AllScores from "./Pages/AllScores/AllScores";
 
 import GenerateExcel from "./Pages/QuizQuestions/GenerateExcel";
 import StudentReport from "./Pages/Report/StudentReport";
+import Register from "./Pages/RegisterPage/Register";
 
 const App = () => {
   const { userDetails, isTestSubmitted } = useContext(UserContext);
@@ -49,7 +50,9 @@ const App = () => {
           <Route exact path="/login">
             {!userDetails ? <Login /> : <Redirect to="/" />}
           </Route>
-
+          <Route exact path="/Register">
+            {!userDetails ? <Register /> : <Redirect to="/" />}
+          </Route>
           <Route exact path="/quizpage/:id">
             {userDetails ? (
               userDetails.role === "Student" ? (

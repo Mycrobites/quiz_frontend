@@ -114,6 +114,13 @@ const Login = () => {
             <button onClick={handleSubmit} type="submit" id="login-button">
               Log in
             </button>
+            <button
+              onClick={() => history.push("/Register")}
+              type="submit"
+              id="login-button"
+            >
+              Register
+            </button>
           </form>
         </div>
       </div>
