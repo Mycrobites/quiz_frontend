@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import * as XLSX from "xlsx";
 import "./AddQuestions.css";
+import { v4 } from "uuid";
 import close from "../Images/close.png";
 import down from "../Images/down.png";
 import down1 from "../Images/down1.png";
@@ -47,8 +48,14 @@ const AddQuestions = () => {
 
         // Parse the sheet data into JSON format
         const jsonData = XLSX.utils.sheet_to_json(sheet);
-        localStorage.setItem("questions", JSON.stringify(jsonData));
-        console.log("Excel Data:", jsonData);
+        const dataWithId = jsonData.map((data) => {
+          const newData = {
+            ...data,
+            id: v4(),
+          };
+          return newData;
+        });
+        localStorage.setItem("questions", JSON.stringify(dataWithId));
         history.push("/uploadQuestion");
       };
       reader.readAsBinaryString(file);
