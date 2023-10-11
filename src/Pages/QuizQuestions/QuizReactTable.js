@@ -392,7 +392,7 @@ const QuizReactTable = () => {
       const updateData = parsedValue.map((key, value) => {
         const newData = {
           ...key,
-          question: "N/a",
+          Question: "N/a",
         };
         return newData;
       });
@@ -476,47 +476,95 @@ const QuizReactTable = () => {
         Difficulty_tag,
         Negative_Marks,
         Passage,
-        question,
+        Question,
         Question_Type,
         Skill,
         Subject_Tag,
-        Subtopic_Tag,
+        Subtopic_tag,
         Option_A,
         Option_B,
         Option_C,
         Option_D,
         Text,
-        Topic_Tag,
+        Topic_tag,
       } = row;
-      const question_mcq = {
-        id: v4(),
-        option: [
-          { key: "A", option: Option_A },
-          { key: "B", option: Option_B },
-          { key: "C", option: Option_C },
-          { key: "D", option: Option_D },
-        ],
-        question: question,
-        correct_marks: Correct_Marks,
-        negative_marks: Negative_Marks,
-        //issue in this question_type
-
-        question_type: Question_Type,
-        dificulty_tag: Difficulty_tag,
-        skill: Skill,
-        answer: { 1: Answer },
-        passage: Passage,
-        text: Text,
-        subject_tag: Subject_Tag,
-        subtopic_tag: Subtopic_Tag,
-        topic_tag: Topic_Tag,
-      };
-      // if (Question_Type === "MCQ") {
-      const data = await axios.post(
-        "/api/create-question",
-        question_mcq,
-        config
-      );
+      if (Question_Type === "MCQ") {
+        const question_mcq = {
+          id: v4(),
+          option: [
+            { key: "A", option: Option_A },
+            { key: "B", option: Option_B },
+            { key: "C", option: Option_C },
+            { key: "D", option: Option_D },
+          ],
+          question: Question,
+          correct_marks: Correct_Marks,
+          negative_marks: Negative_Marks,
+          //issue in this question_type
+          question_type: "Multiple Correct",
+          dificulty_tag: Difficulty_tag,
+          skill: Skill,
+          answer: { 1: Answer },
+          passage: Passage,
+          text: Text,
+          subject_tag: Subject_Tag,
+          subtopic_tag: Subtopic_tag,
+          topic_tag: Topic_tag,
+        };
+        const data = await axios.post(
+          "/api/create-question",
+          question_mcq,
+          config
+        );
+      }
+      if (Question_Type === "Input Type") {
+        const question_mcq = {
+          id: v4(),
+          question: Question,
+          correct_marks: Correct_Marks,
+          negative_marks: Negative_Marks,
+          question_type: "Input Type",
+          // dificulty_tag: Difficulty_tag,
+          skill: Skill,
+          answer: { 1: Answer },
+          passage: Passage,
+          text: Text,
+          subject_tag: Subject_Tag,
+          subtopic_tag: Subtopic_tag,
+          topic_tag: Topic_tag,
+        };
+        const data = await axios.post(
+          "/api/create-question",
+          question_mcq,
+          config
+        );
+      }
+      if (Question_Type === "True False") {
+        const question_mcq = {
+          id: v4(),
+          question: Question,
+          option: [
+            { key: "A", option: Option_A },
+            { key: "B", option: Option_B },
+          ],
+          correct_marks: Correct_Marks,
+          negative_marks: Negative_Marks,
+          question_type: "True False",
+          // dificulty_tag: Difficulty_tag,
+          skill: Skill,
+          answer: { 1: Answer },
+          passage: Passage,
+          text: Text,
+          subject_tag: Subject_Tag,
+          subtopic_tag: Subtopic_tag,
+          topic_tag: Topic_tag,
+        };
+        const data = await axios.post(
+          "/api/create-question",
+          question_mcq,
+          config
+        );
+      }
       // }
     });
   };
@@ -532,6 +580,7 @@ const QuizReactTable = () => {
   };
   const HandleSave = () => {
     const filteredData = data.map((dat) => {
+      console.log("dat", dat);
       if (dat.id === id) {
         if (inputType === "image") {
           const newDataWithImage = {

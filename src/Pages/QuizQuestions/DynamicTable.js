@@ -48,7 +48,6 @@ const DynamicTable = ({
                 />
               </td>
               {headers?.map((header, headerIndex) => {
-                console.log("12112ww", header);
                 return (
                   <td key={headerIndex}>
                     {(header === "Text" || header === "Question") &&
