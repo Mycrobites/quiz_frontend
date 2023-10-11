@@ -13,6 +13,7 @@ const Register = () => {
     email: "",
     username: "",
     password: "",
+    checkPassword: "",
     firstName: "",
     lastName: "",
     role: "",
@@ -51,7 +52,6 @@ const Register = () => {
       setLoading(false);
       updateUser(data);
       localStorage.setItem("username", formData.username);
-      history.push("/");
     } catch (err) {
       setError({
         username: "Invalid credentials",
@@ -68,7 +68,8 @@ const Register = () => {
     formData.firstName &&
     formData.lastName &&
     formData.role &&
-    formData.agreedToTerms;
+    formData.agreedToTerms &&
+    formData.password === formData.checkPassword;
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -195,8 +196,8 @@ const Register = () => {
                 Password Confirmation
                 <input
                   type={showPassword ? "text" : "password"}
-                  name="password"
-                  value={formData.password}
+                  name="checkPassword"
+                  value={formData.checkPassword}
                   onChange={handleChange}
                 />
                 <div
@@ -219,6 +220,9 @@ const Register = () => {
                 I agree to the <Link to="/terms">Terms and Conditions</Link>
               </label>
             </div>
+            {!allFieldsFilled && (
+              <div className="">Please Check all the details </div>
+            )}
             <button
               onClick={handleSubmit}
               disabled={!allFieldsFilled}
