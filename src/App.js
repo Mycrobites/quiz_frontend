@@ -27,6 +27,7 @@ import AllScores from "./Pages/AllScores/AllScores";
 import GenerateExcel from "./Pages/QuizQuestions/GenerateExcel";
 import StudentReport from "./Pages/Report/StudentReport";
 import Register from "./Pages/RegisterPage/Register";
+import QuizReactTable from "./Pages/QuizQuestions/QuizReactTable";
 
 const App = () => {
   const { userDetails, isTestSubmitted } = useContext(UserContext);
@@ -185,6 +186,18 @@ const App = () => {
             {userDetails ? (
               userDetails.role === "Teacher" ? (
                 <TeacherQuizzes />
+              ) : (
+                <Redirect to="/404" />
+              )
+            ) : (
+              <Redirect to="/login" />
+            )}
+          </Route>
+
+          <Route exact path="/uploadQuestion">
+            {userDetails ? (
+              userDetails.role === "Teacher" ? (
+                <QuizReactTable />
               ) : (
                 <Redirect to="/404" />
               )
