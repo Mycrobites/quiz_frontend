@@ -28,6 +28,7 @@ import GenerateExcel from "./Pages/QuizQuestions/GenerateExcel";
 import StudentReport from "./Pages/Report/StudentReport";
 import Register from "./Pages/RegisterPage/Register";
 import QuizReactTable from "./Pages/QuizQuestions/QuizReactTable";
+import Terms from "./Pages/RegisterPage/Terms";
 
 const App = () => {
   const { userDetails, isTestSubmitted } = useContext(UserContext);
@@ -53,6 +54,9 @@ const App = () => {
           </Route>
           <Route exact path="/Register">
             {!userDetails ? <Register /> : <Redirect to="/" />}
+          </Route>
+          <Route exact path="/terms">
+            {!userDetails ? <Terms /> : <Redirect to="/" />}
           </Route>
           <Route exact path="/quizpage/:id">
             {userDetails ? (
