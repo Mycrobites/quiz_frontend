@@ -137,9 +137,21 @@ const QuizQuestions = () => {
             <div className="quiz-question" key={idx}>
               <h2>{idx + 1}.</h2>
               <div className="question-content">
-                <div>
-                  <MathJax.Html html={ques.question} />
-                </div>
+                {ques.question.includes("data:image") ? (
+                  <img
+                    alt="data"
+                    src={ques.question}
+                    style={{
+                      objectFit: "cover",
+                      height: "200px",
+                      width: "200px",
+                    }}
+                  />
+                ) : (
+                  <div>
+                    <MathJax.Html html={ques.question} />
+                  </div>
+                )}
                 <div className="question-tags">
                   <h4>Tags: </h4>
                   {ques?.dificulty_tag && <p>{ques?.dificulty_tag}</p>}
