@@ -192,8 +192,7 @@ const QuizQuestionsTable = () => {
     const reader = new FileReader();
     reader.onload = (e) => {
       const uploadedImage = e.target.result; // Get the image data URL
-      setFormData((prevFormData) => (
-        
+      setFormData((prevFormData) => ({
         ...prevFormData,
         image: uploadedImage,
       }));
