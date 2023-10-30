@@ -7,11 +7,17 @@ import parse from "html-react-parser";
 import MathJax from "react-mathjax3";
 import { AiOutlineDelete } from "react-icons/ai";
 import "./QuizQuestions.css";
+import QuizQuestionsTable from "./QuizQuestionsTable";
 
 const QuizQuestions = () => {
   const [questions, setQuestions] = useState(null);
   const [quizDetails, setQuizDetails] = useState(null);
   const [loading, setLoading] = useState(true);
+  const [arrangedQuestions, setArrangedQuestions] = useState([]);
+  const [checkedCount, setCheckedCount] = useState(0);
+  const [show, setShow] = useState(false);
+  const [newQuestions, setNewQuestions] = useState();
+  const [checkedId, setCheckedId] = useState([]);
   const { userDetails } = useContext(UserContext);
   const { id } = useParams();
   const history = useHistory();
@@ -25,6 +31,17 @@ const QuizQuestions = () => {
       const { data } = await axios.get(`/api/get-quiz/${id}`, config);
       setQuizDetails(data.quiz_details);
       setQuestions(data.quiz_questions);
+      const filteredData = data?.quiz_questions.map((item) => {
+        const newData = {
+          ...item,
+          isChecked: false,
+        };
+        return newData;
+      });
+
+      setArrangedQuestions(filteredData);
+      setCheckedCount(0);
+      setNewQuestions([]);
       setLoading(false);
     } catch (err) {
       console.log(err.message);
@@ -45,6 +62,32 @@ const QuizQuestions = () => {
     }
   };
 
+  const handleCheckboxChange = (id) => {
+    const updatedData = arrangedQuestions.map((item) => {
+      if (item.id === id) {
+        item.isChecked = !item.isChecked;
+      }
+      return item;
+    });
+
+    const count = updatedData.filter((item) => item.isChecked).length;
+    setCheckedCount(count);
+    setArrangedQuestions(updatedData);
+    checkedId.push(id);
+
+    const removeDuplicate = [...new Set(checkedId)];
+
+    const filteredData = removeDuplicate
+      .map((item) => {
+        const newData = arrangedQuestions.find(
+          (ques) => ques.id === item && ques.isChecked === true
+        );
+        return newData;
+      })
+      .filter((item) => item);
+    setNewQuestions(filteredData);
+  };
+
   useEffect(() => {
     fetchQuestions();
     // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -57,7 +100,7 @@ const QuizQuestions = () => {
       </div>
     );
   }
-
+  console.log("newQuestions", newQuestions);
   return (
     <MathJax.Context
       input="tex"
@@ -133,25 +176,40 @@ const QuizQuestions = () => {
           </p>
         )}
         <div className="quiz-questions">
-          {questions?.map((ques, idx) => (
+          {checkedCount !== 0 && (
+            <div>
+              Total Checked Cards: {checkedCount}{" "}
+              <input
+                type="submit"
+                onClick={() => {
+                  setCheckedCount(0);
+                  const uncheckedCount = newQuestions.map((question) => {
+                    const newData = {
+                      ...question,
+                      isChecked: false,
+                    };
+                    return newData;
+                  });
+                  setShow(true);
+                  setArrangedQuestions(uncheckedCount);
+                }}
+              />
+            </div>
+          )}
+          {arrangedQuestions?.map((ques, idx) => (
             <div className="quiz-question" key={idx}>
+              {!show && (
+                <input
+                  type="checkbox"
+                  checked={ques.isChecked}
+                  onChange={() => handleCheckboxChange(ques.id)}
+                />
+              )}
               <h2>{idx + 1}.</h2>
               <div className="question-content">
-                {ques.question.includes("data:image") ? (
-                  <img
-                    alt="data"
-                    src={ques.question}
-                    style={{
-                      objectFit: "cover",
-                      height: "200px",
-                      width: "200px",
-                    }}
-                  />
-                ) : (
-                  <div>
-                    <MathJax.Html html={ques.question} />
-                  </div>
-                )}
+                <div>
+                  <MathJax.Html html={ques.question} />
+                </div>
                 <div className="question-tags">
                   <h4>Tags: </h4>
                   {ques?.dificulty_tag && <p>{ques?.dificulty_tag}</p>}

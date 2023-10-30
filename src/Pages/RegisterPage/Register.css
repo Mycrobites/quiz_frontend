@@ -284,3 +284,14 @@ input::placeholder {
     width: 100vw;
   }
 }
+
+#centered-div {
+  background-color: white;
+  padding: 20px;
+  text-align: center;
+  border: 1px solid #ccc;
+}
+
+#centered-div h1 {
+  color: black;
+}
